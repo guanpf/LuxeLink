@@ -1,0 +1,14 @@
+.topTab{
+    background: #3b3b3b;
+    width:100%;
+    height:100px;
+    line-height: 100px;
+    color:#fff;
+    font-size:28px;
+}
+.center{
+    text-align: center;
+}
+.topTab .active{
+    color:#d0c490;
+}
