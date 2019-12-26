@@ -206,7 +206,7 @@
 }
 .sell-you-bags-item div:nth-child(3){
     line-height: 25px;
-    font-size:20px;
+    font-size:19px;
     color:#444;
 }
 .sell-you-bags{
@@ -232,4 +232,43 @@
     color:#D1C590;
     font-size:24px;
     border-radius: 10px;
+}
+.blog-content .blog-item{
+    padding:30px 20px;
+}
+.blog-content .blog-item h2 {
+    font-size:18px;
+    margin-top:50px;
+    width:80%;
+    margin-left:10%;
+}
+.blog-content .blog-item p{
+    font-size:12px;
+    margin-top:20px;
+    width:80%;
+    margin-left:10%;
+    line-height:20px;
+}
+.blog-content .blog-item .more {
+    font-size:14px;
+    margin-top:30px;
+    width:80%;
+    margin-left:10%;
+    cursor: pointer;
+}
+.blog-content .blog-item img{
+    width:100%;
+    height:auto;
+    vertical-align: middle;
+}
+.blog-content .row{
+    margin:0!important;
+}
+.common-bottom{
+    width:100%;
+    height:410px;
+}
+.common-bottom iframe{
+    width:100%;
+    height:410px;
 }
