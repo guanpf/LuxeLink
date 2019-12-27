@@ -126,15 +126,6 @@ body{
 .topTab .active {
     color: #d0c490;
 }
-.slideBar{
-    width:100%;
-    height:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    background: rgba(0,0,0,0.3);
-    display: block;
-}
 .menuBox{
     width:100%;
     height:100%;
@@ -142,18 +133,46 @@ body{
     top:0;
     left:0;
     background: rgba(0,0,0,0.3);
+    display: none;
+    z-index:500;
 }
 .menu-content{
     width:60%;
     height:100%;
     overflow-y: scroll;
     background: #fff;
+    z-index:500;
 }
 #bodyHeight{
     width:100%;
     height:100%;
     position:relative;
 }
-.content{
-    margin-top:100px;
+.menu-content{
+    font-size:14px;
+    color:#444;
+}
+.menu-content>div{
+    height:50px;
+    line-height: 50px;
+    padding:0 30px;
+}
+.menu-content ul li{
+    height:50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding:0 30px;
+}
+.closeBox{
+    height: 50px;
+    line-height: 50px;
+    padding-left: 10px!important;
+}
+.menu-active{
+    color:#d0c490;
+    border-bottom:1px solid #d0c490;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
 }

@@ -14,10 +14,53 @@
 
 </head>
 <body id="bodyHeight">
-    <div class="header">
-        <iframe class="header" src="public/mobile/header.html" frameborder="0"></iframe>
+    <div class="menuBox" id="menu">
+        <div class="menu-content">
+            <div class="closeBox"><img src="../images/mobile/public/close_icon.png"  onclick="hideMenu()" alt=""></div>
+            <div><span class="menu-active">HOME</span></div>
+            <div><span>NEW IN</span></div>
+            <ul>
+                <li onclick="toSecondMenu('BAGS')"><div>BAGS</div><div>></div></li>
+                <li  onclick="toSecondMenu('SHOES')"><div>SHOES</div><div>></div></li>
+                <li  onclick="toSecondMenu('WATCH')"><div>WATCH</div><div>></div></li>
+                <li  onclick="toSecondMenu('JEWELRY')"><div>JEWELRY</div><div>></div></li>
+                <li  onclick="toSecondMenu('ACCESSORIES')"><div>ACCESSORIES</div><div>></div></li>
+            </ul>
+            <div><span>STORE</span></div>
+            <div><span>SALE</span></div>
+        </div>
     </div>
+    <div class="menuBox" id="secondMenu">
+        <div class="menu-content">
+            <div class="closeBox"><img src="../images/mobile/public/back-menu.png"  onclick="backMainMenu()" alt="">  MENU</div>
+            <div><span class="menu-active">HOME</span></div>
+
+            <div><span>NEW IN</span></div>
+            <div><span>SALE</span></div>
+            <div><span>SELL TO US</span></div>
+        </div>
+    </div>
+
     <div class="col-lg-8 col-lg-offset-2 content">
+        <div class="topBar">
+            <!--导航-->
+            <div class="topTab">
+                <div class="col-xs-3 center active">BUY WITH US</div>
+                <div class="col-xs-3 center">SELL TO US</div>
+                <div class="col-xs-2 center"></div>
+                <div class="col-xs-2 center">LOGIN</div>
+                <div class="col-xs-2 center">SIGNUP</div>
+            </div>
+            <!--菜单标题-->
+            <div class="tabList" id="tabList">
+                <div class="col-xs-1" onclick="showMenu()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></div>
+                <div class="col-xs-2"></div>
+                <div class="col-xs-6"><img src="../images/mobile/public/logo.png" height="36" width="178"/></div>
+                <div class="col-xs-1"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
+                <div class="col-xs-1"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>(0)</div>
+                <div class="col-xs-1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+            </div>
+        </div>
         <!--轮播banner-->
         <div >
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
