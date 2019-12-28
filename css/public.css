@@ -105,6 +105,7 @@ body{
     height:50px;
     line-height: 50px;
     font-size:15px;
+    box-shadow: 0px 10px 10px -10px #5E5E5E;
 }
 .tabList>div{
     text-align: center;
@@ -175,4 +176,18 @@ body{
     display: inline-block;
     height: 25px;
     line-height: 25px;
+}
+.common-bottom{
+    width:100%;
+    height:410px;
+}
+.common-bottom iframe{
+    width:100%;
+    height:410px;
+}
+
+.content{
+    width:100%;
+    min-height:600px!important;
+    background: #fff;
 }
