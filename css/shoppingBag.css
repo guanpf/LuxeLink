@@ -2,7 +2,7 @@
     height:40px;
     line-height: 40px;
     color:#222;
-    font-size:14px;
+    font-size:16px;
     border-bottom:2px solid #e5e5e5;
     text-align: center;
 }
@@ -55,4 +55,37 @@
 .goodsName{
     line-height: 30px;
     margin-top: 20px;
+}
+
+.gen-question{
+    border-bottom:2px solid #e5e5e5;
+    margin-bottom: 30px;
+}
+.question .question-tittle{
+    display: flex;
+    justify-content: space-between;
+    height:40px;
+    line-height: 40px;
+    padding:0 10px;
+}
+.question .question-item{
+    border-bottom:1px solid #e5e5e5;
+}
+.question .question-text-item .answer-text{
+    line-height: 30px;
+    padding:0 10px;
+    font-size:13px;
+    color:#666;
+}
+.question .question-tittle-item:nth-last-child(1){
+    border-bottom:none;
+}
+.question-level-1{
+    border-bottom:2px solid #e5e5e5;
+    font-size:16px;
+    color:#222;
+}
+.question-level-2{
+    font-size:13px;
+    color:#444;
 }
