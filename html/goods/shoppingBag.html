@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta charset="UTF-8">
+    <title>Shopping Bag</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="../../css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../css/public.css">
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/shoppingBag.css">
+</head>
+<body id="bodyHeight">
+<!--包包详情-->
+<!--弹出框-->
+<div class="menuBox" id="menu">
+    <div class="menu-content">
+        <div class="closeBox"><img src="../../images/mobile/public/close_icon.png" onclick="hideMenu()" alt=""></div>
+        <div><span class="menu-active">HOME</span></div>
+        <div><span>NEW IN</span></div>
+        <ul>
+            <li onclick="toSecondMenu('BAGS')">
+                <div>BAGS</div>
+                <div>></div>
+            </li>
+            <li onclick="toSecondMenu('SHOES')">
+                <div>SHOES</div>
+                <div>></div>
+            </li>
+            <li onclick="toSecondMenu('WATCH')">
+                <div>WATCH</div>
+                <div>></div>
+            </li>
+            <li onclick="toSecondMenu('JEWELRY')">
+                <div>JEWELRY</div>
+                <div>></div>
+            </li>
+            <li onclick="toSecondMenu('ACCESSORIES')">
+                <div>ACCESSORIES</div>
+                <div>></div>
+            </li>
+        </ul>
+        <div><span>STORE</span></div>
+        <div><span>SALE</span></div>
+    </div>
+</div>
+<div class="menuBox" id="secondMenu">
+    <div class="menu-content">
+        <div class="closeBox"><img src="../../images/mobile/public/back-menu.png" onclick="backMainMenu()" alt=""> MENU
+        </div>
+        <div><span class="menu-active">HOME</span></div>
+
+        <div><span>NEW IN</span></div>
+        <div><span>SALE</span></div>
+        <div><span>SELL TO US</span></div>
+    </div>
+</div>
+<div class="col-lg-8 col-lg-offset-2">
+    <!--    头部-->
+    <div class="topBar">
+        <!--导航-->
+        <div class="topTab">
+            <div class="col-xs-3 center active">BUY WITH US</div>
+            <div class="col-xs-3 center">SELL TO US</div>
+            <div class="col-xs-2 center"></div>
+            <div class="col-xs-2 center">LOGIN</div>
+            <div class="col-xs-2 center">SIGNUP</div>
+        </div>
+        <!--菜单标题-->
+        <div class="tabList" id="tabList">
+            <div class="col-xs-1" onclick="showMenu()"><span class="glyphicon glyphicon-menu-hamburger"
+                                                             aria-hidden="true"></span></div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-6"><img src="../../images/mobile/public/logo.png" height="36" width="178"/></div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>(0)</div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+        </div>
+    </div>
+</div>
+<!--中间-->
+<div class="content goodsDetail" >
+    <div class="shopping-cart">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+            <div class="tittle">SHOPPING BAG</div>
+            <div class="tabble-th">
+                <div class="col-xs-8 center">PRODUCT</div>
+                <div class="col-xs-3 center">PRICE</div>
+            </div>
+            <div class="goodsDetail">
+                <div class="col-xs-3 center goodsImg"><img src="../../images/mobile/public/shopping_bag.png"height="80" width="80"/></div>
+                <div class="col-xs-5 align-left">Black Leather Jacket</div>
+                <div class="col-xs-3 center">$150.00</div>
+                <div class="col-xs-1 center"><img src="../../images/mobile/public/close.png" height="17" width="17"/></div>
+            </div>
+            <div class="goodsDetail">
+                <div class="col-xs-3 center goodsImg"><img src="../../images/mobile/public/shopping_bag.png"height="80" width="80"/></div>
+                <div class="col-xs-5 align-left">Black Leather Jacket</div>
+                <div class="col-xs-3 center">$150.00</div>
+                <div class="col-xs-1 center"><img src="../../images/mobile/public/close.png" height="17" width="17"/></div>
+            </div>
+            <div class="goodsDetail">
+                <div class="col-xs-3 center goodsImg"><img src="../../images/mobile/public/shopping_bag.png"height="80" width="80"/></div>
+                <div class="col-xs-5 align-left">Black Leather Jacket</div>
+                <div class="col-xs-3 center">$150.00</div>
+                <div class="col-xs-1 center"><img src="../../images/mobile/public/close.png" height="17" width="17"/></div>
+            </div>
+            <div class="total total-top">
+                <div class="col-xs-6">
+                    <div class="col-xs-5 align-left">Subtotal</div>
+                    <div class="col-xs-4 align-left ">$450.00</div>
+                </div>
+                <div class="col-xs-6 center">
+                    Total
+                </div>
+            </div>
+            <div class="total">
+                <div class="col-xs-6">
+                    <div class="col-xs-5 align-left">Shipping</div>
+                    <div class="col-xs-4 align-left shipping">$10.00</div>
+                </div>
+                <div class="col-xs-6 center sum">
+                    AUD <span>$460</span>
+                </div>
+            </div>
+            <div class="exchangeBox">
+                <div class="col-xs-2 align-left"><img src="../../images/mobile/goodsDetail/exchange.png" height="31" width="31"/></div>
+                <div class="col-xs-10">Exchange within 3 months for $2660</div>
+            </div>
+            <div class="check-out">
+                CHECK OUT
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+
+</div>
+<!-- 底部-->
+<div class="common-bottom">
+    <iframe src="../public/mobile/footer.html"></iframe>
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+.goodsDetail .carousel-control .glyphicon-menu-left,.goodsDetail .carousel-control .glyphicon-menu-right, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+    margin-top: -10px;
+    color:#c5c5c5;
+    font-size:18px;
+}
+.goodsInfo{
+    text-align: center;
+}
+.goodsInfo .info1{
+    font-size:16px;
+    color:#222;
+    height:40px;
+    line-height: 40px;
+    font-weight: bold;
+}
+.goodsInfo .info2{
+    font-size:14px;
+    color:#333;
+    height:30px;
+    line-height: 30px;
+}
+.goodsInfo .info3{
+    font-size:13px;
+    color:#444;
+    height:30px;
+    line-height: 30px;
+}
+.goodsInfo .info4{
+    font-size:14px;
+    color:#222;
+    height:35px;
+    line-height: 35px;
+    letter-spacing: 2px;
+}
+.goodsInfo .goodsInfoBtn{
+    width:80%;
+    margin:20px auto;
+    background:#D1C590 ;
+    color:#222;
+    height:50px;
+    line-height:50px;
+    text-align: center;
+    font-size:16px;
+}
+.exchangeBox{
+    height:40px;
+    line-height: 40px;
+}
+
+.exchangeBox img{
+    vertical-align: top;
+    width:30px;
+    height:30px;
+    margin-top:5px;
+}
+.itemImg img{
+    width:100%;
+    height:auto;
+}
+.features-box{
+    padding-bottom:50px;
+}
+.features{
+    width: 100%;
+    overflow: hidden;
+    padding-bottom:25px;
+    border-bottom:1px solid #e5e5e5;
+}
+.features .row{
+    padding-top:40px;
+    font-size:13px;
+}
+
+.features .detail-features>div:nth-child(1){
+     display: inline-block;
+     border-bottom:1px solid #222;
+    padding-bottom:8px;
+ }
+.features .detail-features>div:nth-child(2){
+    color:#666;
+    line-height: 25px;
+}

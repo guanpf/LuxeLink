@@ -170,6 +170,9 @@ body{
     line-height: 50px;
     padding-left: 10px!important;
 }
+.closeBox img{
+    vertical-align: middle;
+}
 .menu-active{
     color:#d0c490;
     border-bottom:1px solid #d0c490;
@@ -188,6 +191,41 @@ body{
 
 .content{
     width:100%;
-    min-height:600px!important;
+    min-height:500px!important;
     background: #fff;
+    margin-top:10px;
+}
+
+#carousel-example-generic .item img{
+    margin:0 auto!important;
+}
+
+.carousel-control .glyphicon-menu-left,.carousel-control .glyphicon-menu-right, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+    margin-top: -10px;
+}
+.align-left{
+    text-align: left;
+}
+.check-out{
+    margin: 20px auto;
+    background: #D1C590;
+    color: #222;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+}
+.mini-check-out{
+    width:80%;
+    margin: 20px auto;
+    background: #D1C590;
+    color: #222;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
 }

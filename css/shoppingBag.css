@@ -1,0 +1,58 @@
+.shopping-cart .tittle{
+    height:40px;
+    line-height: 40px;
+    color:#222;
+    font-size:14px;
+    border-bottom:2px solid #e5e5e5;
+    text-align: center;
+}
+.tabble-th{
+    height:30px;
+    line-height: 30px;
+    font-size:13px;
+    color:#555;
+    border-bottom:1px solid #e5e5e5;
+}
+.goodsDetail{
+    height:100px;
+    line-height: 100px;
+    border-bottom:1px solid #e5e5e5;
+}
+.goodsDetail .goodsImg img{
+    vertical-align: middle;
+    width:80px;
+    height:80px;
+}
+.shopping-cart .total{
+    height:40px;
+    line-height: 40px;
+}
+.shopping-cart .total-top{
+    margin-top:20px;
+}
+.shopping-cart .total .shipping{
+    color:#D1C590;
+}
+.shopping-cart .total .sum{
+    font-size:20px;
+    color:#222;
+}
+.shopping-cart .total .sum span{
+    font-weight: bold;
+}
+.exchangeBox{
+    height:40px;
+    line-height: 40px;
+}
+
+.exchangeBox img{
+    vertical-align: top;
+    width:30px;
+    height:30px;
+    margin-top:5px;
+}
+
+.goodsName{
+    line-height: 30px;
+    margin-top: 20px;
+}
