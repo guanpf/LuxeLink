@@ -89,3 +89,29 @@
     font-size:13px;
     color:#444;
 }
+.collapseExample1>div:nth-child(odd){
+    display:none
+}
+.collapseExample1>div:nth-child(even){
+    display:block
+}
+
+.span_plus{
+    font-size: 30px;
+    color: #ccc;
+    display: block;
+    float: right;
+}
+.span_plus:before{
+    content: "+";
+}
+
+.span_reduce{
+    font-size: 30px;
+    color: #ccc;
+    display: block;
+    float: right;
+}
+.span_reduce:before{
+    content: "-";
+}

@@ -24,6 +24,13 @@ function backMainMenu(){
 }
 
 $(document).ready(function() {
+//点击折叠时运行该函数
+    $('.collapse').on('hide.bs.collapse show.bs.collapse', function (e) {
+        e.stopPropagation()
+        var $this = $(this)
 
+        $this.prev('.question-tittle').find("span").toggleClass("span_plus");
+        $this.prev('.question-tittle').find("span").toggleClass("span_reduce");
+    });
 });
 

@@ -4,11 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <meta charset="UTF-8">
     <title>FAQ</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+    <script src="../../js/jquery.min.js"></script>
     <link rel="stylesheet" href="../../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+    <script src="../../js/common.js"></script>
     <script src="../../css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../css/public.css">
-    <script src="../../js/common.js"></script>
     <link rel="stylesheet" href="../../css/shoppingBag.css">
 </head>
 <body id="bodyHeight">
@@ -85,17 +87,21 @@
         <div class="col-xs-1"></div>
         <div class="col-xs-10">
             <div class="tittle">FAQ</div>
-            <div class="gen-question">
-                <div class="question">
-                        <div class="question-tittle question-level-1" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+            <div class="gen-question" id="gen-question">
+                <div class="question" id="accordion2">
+                        <div class="question-tittle question-level-1 accordion-toggle" data-toggle="collapse"  href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample" >
                            <div>General Questions</div>
-                            <div>-</div>
+                            <div class="collapseExamples">
+                                <span class="span_plus"></span>
+                            </div>
                         </div>
-                        <div class="collapse" id="collapseExample1">
+                        <div class="collapse accordion-body" id="collapseExample1">
                             <div class="question-item">
                                 <div class="question-tittle question-level-2" data-toggle="collapse" href="#collapseExampleItem11" aria-expanded="false" aria-controls="collapseExample">
                                     <div>General Questions</div>
-                                    <div>-</div>
+                                    <div class="collapseExamples">
+                                        <span class="span_plus"></span>
+                                    </div>
                                 </div>
                                 <div class="collapse question-text-item" id="collapseExampleItem11">
                                     <div class="answer-text">
@@ -106,7 +112,9 @@
                             <div class="question-item">
                                 <div class="question-tittle question-level-2" data-toggle="collapse" href="#collapseExampleItem12" aria-expanded="false" aria-controls="collapseExample">
                                     <div>General Questions</div>
-                                    <div>-</div>
+                                    <div class="collapseExamples">
+                                        <span class="span_plus"></span>
+                                    </div>
                                 </div>
                                 <div class="collapse question-text-item" id="collapseExampleItem12">
                                     <div class="answer-text">
@@ -117,7 +125,9 @@
                             <div class="question-item">
                                 <div class="question-tittle question-level-2" data-toggle="collapse" href="#collapseExampleItem13" aria-expanded="false" aria-controls="collapseExample">
                                     <div>General Questions</div>
-                                    <div>-</div>
+                                    <div class="collapseExamples">
+                                        <span class="span_plus"></span>
+                                    </div>
                                 </div>
                                 <div class="collapse question-text-item" id="collapseExampleItem13">
                                     <div class="answer-text">
@@ -131,13 +141,17 @@
                 <div class="question">
                         <div class="question-tittle question-level-1" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
                            <div>General Questions</div>
-                            <div>-</div>
+                            <div class="collapseExamples">
+                                <span class="span_plus"></span>
+                            </div>
                         </div>
                         <div class="collapse" id="collapseExample2">
                             <div class="question-item">
                                 <div class="question-tittle question-level-2" data-toggle="collapse" href="#collapseExampleItem21" aria-expanded="false" aria-controls="collapseExample">
                                     <div>General Questions</div>
-                                    <div>-</div>
+                                    <div class="collapseExamples">
+                                        <span class="span_plus"></span>
+                                    </div>
                                 </div>
                                 <div class="collapse question-text-item" id="collapseExampleItem21">
                                     <div class="answer-text">
@@ -148,7 +162,9 @@
                             <div class="question-item">
                                 <div class="question-tittle question-level-2" data-toggle="collapse" href="#collapseExampleItem22" aria-expanded="false" aria-controls="collapseExample">
                                     <div>General Questions</div>
-                                    <div>-</div>
+                                    <div class="collapseExamples">
+                                        <span class="span_plus"></span>
+                                    </div>
                                 </div>
                                 <div class="collapse question-text-item" id="collapseExampleItem22">
                                     <div class="answer-text">
@@ -159,7 +175,9 @@
                             <div class="question-item">
                                 <div class="question-tittle question-level-2" data-toggle="collapse" href="#collapseExampleItem23" aria-expanded="false" aria-controls="collapseExample">
                                     <div>General Questions</div>
-                                    <div>-</div>
+                                    <div class="collapseExamples">
+                                        <span class="span_plus"></span>
+                                    </div>
                                 </div>
                                 <div class="collapse question-text-item" id="collapseExampleItem23">
                                     <div class="answer-text">
@@ -173,13 +191,17 @@
                 <div class="question">
                         <div class="question-tittle question-level-1" data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
                            <div>General Questions</div>
-                            <div>-</div>
+                            <div class="collapseExamples">
+                                <span class="span_plus"></span>
+                            </div>
                         </div>
                         <div class="collapse" id="collapseExample3">
                             <div class="question-item">
                                 <div class="question-tittle question-level-2" data-toggle="collapse" href="#collapseExampleItem31" aria-expanded="false" aria-controls="collapseExample">
                                     <div>General Questions</div>
-                                    <div>-</div>
+                                    <div class="collapseExamples">
+                                        <span class="span_plus"></span>
+                                    </div>
                                 </div>
                                 <div class="collapse question-text-item" id="collapseExampleItem31">
                                     <div class="answer-text">
@@ -190,7 +212,9 @@
                             <div class="question-item">
                                 <div class="question-tittle question-level-2" data-toggle="collapse" href="#collapseExampleItem32" aria-expanded="false" aria-controls="collapseExample">
                                     <div>General Questions</div>
-                                    <div>-</div>
+                                    <div class="collapseExamples">
+                                        <span class="span_plus"></span>
+                                    </div>
                                 </div>
                                 <div class="collapse question-text-item" id="collapseExampleItem32">
                                     <div class="answer-text">
@@ -201,7 +225,9 @@
                             <div class="question-item">
                                 <div class="question-tittle question-level-2" data-toggle="collapse" href="#collapseExampleItem33" aria-expanded="false" aria-controls="collapseExample">
                                     <div>General Questions</div>
-                                    <div>-</div>
+                                    <div class="collapseExamples">
+                                        <span class="span_plus"></span>
+                                    </div>
                                 </div>
                                 <div class="collapse question-text-item" id="collapseExampleItem33">
                                     <div class="answer-text">
