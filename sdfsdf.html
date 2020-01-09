@@ -1,0 +1,3969 @@
+{template 'header'}
+
+<link rel="stylesheet" href="/app/resource/components/swiper/swiper.min.css">
+<style>
+    .store .parent-category-wrapper{
+        position:absolute;
+        left:0;
+        top: 0px;
+        overflow: visible;
+    }
+    .store .content {
+        top: 2.2rem!important;
+    }
+
+    .store .buttons-tab {
+        position: relative;
+        z-index: 10199;top:0;
+    }
+    .store .store-notice{
+        position:relative;
+        top:0;
+    }
+    .swiperBox{
+        position: relative;
+    }
+    .swiperBox .swiper-container{
+        padding-bottom:0!important;
+    }
+    .ab-buttons-tab{
+        position:absolute!important;
+        top:2.18rem!important;
+        z-index:10222!important;
+        display: none;
+    }
+
+    .ab-parent-category-wrapper{
+        position:absolute!important;
+        top:4.3rem!important;
+        left:0;
+        display: none;
+    }
+</style>
+<script type="text/javascript" src="/app/resource/components/swiper/swiper.min.js"></script>
+
+<script type='text/javascript' src='../addons/we7_wmall/resource/app/js/iscroll-probe.js' charset='utf-8'></script>
+{if $store['is_in_business_hours']}
+<script>
+    $(function(){
+        $.toast('配送服务中，即点即送。也可预定下单享配送费优惠哦！');
+
+    });
+
+</script>
+{/if}
+{if !empty($store['announ']['title']) || !empty($store['announ']['content'])}
+<div style="position: absolute;display:{$show_announ}; width: 80%; height: auto; border: 1px solid #ccc; background-color: white; min-height: 220px; z-index: 19910420; box-shadow: 1px 1px 1px #e0dddd; margin-left: 10%; margin-top: 45%;">
+    <div style="width: 100px;background-color:white;border: 1px solid #ececec;height: 100px;margin-left: auto;margin-right:auto;margin-top: -50px;border-radius: 100px;background-image: url(https://wx.cncwei.com/attachment/images/18/2016/07/NVBbv9Yhv9dRX49h4XWjJ9c4mywx4W.jpg);background-size: 100%;"></div>
+    <div style="width20px;height20px;font-size:24px;float:right;margin-right:10px;margin-top: -50px;" id="announ-btn-close">X</div>
+    <div style="text-align: center; font-size: 28px; height: 40px; line-height: 40px;font-weight: bold;">{$store['announ']['title']}</div>
+    <div style="text-align: left; min-height: 130px; font-size: 14px; padding: 10px;">{$store['announ']['content']}</div>
+    <div style="text-align: center; font-size: 14px; width: 50%; height: 35px; margin-left: auto; margin-right: auto; line-height: 35px;border-radius: 25px;background-color: #ffc500;letter-spacing: 5px;margin-bottom: 10px;" id="btn-announ-sure">确定</div>
+</div>
+{/if}
+<div class="page store shopcategory" id="page-app-goods">
+
+    <nav class="bar bar-tab no-gutter shop-cart-bar">
+
+        <div class="" id="cartEmpty">
+
+            <div class="left empty">
+
+                <span class="fa fa-shopping-cart"></span>购物车是空的
+
+            </div>
+
+            <div class="right text-center bg-grey">${$store['send_price']}起送</div>
+
+        </div>
+
+        <div class="hide" id="cartNotEmpty">
+
+            <div class="left">
+
+			<span class="cart">
+
+				<span class="fa fa-shopping-cart"></span>
+
+				<span class="badge bg-danger" id="cartNum">0</span>
+
+			</span>
+
+                共<span class="sum">$<span id="totalPrice">0</span></span>
+
+            </div>
+
+            <div class="right text-center bg-grey" style="width:180px;">还差$<span id="sendCondition">{$store['send_price']}</span>起送</div>
+
+            <div class="right text-center bg-danger hide" id="btnSubmit">选好了</div>
+
+        </div>
+
+    </nav>
+
+    {template 'nav'}
+
+    <header class="bar bar-nav common-bar-nav">
+
+        <a class="icon fa fa-arrow-left pull-left back" href="javascript:;"></a>
+
+        <h1 class="title open-popup" data-popup=".popup-privilege">{$store['title']}</h1>
+
+        <a class="icon fa pull-right fa-search" href="javascript:;" style="margin-left: 5px"></a>
+
+        <a class="icon fa pull-right {if !empty($is_favorite)}fa-favor-fill{else}fa-favor{/if}" href="javascript:;" id="btn-favorite" data-id="{$store['id']}" data-uid="{$_W['member']['uid']}"></a>
+
+    </header>
+
+
+    <div class="buttons-tab ab-buttons-tab">
+
+        <a href="{php echo $this->createMobileUrl('goods', array('sid' => $store['id']));}" class="button active">商品</a>
+
+        <a href="{php echo $this->createMobileUrl('store', array('sid' => $store['id'], 'op' => 'comment'));}" class="button">评价</a>
+
+        <a href="{php echo $this->createMobileUrl('store', array('sid' => $store['id']));}" class="button">商家</a>
+
+    </div>
+    <div class="parent-category-wrapper ab-parent-category-wrapper">
+
+        <div class="parent-category">
+
+            <div id="cateMenu">
+
+                <ul class="category-list">
+
+                    {loop $categorys $category}
+
+
+
+                    {php $i++;}
+
+                    {if $category['show_title']}
+
+                    <li {if $i == 1}class="active"{/if} style="width: 100%">
+
+                    <a href="javascript:;">
+
+                        {$category['title']}
+
+                    </a>
+
+                    </li>
+
+                    {/if}
+
+
+                    {/loop}
+
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="content" id="content">
+        <div class="swiperBox" id='swiperBox'>
+            {if !empty($banners)}
+            <div class="swiper-container" id='swiper-container' data-space-between='30' data-pagination='.swiper-pagination' data-autoplay="2000">
+                <div class="swiper-wrapper">
+                    {loop $banners $slide}
+                    <a href="{$slide['src']}" class="swiper-slide" data-link="">
+                        <img src="{php echo tomedia($slide['logo']);}"alt="">
+                    </a>
+                    {/loop}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="store-notice open-popup" data-popup=".popup-privilege">
+
+		<span class="js-scroll-notice">
+
+			<span class="fa fa-voice"></span>
+
+			{if !empty($store['notice'])}
+
+				{$store['notice']}
+
+			{else}
+
+				今天营业时间: {$store['business_hours_cn']}
+
+			{/if}
+
+		</span>
+
+        </div>
+
+        <div class="buttons-tab re-buttons-tab">
+
+            <a href="{php echo $this->createMobileUrl('goods', array('sid' => $store['id']));}" class="button active">商品</a>
+
+            <a href="{php echo $this->createMobileUrl('store', array('sid' => $store['id'], 'op' => 'comment'));}" class="button">评价</a>
+
+            <a href="{php echo $this->createMobileUrl('store', array('sid' => $store['id']));}" class="button">商家</a>
+
+        </div>
+        {/if}
+        <div class="category-container row no-gutter" style="padding-left: 20%">
+
+            {if !empty($tokens)}
+
+            <div class="coupon-show-container">
+
+                <div class="coupon-show">
+
+                    <div class="coupon-sum">
+
+                        <span>$</span>{$token['discount']}
+
+                    </div>
+
+                    <div class="division">
+
+                        <img src="{MODULE_URL}resource/app/img/division.png" alt="" />
+
+                    </div>
+
+                    <div class="coupon-info">
+
+                        <div class="coupon-title">{$token['title']}</div>
+
+                        {if $token_nums > 1}
+
+                        <div class="condition">内含{$token_nums}张券</div>
+
+                        {else}
+
+                        <div class="condition">满${$token['condition']}可用</div>
+
+                        {/if}
+
+                    </div>
+
+                    <div class="get">
+
+                        <span class="btn-get" id="get-coupon">领券</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {/if}
+
+        </div>
+
+        <div class="category-container row no-gutter" id="category-container">
+            <div class="parent-category-wrapper re-parent-category-wrapper">
+
+                <div class="parent-category">
+
+                    <div id="cateMenu">
+
+                        <ul class="category-list">
+
+                            {loop $categorys $category}
+
+
+
+                            {php $i++;}
+
+                            {if $category['show_title']}
+
+                            <li {if $i == 1}class="active"{/if} style="width: 100%">
+
+                            <a href="javascript:;">
+
+                                {$category['title']}
+
+                            </a>
+
+                            </li>
+
+                            {/if}
+
+
+                            {/loop}
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="children-category col-100">
+
+                <form action="{php echo $this->createMobileUrl('submit', array('sid' => $sid, 'op' => 'goods'), true);}" method="post" id="goods-form">
+
+                    {loop $categorys $cate_row}
+
+                    <div class="children-category-wrapper">
+
+                        {if !empty($cate_row['pics'])}
+
+                        <div class="heading" style="width:100%;height: 100%;">
+                            <img src="{$_W['attachurl']}images/{$cate_row['pics']}" class="ctitle_link" href="{$cate_row['pics_link']}" style="width: 100%;height: 100%;">
+                        </div>
+
+                        {else}
+
+                        <div class="heading">{$cate_row['title']}</div>
+
+                        {/if}
+
+                        {if !empty($cate_row['description'])}
+                        <div class="heading" style="font-size: 14px;line-height: 20px;height: 100%;">{$cate_row['description']}</div>
+                        {/if}
+
+                        <ul class="list-block media-list">
+
+
+                            {loop $cate_dish[$cate_row['id']] $ds}
+                            {if !empty($ds['is_supply_status'])}
+                            <li id="goods-{$ds['id']}" startdelivery="{$ds['startdelivery']}" is-options = "{$ds['is_options']}">
+
+                                <a class="item-link item-content {$ds['css_no_border']}" data-id="{$ds['id']}" href="javascript:;">
+
+                                    <div class="item-media">
+
+                                        {if !empty($ds['label'])}
+
+                                        <span class="sale-badge bg-danger">{$ds['label']}</span>
+
+                                        {/if}
+
+                                        <img class="goods-popup" data-id="{$ds['id']}" src="{php echo tomedia($ds['thumb']);}" alt=""/>
+
+                                    </div>
+
+                                    <div class="item-inner">
+
+                                        <div class="item-title-row">
+
+                                            <div class="item-title {$ds['disable']}">{$ds['title']}</div>
+
+                                            {if $ds['is_descore']}
+                                            <div class="item-title changepx" style="border: solid 1px red; color: red; font-size: 14px; line-height: 20px; height: 20px; width: 20px; text-align: center;">积</div>
+                                            {/if}
+
+                                        </div>
+
+                                        <div class="item-text">
+
+                                            <div class="sell-info">已售{$ds['sailed']}{$ds['unitname']}&nbsp;&nbsp; 好评{$ds['comment_good']}</div>
+
+
+
+                                            {if $ds['is_options'] == 1 && !empty($ds['price_range'])}
+
+                                            <div class="price" style="font-size:14px;"><span class="{$ds['disable']}"></span>
+                                                <span class="fee {$ds['disable']}" style="font-size:14px;">
+
+											  {$ds['price_range']}
+											{else}
+
+											<div class="price" style="font-size:14px;"><span class="{$ds['disable']}">$</span>
+											<span class="fee {$ds['disable']}" style="font-size:14px;">
+
+											  {$ds['price']}
+											{/if}
+
+											</span></div>
+
+                                            </div>
+
+                                        </div>
+
+                                </a>
+
+                                {if $store['is_business_hours']}
+
+                                {if $ds['is_supply_time']}
+
+                                {if !$ds['is_options']}
+
+                                {if !$ds['total']}
+
+                                <div class="goods-tips">已售完</div>
+
+                                {else}
+
+                                <div class="operate-num operate-goods" data-goods-id="{$ds['id']}"  data-preorder = "{$ds['preorder']}" data-ismust = "{$ds['is_must']}" data-title="{$ds['title']}" data-max="{$ds['total']}" data-option-id="0" data-price="{$ds['price']}" data-dcnum="{$ds['dcgmnum']}">
+
+												<span class="hide minus">
+
+													<span class="fa fa-minus"></span>
+
+													<span class="num">0</span>
+
+												</span>
+
+                                    <span class="fa fa-plus" data-is-options="0" data-num="{$cart['data'][$ds['id']][0]['num']}"></span>
+
+                                    <input autocomplete="off" class="h_num_0" type="hidden" name="goods[{$ds['id']}][options][0]" value="0">
+
+                                </div>
+
+                                {/if}
+
+                                {elseif $ds['is_options'] == 1}
+
+                                <div class="operate-num operate-goods hide" data-goods-id="{$ds['id']}"  data-title="{$ds['title']}" data-max="{$ds['total']}" data-option-id="0" data-price="{$ds['price']}" data-dcnum="{$ds['dcgmnum']}">
+
+											<span class="minus">
+
+												<span class="fa fa-minus"></span>
+
+												<span class="num">0</span>
+
+											</span>
+
+                                    <span class="fa fa-plus" data-is-options="1" > </span>
+                                    {loop $cart['data'] $ksk1=>$cartsidk}
+
+                                    {loop $cartsidk  $kkk2=>$optionszbk}
+                                    {loop $optionszbk['options']  $kkk3=>$optionscck}
+                                    {/loop}
+                                    {if $ksk1==$ds['id']}
+                                    <span class="options-num" data-goods-id="{$ksk1}" data-preorder = "1" data-ismust = "" data-startdelivery="" data-option-id="{$kkk3}" data-price="{$optionszbk['price']}" data-max="-1" data-option-name="{$optionszbk['title']}" data-num="1" data-mustsel="" data-specgroup-id="" data-gnum="" data-xinxi="{$xinxi[$ksk1][$kkk2]}"  spid="{$optionscck['specgroup_id']}"></span>
+                                    {/if}
+                                    {/loop}
+                                    {/loop}
+
+                                    <!--{loop $ds['options'] $option}
+
+                                        <input autocomplete="off" class="h_num_{$option['id']}" type="hidden" name="goods[{$ds['id']}][options][{$option['id']}]" value="0">
+
+                                        <span class="options-num" data-goods-id="{$ds['id']}" data-preorder = "{$option['preorder']}" data-ismust = "{$option['is_must']}" startdelivery="{$option['startdelivery']}" data-option-id="{$option['id']}" data-price="{$option['price']}" data-max="{$option['total']}" data-option-name="{$option['name']}" data-num="{$cart['data'][$ds['id']][$option['id']]['num']}" data-mustsel="{$option['mustsel']}" data-specgroup-id="{$cart['data'][$ds['id']][$option['id']]['specgroup_id']}" data-gnum="{$specgroup_ids2a[$option['specgroup_id']]['gnum']}" spid="{$option['specgroup_id']}"></span>
+
+                                    {/loop}-->
+
+                                </div>
+
+                                <div class="operate-goods">
+
+                                    <span class="select-spec goods-option" data-id="{$ds['id']}">可选规格</span>
+
+                                </div>
+
+                                {elseif $ds['is_options'] == 2}
+
+                                <div class="operate-num operate-goods hide" data-option-name = "" data-tid="{$ds['id']}" data-goods-id = "" data-option-id="0" data-title="{$ds['title']}" data-max="{$ds['total']}" data-price="{$ds['price']}" data-dcnum="{$ds['dcgmnum']}">
+
+											<span class="minus">
+
+												<span class="fa fa-minus"></span>
+
+												<span class="num">0</span>
+
+											</span>
+
+                                    <span class="fa fa-plus" data-is-options="2"></span>
+
+                                    {loop $ds['tc_option'] $option}
+
+                                    {loop $option['goods'] $option2}
+
+                                    <input autocomplete="off" class="h_num_{$option2['uni_goods_id']}" type="hidden" name="tcgoods[{$option2['uni_goods_id']}]" value="0">
+                                    <span class="options-num" data-option-id = "{$option2['uni_goods_id']}" data-goods-id="{$option2['good_id']}" data-price = "{$tc_goods[$option2['good_id']]['price']}" data-option-name= "{$tc_goods[$option2['good_id']]['title']}" data-num = "{$cart['tcdata'][$option2['uni_goods_id']]['num']}"></span>
+
+                                    {/loop}
+
+                                    {/loop}
+
+                                </div>
+
+                                <div class="operate-goods">
+
+                                    <span class="select-spec tc-goods-option" data-tid="{$ds['tid']}">套餐规格</span>
+
+                                </div>
+
+                                {/if}
+
+                                {else}
+
+                                <div class="goods-tips {$ds['disable']}">{php echo $not_supply['time'.$ds['cid']]}</div>
+
+                                {/if}
+
+                                {else}
+
+                                <div class="goods-tips">店铺休息中</div>
+
+                                {/if}
+
+
+
+                            </li>
+
+                            <div class="{$ds['css_no_subtitle']}">{$ds['subtitle']}</div>
+                            <div class="{$ds['css_no_intro']}">{$ds['intro']}</div>
+                            {/if}
+                            {/loop}
+
+                        </ul>
+
+
+
+                    </div>
+
+                    {/loop}
+
+                    <span  id="sumbitxixi">
+                                            {loop $show2s $keyshow1 $cartshow}
+                                            	 <input id="cksubxx{$keyshow1}" type="hidden" name="goods[{$keyshow1}]" value="{$zlshownum[$keyshow1]}">
+                                                 <input id="cispnumtj{$keyshow1}" type="hidden" name="goods[{$keyshow1}]" value="{$zlshownum[$keyshow1]}">
+                                                 {loop $cartshow $keyshow2 $cartshow2s}
+                                                 	 {loop $cartshow2s['options'] $keyshow3 $cartshow3s}
+                                                 <input autocomplete="off" class="h_num_{$keyshow2}_{$keyshow3}" type="hidden" name="goods[{$keyshow1}][options][{$keyshow2}][{$keyshow3}]" value="{$cartshow3s['num']}">
+
+                                                     {/loop}
+                                                 {/loop}
+                                            {/loop}
+                                            </span>
+                    <span  id="qwestartdeliver">
+                                           </span>
+                    <input id="cstartdeliverycc" type="hidden" name="cstartdeliveryyc" value="0">
+
+                    <input type="hidden" id="is_preorder" name="is_preorder" value="0">
+                    <input type="hidden" id="is_must" name="is_must" value="0">
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="popup popup-privilege">
+
+    <div class="popup-opacity">
+
+        <div class="content-block">
+
+            <div class="store-name">{$store['title']}</div>
+
+            <div class="star-rank">
+
+				<span class="star-rank-outline">
+
+					<span class="star-rank-active" style="width:{$store['score_cn']}%"></span>
+
+					<span class="star-rank-value">{$store['score']}</span>
+
+				</span>
+
+            </div>
+
+            <div class="sell-info">已售{$store['sailed']}份&nbsp;&nbsp;营业时间: {$store['business_hours_cn']}</div>
+
+            <div class="evaluate">优惠活动</div>
+
+            {if $activity['first_order_status'] == 1}
+
+            <div class="xin text-left">
+
+                新用户在线支付
+
+                {loop $activity['first_order_data'] $first}
+
+                满${$first['condition']}减${$first['back']},
+
+                {/loop}
+
+            </div>
+
+            {/if}
+
+            {if $activity['discount_status'] == 1}
+
+            <div class="minus text-left">
+
+                在线支付
+
+                {loop $activity['discount_data'] $discount}
+
+                满${$discount['condition']}减${$discount['back']},
+
+                {/loop}
+
+            </div>
+
+            {/if}
+
+            {if $activity['grant_status'] == 1}
+
+            <div class="zeng text-left">
+
+                在线支付
+
+                {loop $activity['grant_data'] $grant}
+
+                满${$grant['condition']}赠${$grant['back']},
+
+                {/loop}
+
+            </div>
+
+            {/if}
+
+            {if $store['collect_coupon_status'] == 1}
+
+            <div class="coupon text-left">
+
+                进店可领取代金券
+
+            </div>
+
+            {/if}
+
+            {if $store['delivery_free_price'] > 0}
+
+            <div class="free text-left">
+
+                满${$store['delivery_free_price']}免配送费
+
+            </div>
+
+            {/if}
+
+            <div class="announcement">商家公告</div>
+
+            <div class="announcement-con">
+
+                {if !empty($store['notice'])}
+
+                {$store['notice']}<br>
+
+                {/if}
+
+                本店欢迎您下单，用餐高峰请提前下单，谢谢！
+
+            </div>
+
+            <p><a href="#" class="close-popup"><span class="fa fa-close"></span></a></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="popup popup-search" id="popop-search-goods">
+
+    <div class="page search-result search-goods">
+
+        <div class="bar bar-header-secondary">
+
+            <div class="searchbar">
+
+                <a class="searchbar-arrow close-popup" data-popup=".popup-search" ><i class="fa fa-arrow-left"></i></a>
+
+                <a class="searchbar-cancel">搜索</a>
+
+                <div class="search-input">
+
+                    <label class="icon fa fa-search" for="search"></label>
+
+                    <input type="search" id='search' name="key" value="{$_GPC['key']}" placeholder="搜索{$store['title']}的商品"/>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="content" id='content'>
+
+            <ul class="list-block media-list">
+
+                <div class="common-no-con hide">
+
+                    <img src="{MODULE_URL}/resource/app/img/search_no_con.png" alt="">
+
+                    <p>没有符合条件的搜索结果!</p>
+
+                </div>
+
+                <div class="search-result-container"></div>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div style="display:none;" id="mustsel-goods-ids" cur_gid=""></div>
+<div style="display:none;" id="cart-goods-ids"></div>
+
+<script id="goods-detail" type="text/html">
+
+    <div class="popup popup-goods-detail">
+
+        <div class="content-block">
+
+            <div class="goods-img">
+
+                <img src="<{d.thumb_}>" width= alt=""/>
+
+                <a href="#" class="close-popup" data-popup=".popup-goods-detail"><span class="fa fa-close"></span></a>
+
+            </div>
+
+            <div class="goods-name"><{d.title}></div>
+
+            <div class="sell-info">已售<{d.sailed}>&nbsp;&nbsp;好评<{d.comment_good}></div>
+
+            <{# if(d.is_options == 0){ }>
+
+            <div class="row no-gutter goods-num">
+
+                <div class="col-50 price">$<span class="fee"><{d.price}></span></div>
+
+                <div class="col-50 text-right operate-num {if !$store['is_in_business_hours']}hide{/if}">
+
+                    <span class="fa fa-minus goods-detail-minus" data-id="<{d.id}>"></span>
+
+                    <span class="num"><{d.hasNum}></span>
+
+                    <span class="fa fa-plus goods-detail-plus" data-id="<{d.id}>" data-max="<{d.total}>" data-option-id="0"></span>
+
+                </div>
+
+            </div>
+
+            <{# } }>
+
+            <div class="goods-evaluate">商品评价</div>
+
+            <div class="praise text-center">好评率 <span class="rate"><{d.comment_good_percent}></span><span class="num">(共<{d.comment_total}>人评价)</span></div>
+
+            <div class="progress">
+
+                <div class="progress-bar">
+
+                    <div class="progress-active" style="width:<{d.comment_good_percent}>;"></div>
+
+                </div>
+
+            </div>
+
+            <div class="goods-desc">商品描述</div>
+
+            <div class="goods-desc-con">
+
+                <{d.description}><br>
+
+                温馨提示: 图片仅供参考,请以实物为准;<br>
+
+                高峰时段及恶劣天气,请提前下单
+
+            </div>
+
+        </div>
+
+    </div>
+
+</script>
+
+<script id="tc-goods-option" type="text/html">
+
+
+    <div class="popup popup-spec specs goods-option">
+        <div class="content-block">
+            <div class="goods-title">
+                <{d.title}>
+                <a href="#" class="close-popup" data-popup=".popup-spec.goods-option">
+                    <span class="fa fa-close"></span>
+                </a>
+            </div>
+
+            <div class="sell-info">已售<{d.sold}>&nbsp;&nbsp;好评0</div>
+            <div class="parting-line"></div>
+
+            <{# for(var i = 0, len = d.options.length; i < len; i++){ }>
+
+            <div class="row no-gutter">
+
+                <div class="col-33 gtitle"><{d.options[i].gtitle}>(<{d.options[i].goodsnum}>选<{d.options[i].multi}>)</div>
+
+            </div>
+
+            <{# for(var j = 0, glen = d.options[i].goods.length; j < glen; j++){ }>
+
+            <div class="row no-gutter">
+                <div class="col-33 gtitle"><{d.goods[d.options[i].gid][d.options[i].goods[j].good_id].title}></div>
+                <div class="col-33 price">$<{d.goods[d.options[i].gid][d.options[i].goods[j].good_id].price}></div>
+                <div class="col-33 text-right operate-num">
+                    <span class="fa fa-minus tc-goods-option-minus" data-price = "<{d.goods[d.options[i].gid][d.options[i].goods[j].good_id].price}>" data-gid = "<{d.options[i].gid}>" data-tid = "<{d.tid}>" data-goods-id="<{d.options[i].goods[j].good_id}>"></span>
+                    <span class="num"><{d.options[i].goods[j].value}></span>
+                    <span class="fa fa-plus tc-goods-option-plus" data-price = "<{d.goods[d.options[i].gid][d.options[i].goods[j].good_id].price}>" data-gid = "<{d.options[i].gid}>" data-tid = "<{d.tid}>" data-goods-id="<{d.options[i].goods[j].good_id}>"></span>
+                </div>
+            </div>
+
+            <{# } }>
+
+            <{# } }>
+
+        </div>
+    </div>
+
+</script>
+
+
+
+
+<div class="option-groups-bar" style="height: 46px; line-height: 46px; background-color: #ececeb;padding-top: 3px;position: absolute;width: 100%;bottom: 0;display:none;">
+
+    <div class="group-indicator" style="margin-left: 10px;">
+
+        <div class="left-arrow fa fa-arrow-left-fat" style="font-size: 28px; width: 30px; text-align: right; float: left; height: 40px; line-height: 40px; color: orange;"></div>
+
+        <div class="groups-num" style="width: 40px; float: left; text-align: center; height: 40px; line-height: 40px;">
+            <span class="left-num" style="margin-right: 3px;">1</span>
+            /
+            <span class="right-num" style="margin-left: 3px;">2</span>
+        </div>
+
+        <div class="right-arrow  fa fa-arrow-right-fat" style="font-size: 28px; width: 30px; text-align: right; float: left; height: 40px; line-height: 40px; color: orange;"></div>
+
+    </div>
+
+    <div class="op-btn" style="float: right; width: 170px;" >
+
+        <div class="btn-del-group" style="float: left; width: 80px; height: 40px; line-height: 40px; text-align: center; background-color: orange; margin-right: 5px; border-radius: 5px;">删除组</div>
+        <div class="btn-add-group" style="float: left; height: 40px; line-height: 40px; text-align: center; width: 80px; background-color: orange; border-radius: 5px;">添加组</div>
+    </div>
+
+</div>
+
+
+<script id="goods-option" type="text/html">
+
+    <div class="popup popup-spec specs goods-option" style="height:85%;">
+
+        <div class="content-block" style="padding-right:0.2rem;">
+
+            <div class="goods-title">
+                <{d.title}> <{# if(d.price > 0) { }> <span style=" margin-left:30%; color:#ef1e15; font-size: 0.6rem;">$<{d.price}></span> <{# } }>
+                <input type="hidden" id="sptitle<{d.id}>" value="<{d.title}>">
+                <input type="hidden" id="spprices<{d.id}>" value="<{d.price}>">
+                <input type="hidden" id="spdgxznum<{d.id}>" value="<{d.dcgmnum}>">
+                <a href="#" class="close-popup-custom" action="confirm" style="float: right;" data-popup=".popup-spec.goods-option"><span class="fa fa-close"></span></a>
+
+            </div>
+
+            <div class="sell-info">已售<{d.sailed}>&nbsp;&nbsp;好评<{d.comment_good}></div>
+            <{#  var _gnum2,_gnum_min2,_gnum_max2,_gnum_title2; }>
+            <{#
+            _gnum2 = d.dflids_gnum;
+            if(_gnum2.indexOf(',') >= 0)
+            {
+            _gnum2 = _gnum2.split(',');
+            _gnum_min2 = parseInt(_gnum2[0].substring(1)) + 1;
+            _gnum_max2 = _gnum2[1].substring(1) - 1;
+            _gnum_title2 = '&nbsp;(请选择'+_gnum_min2+'~'+_gnum_max2+'个商品)';
+            }else if(_gnum2.indexOf('>') >= 0)
+            {
+            _gnum_min2 = parseInt(_gnum2.substring(1)) + 1;
+            _gnum_max2 = 999999;
+            _gnum_title2 = '&nbsp;(最少需选'+_gnum_min2+'个商品)';
+            }else if(_gnum2.indexOf('<') >= 0)
+            {
+            _gnum_min2 = 0;
+            _gnum_max2 = _gnum2.substring(1) - 1;
+            _gnum_title2 = '&nbsp;(最多可选'+_gnum_max2+'个商品)';
+            }else
+            {
+            if(_gnum2 > 0)
+            {
+            _gnum_min2 = _gnum2;
+            _gnum_max2 = _gnum2;
+            _gnum_title2 = '&nbsp;(请选择'+_gnum2+'个商品)';
+            }else
+            {
+            _gnum_max2 = -1;
+            _gnum_min2 = -1;
+            _gnum_title2 = '';
+            }
+            }
+            if(!_gnum_title2){
+            _gnum_title2= '';
+            }
+            if(!d.dflids_name){
+            d.dflids_name= '';
+            }
+
+            }>
+
+            <dl class="standard-con"  style="padding-left: 0.0rem;font-size: 16px;" maxsel="<{_gnum_max2}>" minsel="<{_gnum_min2}>"  specgroupbig="<{d.dflids}>" cur-num="0"><b><{d.dflids_name}><{_gnum_title2}></b></dl>
+
+
+            <dl class="standard-con" style="padding-left: 0.0rem;font-size: 16px;">
+
+                <{# var _t_mustsel_count = 0;var _option_ids = '';var _gnum,_gnum_min,_gnum_max,_gnum_title; }>
+
+                <{#
+
+
+                for(var i = 0, options_len = d.options.length; i < options_len; i++){
+
+                _gnum = d.options[i].gnum;
+
+                if(_gnum.indexOf(',') >= 0)
+                {
+                _gnum = _gnum.split(',');
+                _gnum_min = parseInt(_gnum[0].substring(1)) + 1;
+                _gnum_max = _gnum[1].substring(1) - 1;
+                _gnum_title = '&nbsp;(请选择'+_gnum_min+'~'+_gnum_max+'个商品)';
+                }else if(_gnum.indexOf('>') >= 0)
+                {
+                _gnum_min = parseInt(_gnum.substring(1)) + 1;
+                _gnum_max = 999999;
+                _gnum_title = '&nbsp;(最少需选'+_gnum_min+'个商品)';
+                }else if(_gnum.indexOf('<') >= 0)
+                {
+                _gnum_min = 0;
+                _gnum_max = _gnum.substring(1) - 1;
+                _gnum_title = '&nbsp;(最多可选'+_gnum_max+'个商品)';
+                }else
+                {
+                if(_gnum > 0)
+                {
+                _gnum_min = _gnum;
+                _gnum_max = _gnum;
+                _gnum_title = '&nbsp;(请选择'+_gnum+'个商品)';
+                }else
+                {
+                _gnum_max = -1;
+                _gnum_min = -1;
+                _gnum_title = '';
+                }
+                }
+
+
+                var $cart_goods_ids = $('#cart-goods-ids');
+
+                if($cart_goods_ids.find('div[gid='+d.id+']').length <= 0)
+                {
+                $cart_goods_ids.append('<div gid="'+d.id+'"></div>');
+                }
+
+                var _specgroup_tag = $cart_goods_ids.find('div[gid='+d.id+']').find('specgroup[spid='+d.options[i].specgroup_id+']');
+
+                if(_specgroup_tag.length <= 0)
+                {
+                $cart_goods_ids.find('div[gid='+d.id+']').append('<specgroup spid="'+d.options[i].specgroup_id+'" maxsel="'+_gnum_max+'" minsel="'+_gnum_min+'" curnum="'+d.options[i].curnum+'"></specgroup>');
+                }
+
+                }>
+
+                <dt style="position:initial;clear:both;font-weight:bold;" maxsel="<{_gnum_max}>" minsel="<{_gnum_min}>" specgroup="<{d.options[i].specgroup_id}>" specgroupbig="<{d.options[i].specgroup_idbig}>" cur-num="<{d.options[i].curnum}>"><{d.options[i].gname}><{_gnum_title}></dt>
+
+                <{# for(var j = 0, data_len = d.options[i].data.length; j < data_len; j++){ }>
+
+                <div style="width:100%;height:35px;line-height:35px;clear:both;padding-left: 10px;" class="goods-option-item">
+
+                    <dd data-preorder="<{d.options[i].data[j].preorder}>" data-ismust="<{d.options[i].data[j].is_must}>" data-price="<{d.options[i].data[j].price}>" data-startdelivery="<{d.options[i].data[j].startdelivery}>" specgroup="<{d.options[i].specgroup_id}>"  specgroupbig="<{d.options[i].specgroup_idbig}>" style="float:left;border:0px;border-radius:0px;padding-left: 0.1rem;padding-right:0.3rem;margin-right:0.0rem;" data-option-name="<{d.options[i].data[j].name}>" data-max="<{d.options[i].data[j].total}>" data-value="<{d.options[i].data[j].value}>" data-id="<{d.options[i].data[j].id}>" data-goods-id="<{d.id}>" class="goods-option-dd" ><{d.options[i].data[j].name}><{# if(d.options[i].data[j].mustsel == 1){ }><font style="font-size:12px; color:red;margin-left:2px;">(必选)</font><{# } }></dd>
+                    <div class="row no-gutter" style="width:50.666%;float: right;">
+
+                        <div class="col-50 price" style="width:35%;text-align:right;font-size: 0.6rem;">$<{d.options[i].data[j].price}></div>
+
+
+                        <div class="col-50 text-right operate-num" issel="<{d.options[i].data[j].value == 0 ? 0 : 1}>" data-ismust="<{d.options[i].data[j].is_must}>" data-preorder="<{d.options[i].data[j].preorder}>" style="float: right;margin-right: 0.1rem;width:60%;">
+
+                            <span class="fa fa-minus goods-option-minus" data-id="<{d.id}>" data-options-id="<{d.options[i].data[j].id}>" specgroup="<{d.options[i].specgroup_id}>" specgroupbig="<{d.options[i].specgroup_idbig}>" isdisabled="0"></span>
+
+                            <span class="num" <{# if(d.options[i].data[j].mustsel == 1){ _t_mustsel_count++; _option_ids+=d.options[i].data[j].id+'|';}>num-must-sel="<{d.id}>"<{# } }>><{d.options[i].data[j].value}></span>
+
+                            <span class="fa fa-plus goods-option-plus" data-id="<{d.id}>" data-options-id="<{d.options[i].data[j].id}>" specgroup="<{d.options[i].specgroup_id}>"  specgroupbig="<{d.options[i].specgroup_idbig}>"  isdisabled="0"></span>
+
+                        </div>
+                    </div>
+                </div>
+
+                <{# }} }>
+
+            </dl>
+            <div id="cunchugw<{d.id}>" style=" font-size:12px; display:none;"> </div>
+            <div id="cunsubmitxx<{d.id}>"> </div>
+
+            <div  class="right text-center bg-grey" id="addgwc"  style="background-color: #FF5230; color: white; width: 50%;margin-left: 23%; border-radius: 25px;">加入购物车</div>
+
+        </div>
+
+    </div>
+    <{#
+    var _mgi = $('#mustsel-goods-ids');
+    var _cur_gid = _mgi.attr('cur_gid');
+    if(_t_mustsel_count == 0)
+    {
+    _mgi.find('div[gid='+_cur_gid+']').remove();
+    }else
+    {
+    _option_ids = _option_ids.substring(0,_option_ids.length-1);
+    _mgi.find('div[gid='+_cur_gid+']').attr('num',_t_mustsel_count).attr('option-ids',_option_ids);
+    }
+
+    }>
+
+</script>
+
+
+<script id="goods-cart" type="text/html">
+
+    <div class="popup popup-shop-cart">
+
+        <div class="shop-cart-list">
+
+            <div class="row no-gutter popup-shop-cart-header">
+
+                <div class="col-50"><span>{$store['title']}</span></div>
+
+                <div class="col-50 text-right shop-cart-truncate"><img src="{MODULE_URL}resource/app/img/icon-trash.png" alt="" /><span class="color-gray">清空购物车</span></div>
+
+            </div>
+
+            <{# for(var i = 0, len = d.length; i < len; i++){ }>
+
+            <div class="row no-gutter list-item" id="shop-cart-list-item-<{d[i].goods_id}>-<{d[i].option_id}><{# if(d[i].cdid >0 ) { }>-sc<{d[i].cdid}><{# } }>">
+
+                <{# if(d[i].preorder == 1) { }>
+                <span style="position: absolute;top: 0rem;height: 1.0rem;left: 0.2rem;font-size: 0.5rem;background-color: red;color: white;width: 1.2rem;text-align: center;line-height: 1.0rem;">预定</span>
+                <{# } }>
+
+                <div class="col-42 goods-title"><{d[i].title}></div>
+
+                <div class="col-25 color-orange text-right goods-price">$<{d[i].total_price}></div>
+
+                <div class="col-33 text-right">
+
+                    <div class="operate-num" data-price="<{d[i].price}>" data-preorder="<{d[i].preorder}>" data-ismust="<{d[i].is_must}>" data-option-name="<{d[i].option_name}>" data-max="<{d[i].total}>" data-option-id="<{d[i].option_id}>"<{# if(d[i].cdid >0 ) { }> data-cdid="<{d[i].cdid}>"  <{# } }> data-goods-id="<{d[i].goods_id}>" data-dcnum="<{d[i].dcgmnum}>">
+
+                    <span class="fa fa-minus"></span>
+
+                    <span class="num"><{d[i].num}></span>
+
+                    <span class="fa fa-plus"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+        <{# if(d[i].xinxi) { }>
+        <div  id="shop-cart-list-item-<{d[i].goods_id}>-<{d[i].option_id}>-<{d[i].cdid}>" style="border-bottom: 1px solid #e7e7e7;padding: 0 .75rem 0 1.5rem;">
+            <span style=" font-size:12px;"><{d[i].xinxi}></span>
+        </div>
+        <{# } }>
+        <{# } }>
+
+    </div>
+
+    </div>
+
+</script>
+
+<script id="goods-list" type="text/html">
+
+    <{# for(var i = 0, len = d.length; i < len; i++){ }>
+
+    <li>
+
+        <a class="item-link item-content" href="javascript:;">
+
+            <div class="item-media">
+
+                <{# if(d[i].label != ''){ }>
+
+                <span class="sale-badge bg-danger"><{d[i].label}></span>
+
+                <{# } }>
+
+                <img class="goods-popup" data-id="<{d[i].id}>" src="<{d[i].thumb_cn}>" alt=""/>
+
+            </div>
+
+            <div class="item-inner">
+
+                <div class="item-title-row">
+
+                    <div class="item-title"><{d[i].title}></div>
+
+                </div>
+
+                <div class="item-text">
+
+                    <div class="sell-info">已售<{d[i].sailed}><{d[i].unitname}>&nbsp;&nbsp; 好评<{d[i].comment_good}></div>
+
+                    <div class="price">$<span class="fee"><{d[i].price}></span></div>
+
+                </div>
+
+            </div>
+
+        </a>
+
+        <{# if(d[i].is_in_business_hours){ }>
+
+        <{# if(d[i].is_options != 1){ }>
+
+        <div class="operate-num operate-goods">
+
+					<span class="minus <{# if(d[i].num == 0){ }>hide<{# } }>">
+
+						<span class="fa fa-minus goods-search-minus" data-id="<{d[i].id}>"></span>
+
+						<span class="num"><{d[i].num}></span>
+
+					</span>
+
+            <span class="fa fa-plus goods-search-plus" data-id="<{d[i].id}>" data-max="<{d[i].total}>" data-option-id="0"></span>
+
+        </div>
+
+        <{# } else { }>
+
+        <div class="operate-goods">
+
+            <span class="select-spec goods-option" data-id="<{d[i].id}>">可选规格</span>
+
+        </div>
+
+        <{# } }>
+
+        <{# } else { }>
+
+        <div class="goods-tips">店铺休息中</div>
+
+        <{# } }>
+
+    </li>
+
+    <{# } }>
+
+</script>
+
+<script type="text/javascript" src="../addons/we7_wmall/resource/app/js/jquery.fly.min.js"></script>
+<script type="text/javascript" src="/app/resource/components/layer_mobile/layer.js"></script>
+<script>
+
+
+    $(function(){
+        var contentTop = $('#content').scrollTop()
+        console.log(contentTop)
+        $(document).scroll(function() {
+            console.log(456)
+            var scroH = $(document).scrollTop();  //滚动高度
+            var viewH = $(window).height();  //可见高度
+            var contentH = $(document).height();  //内容高度
+
+            if(scroH >100){  //距离顶部大于100px时
+
+            }
+            if (contentH - (scroH + viewH) <= 100){  //距离底部高度小于100px
+
+            }
+            if (contentH = (scroH + viewH)){  //滚动条滑到底部啦
+
+            }
+
+        });
+
+        $cart_data = {};
+
+        {if !empty($store['announ'])}
+        $('#btn-announ-sure,#announ-btn-close').on('click',function(){
+
+            $(this).parent().hide('slow');
+
+        });
+        {/if}
+
+            $('.ctitle_link').click(function(){
+
+                var _href = $(this).attr('href');
+
+                if(_href.length > 0)
+                {
+                    location.href=_href;
+                }
+
+
+            });
+
+            var __preorder = false;
+
+            var __ismust = false;
+
+            var u = navigator.userAgent, app = navigator.appVersion;
+
+            $('.changepx').each(function(){
+
+                var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+                var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+                if(isAndroid)
+                {
+                    $(this).css('line-height','20px');
+                }else if(isiOS)
+                {
+                    $(this).css('line-height','18px');
+                }
+
+            });
+
+            $(document).on('click','.close-popup-custom',function(){
+
+                var _action = $(this).attr('action');
+                var _clickedData = $(this).dataset();
+
+                if (_clickedData.popup) {
+                    popup = _clickedData.popup;
+                }else
+                {
+                    popup = '.popup.modal-in';
+                }
+
+                var _must_sels= $('span[num-must-sel]');
+
+                var $standard_con = $('.standard-con');
+
+                var _valid_span_sels = $standard_con.find('span[class=num]');
+
+                var _valid_sels = new Array();
+
+                for(var _i=0;_i<_valid_span_sels.length;_i++)
+                {
+                    if($(_valid_span_sels[_i]).html() == 0)
+                    {
+                        continue;
+                    }
+
+                    var _detail = {};
+
+                    var _goods_option_dd = $(_valid_span_sels[_i]).parents('.goods-option-item').find('.goods-option-dd');
+
+                    _detail.options_id = _goods_option_dd.data('id');
+                    _detail.num = $(_valid_span_sels[_i]).html();
+                    _detail.max = _goods_option_dd.data('max');
+                    _detail.option_name = _goods_option_dd.data('option-name');
+                    _detail.price = _goods_option_dd.data('price');
+                    _valid_sels.push(_detail);
+                }
+
+                var _has_sel = false;
+
+                if(_valid_sels.length > 0)
+                {
+                    _has_sel = true;
+                }
+
+                if(_has_sel)
+                {
+                    var _goods_id = _must_sels.attr('num-must-sel');
+
+                    var _is_must_sel = true;
+
+                    for(var _i=0;_i<_must_sels.length;_i++)
+                    {
+                        if($(_must_sels[_i]).html() == 0)
+                        {
+                            _is_must_sel = false;
+                            break;
+                        }
+                    }
+
+                    if(!_is_must_sel)
+                    {
+                        layer.open({
+                            content: '<font color=red>部分[必选1]项未选择</font>，继续将清除当前商品已选择，继续吗？'
+                            ,btn: ['继续', '返回']
+                            ,yes: function(index){
+
+                                for(var _i=0;_i<_valid_sels.length;_i++)
+                                {
+
+                                    $('#goods-' + _goods_id).find('.operate-num').attr('data-option-id', _valid_sels[_i].options_id).attr('data-option-name', _valid_sels[_i].option_name).attr('data-price', _valid_sels[_i].price).attr('data-max', _valid_sels[_i].max);
+
+                                    for(var _j = 0;_j<_valid_sels[_i].num;_j++)
+                                    {
+                                        $('#goods-' + _goods_id + ' .fa-minus').trigger('click');
+                                    }
+
+                                }
+                                $.closeModal(popup);
+                                layer.close(index);
+                            }
+                        });
+
+                        return false;
+
+                    }
+
+                    var $dt_tag = $standard_con.find('dt');
+                    var _minsel;
+                    var _specgroup;
+                    var _groups
+                    var _it = 0,_tit=0;
+                    var _dds;
+                    var _tmp;
+
+
+                    for(var _i=0;_i<$dt_tag.length;_i++)
+                    {
+                        _it = 0;
+
+                        //最少需选择数
+                        _minsel = parseInt($($dt_tag[_i]).attr('minsel'));
+
+                        _specgroup = $($dt_tag[_i]).attr('specgroup');
+
+                        _dds = $('dd[specgroup='+_specgroup+']');
+
+                        _goods_id = $(_dds[0]).data('goods-id');
+
+                        for(var _j=0;_j<_dds.length;_j++)
+                        {
+                            _tit = $(_dds[_j]).parent().find('span[class=num]').html();
+                            _tit = parseInt(_tit);
+                            _it+=_tit;
+                        }
+
+                        if(_it < _minsel && _minsel > 0)
+                        {
+                            layer.open({
+                                content: '<font color=red>部分商品还未选完</font>，继续将清除当前商品已选择，继续吗？'
+                                ,btn: ['继续', '返回']
+                                ,yes: function(index){
+
+                                    for(var _i=0;_i<_valid_sels.length;_i++)
+                                    {
+
+                                        $('#goods-' + _goods_id).find('.operate-num').attr('data-option-id', _valid_sels[_i].options_id).attr('data-option-name', _valid_sels[_i].option_name).attr('data-price', _valid_sels[_i].price).attr('data-max', _valid_sels[_i].max);
+
+                                        for(var _j = 0;_j<_valid_sels[_i].num;_j++)
+                                        {
+                                            $('#goods-' + _goods_id + ' .fa-minus').trigger('click');
+                                        }
+
+                                    }
+                                    $.closeModal(popup);
+                                    layer.close(index);
+                                }
+                            });
+
+                            return false;
+                        }
+                    }
+                }
+
+                $.closeModal(popup);
+            });
+
+            //////////////加入购物车提交
+            $(document).on('click','#addgwc',function(){
+
+                var _action = $(this).attr('action');
+                var _clickedData = $(this).dataset();
+
+                if (_clickedData.popup) {
+                    popup = _clickedData.popup;
+                }else
+                {
+                    popup = '.popup.modal-in';
+                }
+
+                var _must_sels= $('span[num-must-sel]');
+
+                var $standard_con = $('.standard-con');
+
+                var _valid_span_sels = $standard_con.find('span[class=num]');
+
+                var _valid_sels = new Array();
+
+                for(var _i=0;_i<_valid_span_sels.length;_i++)
+                {
+                    if($(_valid_span_sels[_i]).html() == 0)
+                    {
+                        continue;
+                    }
+
+                    var _detail = {};
+
+                    var _goods_option_dd = $(_valid_span_sels[_i]).parents('.goods-option-item').find('.goods-option-dd');
+
+                    _detail.options_id = _goods_option_dd.data('id');
+                    _detail.num = $(_valid_span_sels[_i]).html();
+                    _detail.max = _goods_option_dd.data('max');
+                    _detail.option_name = _goods_option_dd.data('option-name');
+                    _detail.price = _goods_option_dd.data('price');
+                    _valid_sels.push(_detail);
+                }
+
+                var _has_sel = false;
+
+                if(_valid_sels.length > 0)
+                {
+                    _has_sel = true;
+                }
+
+                if(_has_sel)
+                {
+                    var _goods_id = _must_sels.attr('num-must-sel');
+
+                    var _is_must_sel = true;
+                    for(var _i=0;_i<_must_sels.length;_i++)
+                    {
+                        if($(_must_sels[_i]).html() == 0)
+                        {
+                            _is_must_sel = false;
+                            break;
+                        }
+                    }
+                    if(_is_must_sel==false)
+                    {
+                        layer.open({
+                            content: '<font color=red>部分[必选]项未选择</font>，继续将清除当前商品已选择，继续吗？'
+                            ,btn: ['继续', '返回']
+
+                        });
+
+                        return false;
+
+                    }
+
+                    var $dt_tag = $standard_con.find('dt');
+                    var _minsel;
+                    var _specgroup;
+                    var _groups
+                    var _it = 0,_tit=0;
+                    var _dds;
+                    var _tmp;
+
+
+                    for(var _i=0;_i<$dt_tag.length;_i++)
+                    {
+                        _it = 0;
+
+                        //最少需选择数
+                        _minsel = parseInt($($dt_tag[_i]).attr('minsel'));
+
+                        _specgroup = $($dt_tag[_i]).attr('specgroup');
+
+                        _dds = $('dd[specgroup='+_specgroup+']');
+
+                        _goods_id = $(_dds[0]).data('goods-id');
+
+                        for(var _j=0;_j<_dds.length;_j++)
+                        {
+                            _tit = $(_dds[_j]).parent().find('span[class=num]').html();
+                            _tit = parseInt(_tit);
+                            _it+=_tit;
+                        }
+
+                        if(_it < _minsel && _minsel > 0)
+                        {
+                            layer.open({
+                                content: '<font color=red>部分商品还未选完</font>，继续将清除当前商品已选择，继续吗？'
+                                ,btn: ['继续', '返回']
+                                /*					    ,yes: function(index){
+
+                                                            for(var _i=0;_i<_valid_sels.length;_i++)
+                                                            {
+
+                                                                $('#goods-' + _goods_id).find('.operate-num').attr('data-option-id', _valid_sels[_i].options_id).attr('data-option-name', _valid_sels[_i].option_name).attr('data-price', _valid_sels[_i].price).attr('data-max', _valid_sels[_i].max);
+
+                                                                for(var _j = 0;_j<_valid_sels[_i].num;_j++)
+                                                                {
+                                                                    $('#goods-' + _goods_id + ' .fa-minus').trigger('click');
+                                                                }
+
+                                                            }
+                                                            $.closeModal(popup);
+                                                            layer.close(index);
+                                                        }*/
+                            });
+
+                            return false;
+                        }
+                    }
+
+
+
+                    var $dt_tagsc = $standard_con;
+                    var 	_dqyjzd;
+                    var   _dqyjcurnum;
+
+                    for(var _i=0;_i<$dt_tagsc.length;_i++)
+                    {
+
+
+                        _dqyjzd=$($dt_tagsc[_i]).attr('minsel');
+                        _dqyjcurnum=$($dt_tagsc[_i]).attr('cur-num');
+
+
+                        if((_dqyjzd)&&(_dqyjcurnum)&&(_dqyjzd > _dqyjcurnum)){
+
+
+                            layer.open({
+                                content: '<font color=red>部分[必选]项未选择</font>，继续将清除当前商品已选择，继续吗？'
+                                ,btn: ['继续', '返回']
+
+
+                            });
+                            return false;
+                        }
+                    }
+                }
+
+
+
+
+
+
+                spbiaoti=$('#sptitle'+_goods_id).val()//商品名称
+                spprice=$('#spprices'+_goods_id).val()//商品价钱
+                var option_name=spbiaoti
+                option_id=_goods_id
+                //option_id2=_goods_id+''
+                var price=spprice
+                var xinxi=$('#cunchugw'+_goods_id).html()
+                submitxx=$('#cunsubmitxx'+_goods_id).html()
+                var	cispnums=$('#cispnumtj'+_goods_id).val()
+
+                var	spdgxznums=$('#spdgxznum'+_goods_id).val()
+                if((cispnums >=spdgxznums)&&(spdgxznums !=0)){
+                    $.toast('抱歉,此商品单次限购'+spdgxznums+'份');
+                    return false;
+                }
+                if($('#cksubxx'+_goods_id).val()){
+                    gengxinxxzxc=parseInt($('#cksubxx'+_goods_id).val())+parseInt(1)
+                    $('#cksubxx'+_goods_id).val(gengxinxxzxc)
+                    genxinnums=parseInt($('#cispnumtj'+_goods_id).val())+parseInt(1)
+                    $('#cispnumtj'+_goods_id).val(genxinnums)
+                    var cdid=gengxinxxzxc
+                }else{
+                    $('#sumbitxixi').append('<input id="cksubxx'+_goods_id+'" type="hidden" name="goods['+_goods_id+']" value="1">');
+                    $('#sumbitxixi').append('<input id="cispnumtj'+_goods_id+'" type="hidden" name="goods['+_goods_id+']" value="1">');
+                    var cdid=1
+                }
+                $('#sumbitxixi').append('<div id="cunchugcid'+_goods_id+'-'+cdid+'"></div>');
+                $('#cunchugcid'+_goods_id+'-'+cdid).append(submitxx);
+                //$('#sumbitxixi').append(submitxx);
+                if($('#yxqczpreorder').html()==1){
+                    var	preorder=1;
+                }else{
+                    var	preorder=0;
+                }
+                if($('#yxqczismiust').html()==1){
+                    var	ismiust=1;
+                }else{
+                    var	ismiust=0;
+                }
+                //console.log(cart)
+                if(ismiust == 1)
+                {
+                    __ismust = true;
+
+                    $('#is_must').val(1);
+                }
+                //	console.log(cart)
+                $('#goods-' + _goods_id).find('.operate-num').attr('data-option-id', option_id).attr('data-option-name', option_name).attr('data-price', price).attr('data-max', -1).attr('data-xinxi',xinxi).attr('data-preorder',preorder).attr('data-ismiust',ismiust).attr('data-cdid',cdid);
+
+
+
+                $('#goods-' + _goods_id + ' .fa-plus').trigger('click');
+
+                $.closeModal(popup);
+            });
+
+
+
+
+
+
+            $(document).on('click', '.shop-cart-list .fa-plus', function(){
+
+                var $parent = $(this).parents('.operate-num');
+
+                var goods_id = $parent.data('goods-id');
+
+                var option_id = $parent.data('option-id');
+
+                if(!option_id) {
+
+                    return false;
+
+                }
+
+                var option_name = $parent.data('option-name');
+
+                var price = $parent.data('price');
+
+                var max = $parent.data('max');
+
+                var curNum = parseInt($parent.find('.num').html());
+
+                var preorder = $parent.data('preorder');
+
+                var ismust = $parent.data('ismust');
+                var xinxi = $parent.data('xinxi');
+                var cdid = $parent.data('cdid');
+                if(null != max && max != "" && max != "-1" && curNum >= max) {
+
+                    $.toast('抱歉,库存不足');
+
+                    return false;
+
+                }
+
+                if(__preorder && preorder == 1)
+                {
+                    layer.open({
+                        content: '只能选择1个预定商品，请删除已选商品重试'
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                    });
+
+                    return false;
+                }
+
+                for (var n in cart) {
+
+
+                    if (cart[n].goods_id == goods_id) {
+
+
+                        if(cart[n].option_id == option_id) {
+
+                            _gnum = cart[n].gnum;
+
+                            if(_gnum.indexOf(',') >= 0)
+                            {
+                                _gnum = _gnum.split(',');
+                                _gnum_min = parseInt(_gnum[0].substring(1)) + 1;
+                                _gnum_max = _gnum[1].substring(1) - 1;
+                            }else if(_gnum.indexOf('>') >= 0)
+                            {
+                                _gnum_min = parseInt(_gnum.substring(1)) + 1;
+                                _gnum_max = 999999;
+                            }else if(_gnum.indexOf('<') >= 0)
+                            {
+                                _gnum_min = 0;
+                                _gnum_max = _gnum.substring(1) - 1;
+                            }else
+                            {
+                                if(_gnum > 0)
+                                {
+                                    _gnum_min = _gnum;
+                                    _gnum_max = _gnum;
+                                }else
+                                {
+                                    _gnum_max = -1;
+                                    _gnum_min = -1;
+                                }
+                            }
+
+
+                            if(_gnum_max > 0 && cart[n].num >= _gnum_max)
+                            {
+                                layer.open({
+                                    content: '这个商品只能选择'+_gnum_max+'个，请删除已选商品重试'
+                                    ,skin: 'msg'
+                                    ,time: 2
+                                });
+
+                                return false;
+                            }
+
+                            break;
+
+                        }
+
+                    }
+
+                }
+
+
+                var $cart_gids = $('#cart-goods-ids');
+
+                if($cart_gids.find('div[gid='+goods_id+']').length > 0)
+                {
+                    var _cart_specgroup = $cart_gids.find('div[gid='+goods_id+']').find('div[option-id='+option_id+']').attr('specgroup');
+
+                    var $tspecgroup = $cart_gids.find('div[gid='+goods_id+']').find('div[tspecgroup='+_cart_specgroup+']');
+
+                    var _cart_cur_num = parseInt($tspecgroup.attr('curnum'));
+
+                    var _cart_en_num = parseInt($tspecgroup.attr('maxsel'));
+
+                    if(_cart_cur_num < _cart_en_num || _cart_en_num < 0)
+                    {
+                        _cart_cur_num ++ ;
+                        $tspecgroup.attr('curnum',_cart_cur_num);
+                    }else
+                    {
+                        layer.open({
+                            content: '亲，该商品已达选择上限了哦!'
+                            ,btn: ['我要修改', '返回']
+                            ,yes: function(index){
+
+                                layer.close(index);
+
+                                $('#goods-' + goods_id).find('.select-spec').trigger('click');
+
+                            }
+                        });
+
+                        return false;
+                    }
+
+                }
+
+                $parent.find('.num').html(++curNum);
+
+                $parent.parent().prev().html('$' + (curNum * price).toFixed(2));
+
+                if(option_id.indexOf('tc') >= 0)
+                {
+
+                    var tid = option_id.split('-');
+
+                    tid = tid[0];
+
+                    $('#goods-' + tid).find('.operate-num').attr('data-option-id', option_id).attr('data-option-name', option_name).attr('data-price', price).attr('data-max', max).attr('data-goods-id',goods_id);
+                    $('#goods-' + tid + ' .fa-plus').trigger('click');
+
+                }else
+                {
+                    $('#goods-' + goods_id).find('.operate-num').attr('data-option-id', option_id).attr('data-option-name', option_name).attr('data-price', price).attr('data-max', max).attr('data-preorder',preorder);
+                    $('#goods-' + goods_id + ' .fa-plus').trigger('click');
+                }
+
+
+                return false;
+
+            });
+
+
+
+            $(document).on('click', '.shop-cart-list .fa-minus', function(){
+
+
+                var $parent = $(this).parents('.operate-num');
+
+                var goods_id = $parent.data('goods-id');
+
+                var option_id = $parent.data('option-id');
+
+                if(!option_id) {
+
+                    return false;
+
+                }
+
+                var option_name = $parent.data('option-name');
+
+                var price = $parent.data('price');
+                //	var xinxi = $parent.data('xinxi');
+                var cdid = $parent.data('cdid');
+                var preorder  = $parent.data('preorder');
+                var curNum = parseInt($parent.find('.num').html());
+                if(curNum <= 0) {
+
+                    return false;
+
+                }
+
+                for (var n in cart) {
+
+
+                    if (cart[n].goods_id == goods_id) {
+
+
+                        if(cart[n].option_id == option_id) {
+
+                            _gnum = cart[n].gnum;
+
+                            if(_gnum.indexOf(',') >= 0)
+                            {
+                                _gnum = _gnum.split(',');
+                                _gnum_min = parseInt(_gnum[0].substring(1)) + 1;
+                                _gnum_max = _gnum[1].substring(1) - 1;
+                            }else if(_gnum.indexOf('>') >= 0)
+                            {
+                                _gnum_min = parseInt(_gnum.substring(1)) + 1;
+                                _gnum_max = 999999;
+                            }else if(_gnum.indexOf('<') >= 0)
+                            {
+                                _gnum_min = 0;
+                                _gnum_max = _gnum.substring(1) - 1;
+                            }else
+                            {
+                                if(_gnum > 0)
+                                {
+                                    _gnum_min = _gnum;
+                                    _gnum_max = _gnum;
+                                }else
+                                {
+                                    _gnum_max = -1;
+                                    _gnum_min = -1;
+                                }
+                            }
+
+
+                            if(cart[n].num <= _gnum_min)
+                            {
+
+                                layer.open({
+                                    content: '<font color=red>亲，这个是套餐哦，</font>删除这个商品将清除这个套餐商品，继续吗？'
+                                    ,btn: ['继续', '返回']
+                                    ,yes: function(index){
+
+                                        var _len = cart.length;
+
+                                        var _data = new Array();
+
+                                        for(var i = 0;i<_len;i++)
+                                        {
+                                            var _item = {};
+
+                                            if(cart[i].goods_id == goods_id)
+                                            {
+                                                _item = cart[i];
+                                                _data.push(_item);
+                                            }
+                                        }
+
+                                        for(var i=0;i<_data.length;i++)
+                                        {
+                                            if(_data[i].goods_id == goods_id)
+                                            {
+                                                $('#goods-' + _data[i].goods_id).find('.operate-num').attr('data-option-id', _data[i].option_id).attr('data-option-name', _data[i].option_name).attr('data-price', _data[i].price).attr('data-max', _gnum_max);
+
+                                                for(var _j = _data[i].num;_j > 0;)
+                                                {
+                                                    $('#goods-' + goods_id + ' .fa-minus').trigger('click');
+
+                                                    _j --;
+
+                                                    if(_j <= 0) {
+
+                                                        $('#shop-cart-list-item-' + goods_id + '-' + _data[i].option_id).remove();
+                                                    }
+
+                                                }
+
+                                            }
+                                        }
+
+                                        if($('.popup-shop-cart .shop-cart-list .row.list-item').length == 0) {
+
+                                            $.closeModal('.popup-shop-cart');
+
+                                        }
+
+                                        layer.close(index);
+
+                                    }
+                                });
+
+                                return false;
+                            }
+
+                            break;
+
+                        }
+
+                    }
+
+                }
+
+                var $cart_gids = $('#cart-goods-ids');
+
+                if($cart_gids.find('div[gid='+goods_id+']').length > 0)
+                {
+                    var _cart_specgroup = $cart_gids.find('div[gid='+goods_id+']').find('div[option-id='+option_id+']').attr('specgroup');
+
+                    var _cart_cur_num = $cart_gids.find('div[gid='+goods_id+']').find('div[tspecgroup='+_cart_specgroup+']').attr('curnum');
+
+                    _cart_cur_num -- ;
+
+                    $cart_gids.find('div[gid='+goods_id+']').find('div[tspecgroup='+_cart_specgroup+']').attr('curnum',_cart_cur_num);
+                }
+
+                $parent.find('.num').html(--curNum);
+
+                $parent.parent().prev().html('$' + (curNum * price).toFixed(2));
+
+                if(curNum <= 0) {
+
+                    if(option_id.indexOf('tc') >= 0)
+                    {
+
+                        $('#shop-cart-list-item-' + goods_id + '-' + option_id).remove();
+                    }else
+                    {
+                        if(preorder == 1)
+                        {
+                            __preorder = false;
+
+                            $('#is_preorder').val(0);
+                        }
+                        if(cdid){
+                            $('#shop-cart-list-item-' + goods_id + '-' + option_id + '-sc'+ cdid).remove();
+                            $('#shop-cart-list-item-' + goods_id + '-' + option_id + '-' + cdid).remove();
+                            $('#cunchugcid'+goods_id+'-'+cdid).remove();
+                            xiugainums=parseInt($('#cispnumtj'+goods_id).val())-parseInt(1)
+                            $('#cispnumtj'+goods_id).val(xiugainums)
+
+                            var	poiu=$("#sendCondition").html()
+                            var	mnbv1=$('#zxcs'+goods_id+'-'+cdid).html();
+                            var duoggqs=$("#cstartdeliverycc").val()
+                            duoggqs=parseFloat(duoggqs)-parseFloat(mnbv1)
+                            poiu=parseFloat(poiu)-parseFloat(mnbv1)
+                            $("#cstartdeliverycc").val(duoggqs)
+                            $("#sendCondition").html(poiu)
+                            $('#zxcs'+goods_id+'-'+cdid).remove();
+                        }else{
+                            $('#shop-cart-list-item-' + goods_id + '-' + option_id).remove();
+                        }
+
+
+
+
+
+
+
+                    }
+
+                }
+                if($('.popup-shop-cart .shop-cart-list .row.list-item').length == 0) {
+
+                    $.closeModal('.popup-shop-cart');
+
+                }
+
+                if(option_id.indexOf('tc') >= 0)
+                {
+
+
+                    var tid = option_id.split('-');
+
+                    tid = tid[0];
+
+                    $('#goods-' + tid).find('.operate-num').attr('data-option-id', option_id).attr('data-option-name', option_name).attr('data-price', price).attr('data-goods-id',goods_id);
+
+                    $('#goods-' + tid + ' .fa-minus').trigger('click');
+
+
+                }else
+                {
+                    $('#goods-' + goods_id).find('.operate-num').attr('data-option-id', option_id).attr('data-option-name', option_name).attr('data-price', price).attr('data-cdid', cdid);
+                    $('#goods-' + goods_id + ' .fa-minus').trigger('click');
+                }
+
+                return false;
+
+            });
+
+
+
+            var cart = new Array();
+            var send_price = "{$store['send_price']}";
+            $(document).on('click', '.shop-cart-truncate', function(){
+                $('#sumbitxixi').html("");
+
+                $.post("{php echo $this->createMobileUrl('goods', array('op' => 'cart_truncate', 'sid' => $sid));}", {}, function(data){
+
+                    var result = $.parseJSON(data);
+
+                    if(result.message.errno != 0) {
+
+                        $.toast(result.message.message);
+
+                        return false;
+
+                    } else {
+
+                        cart = new Array();
+
+                        $('.children-category-wrapper span.minus .num').html(0);
+
+                        $('.children-category-wrapper span.minus').addClass('hide');
+
+                        $('.children-category-wrapper input[class^="h_num_"]').val(0);
+
+                        $('#popop-search-goods .minus').addClass('hide');
+
+                        $('#popop-search-goods .minus .num').html(0);
+
+                        $('#cartNotEmpty').addClass('hide');
+
+                        $('#cartNotEmpty #totalPrice, #cartNotEmpty #cartNum').html(0);
+
+                        $('#cartNotEmpty #sendCondition').html(send_price);
+
+                        $('#cartEmpty').removeClass('hide');
+
+                        $.closeModal('.popup-shop-cart');
+
+                        __preorder = false;
+
+                        __ismust = false;
+
+                        return false;
+
+                    }
+
+                });
+
+            });
+
+
+
+            $('#btnSubmit').click(function(){
+
+                var $standard_con = $('.standard-con');
+
+
+                var $dt_tag = $standard_con.find('dt');
+                var _minsel;
+                var _specgroup;
+                var _groups
+                var _it = 0,_tit=0;
+                var _dds;
+                var _gid;
+                var _tmp;
+
+                for(var _i=0;_i<$dt_tag.length;_i++)
+                {
+                    _it = 0;
+
+                    _minsel = parseInt($($dt_tag[_i]).attr('minsel'));
+
+                    _specgroup = $($dt_tag[_i]).attr('specgroup');
+
+                    _dds = $('dd[specgroup='+_specgroup+']');
+
+                    _gid = $(_dds[0]).data('goods-id');
+
+                    for(var _j=0;_j<_dds.length;_j++)
+                    {
+                        _tit = $(_dds[_j]).parent().find('span[class=num]').html();
+                        _tit = parseInt(_tit);
+                        _it+=_tit;
+                    }
+
+                    if(_it < _minsel && _minsel > 0)
+                    {
+                        layer.open({
+                            content: '<font color=red>部分商品还未选完</font>，继续将清除当前商品已选择，继续吗？'
+                            ,btn: ['继续', '去看看']
+                            ,yes: function(index){
+
+                                var _valid_sels = new Array();
+
+                                for(var _k=0;_k < cart.length;_k++)
+                                {
+
+                                    if(cart[_k].goods_id == _gid)
+                                    {
+                                        var _detail = {};
+                                        _detail.options_id = cart[_k].option_id;
+                                        _detail.num = cart[_k].num;
+                                        _detail.max = cart[_k].max;
+                                        _detail.option_name = cart[_k].option_name;
+                                        _detail.price = cart[_k].total_price / cart[_k].num;
+                                        _valid_sels.push(_detail);
+                                    }
+                                }
+
+                                for(var _i=0;_i<_valid_sels.length;_i++)
+                                {
+
+                                    $('#goods-' + _gid).find('.operate-num').attr('data-option-id', _valid_sels[_i].options_id).attr('data-option-name', _valid_sels[_i].option_name).attr('data-price', _valid_sels[_i].price).attr('data-max', _valid_sels[_i].max);
+
+                                    for(var _j = 0;_j<_valid_sels[_i].num;_j++)
+                                    {
+                                        $('#goods-' + _gid + ' .fa-minus').trigger('click');
+                                    }
+
+                                }
+
+                                if($('.popup-spec.goods-option').length > 0)
+                                {
+                                    $standard_con.find('.fa-plus,.fa-minus').css('color','#ff5230');
+                                    $standard_con.find('dt').attr('cur-num','0');
+                                    $standard_con.find('span[class=num]').css('color','rgb(109, 109, 114)').html('0');
+                                    $standard_con.find('.operate-num').attr('issel','0');
+                                }
+
+                                $('#cart-goods-ids').find('div[gid='+_gid+']').remove();
+
+                                layer.close(index);
+                            },no:function(index){
+                                $('#goods-' + _gid).find('.select-spec').trigger('click');
+                                layer.close(index);
+                            }
+                        });
+
+                        return false;
+                    }
+                }
+
+                {if $store['store_reservation']}
+                var is_preorder=$('#is_preorder').val();
+                {if $store['sys_not_biztime']}
+                if(is_preorder==0){
+
+                    $.alert("(必须选择1个预定商品)", '配送休息中，仅可预定下单');
+                    return false;
+                }
+                {/if}
+                    {if !$store['is_in_business_hours']}
+                    if(is_preorder==0){
+
+                        $.alert("(必须选择1个预定商品)", '店铺休息中，仅可预定下单');
+                        return false;
+                    }
+                    {/if}
+                        {/if}
+
+                            {if $is_must}
+                            var is_must=$('#is_must').val();
+                            if(is_must==0){
+                                $.alert("(请至少选择1个必选商品)", '“必选项”不能为空');
+                                return false;
+                            }
+
+                            {/if}
+
+                                var _mgi = $('#mustsel-goods-ids');
+                                var _mgi_divs = _mgi.find('div');
+                                var _option_ids;
+                                var _num;
+                                var _has_sel;
+
+
+                                $('#goods-form').find('input[type=hidden][value=0]').remove();
+                                $('#goods-form').submit();
+
+                            });
+
+
+
+            {if !empty($store['notice'])}
+
+            var left = 0, notice = $('.js-scroll-notice');
+
+            setInterval(function(){
+
+                left--;
+
+                0 > left + notice.width() && (left = notice.width());
+
+                notice.css({
+
+                    'left': left
+
+                });
+
+            }, 25);
+
+            {/if}
+
+
+                {if $store['is_in_business_hours'] && $store['sys_not_biztime']}
+
+                $.alert("{$store['business_hours_cn']}", '当前仅可自提，今日配送时段');
+
+                setTimeout(function () {
+
+                    $.hidePreloader();
+
+                }, 5000);
+
+                {/if}
+
+                    var store_reservation={$store['store_reservation']};
+                    if(store_reservation==1){
+
+                        {if !$store['is_in_business_hours'] && $store['sys_not_biztime']}
+                        $.alert("(必须选择1个预定商品)", '配送休息中,仅可预定下单');
+                        setTimeout(function () {
+                            $.hidePreloader();
+                        }, 5000);
+                        {/if}
+
+                            {if !$store['is_in_business_hours'] && !$store['sys_not_biztime']}
+                            $.alert("(必须选择1个预定商品)", '店铺休息中,仅可预定下单');
+                            setTimeout(function () {
+                                $.hidePreloader();
+                            }, 5000);
+                            {/if}
+
+                            }
+
+
+
+
+                            $(document).on("pageInit", "#page-app-goods", function(e, id, page) {
+
+                                $(document).on('click', '.bar-nav .fa-search', function(){
+
+                                    $('.search-input input').val('');
+
+                                    $('.search-result-container').html('');
+
+                                    $.popup('.popup-search');
+
+                                });
+
+
+
+                                $(document).on('click', '#popop-search-goods .searchbar-cancel', function(){
+
+                                    var key = $('.search-input input').val();
+
+                                    if(!key) {
+
+                                        return false;
+
+                                    }
+
+                                    $('.search-result-container').html('');
+
+                                    $.showIndicator();
+
+                                    $.post("{php echo $this->createMobileUrl('goods', array('op' => 'search', 'sid' => $sid));}", {key: key}, function(data){
+
+                                        var result = $.parseJSON(data);
+
+                                        if(result.message.errno == -1) {
+
+                                            $.toast(result.message.message);
+
+                                            return false;
+
+                                        } else {
+
+                                            if(result.message.message.length <= 0) {
+
+                                                $.hideIndicator();
+
+                                                $('#popop-search-goods .common-no-con').removeClass('hide');
+
+                                                return false;
+
+                                            }
+
+                                            $('#popop-search-goods .common-no-con').addClass('hide');
+
+                                            $.each(result.message.message, function(i, v){
+
+                                                var goods_id = v.id;
+
+                                                if(v.is_options == 0) {
+
+                                                    result.message.message[i].num = goodsNum(goods_id, 0);
+
+                                                } else {
+
+                                                    $.each(v.options, function(j, d){
+
+                                                        result.message.message[i].options[j].num = goodsNum(goods_id, d.id);
+
+                                                    });
+
+                                                }
+
+                                            });
+
+                                            var gettpl = $('#goods-list').html();
+
+                                            laytpl(gettpl).render(result.message.message, function(html){
+
+                                                $.hideIndicator();
+
+                                                $('#popop-search-goods').find('.search-result-container').html(html);
+
+                                            });
+
+                                        }
+
+                                    });
+
+                                    return false;
+
+                                });
+
+
+
+                                $(document).on('click', '#cartNotEmpty .cart', function(){
+
+
+
+                                    if(!$(this).hasClass('show')) {
+
+                                        $(this).addClass('show');
+
+                                        var gettpl = $('#goods-cart').html();
+
+                                        laytpl(gettpl).render(cart, function(html){
+                                            console.log(cart)
+
+                                            $.popup(html);
+
+                                        });
+
+                                    } else {
+
+                                        $(this).removeClass('show')
+
+                                        $.closeModal('.popup-shop-cart');
+
+                                    }
+
+                                });
+
+
+
+                                $(document).on('click', '.goods-option-plus', function(){
+
+                                    var $parent = $(this).parents('.goods-option');
+
+                                    var id = $(this).data('id');
+
+                                    var option_id = $(this).data('options-id');
+
+                                    if(!option_id) {
+
+                                        return false;
+
+                                    }
+
+                                    if($(this).attr('isdisabled') == 1)
+                                    {
+                                        return false;
+                                    }
+
+
+                                    var _specgroup = $(this).attr('specgroup');
+                                    var _specgroupbig = $(this).attr('specgroupbig');
+
+                                    var _dt_tag = $parent.find('dt[specgroup='+_specgroup+']');
+
+                                    var _cur_num = parseInt(_dt_tag.attr('cur-num'));
+
+                                    var _maxsel = parseInt($('dt[specgroup='+_specgroup+']').attr('maxsel'));
+                                    var _minsel = parseInt($('dt[specgroup='+_specgroup+']').attr('minsel'));
+                                    if(_specgroupbig !=0){
+                                        var _dt_tag2 = $parent.find('dl[specgroupbig='+_specgroupbig+']');
+                                        var _cur_num2 = parseInt(_dt_tag2.attr('cur-num'));
+                                        var _maxsel2 = parseInt($('dl[specgroupbig='+_specgroupbig+']').attr('maxsel'));
+                                        var _minsel2 = parseInt($('dl[specgroupbig='+_specgroupbig+']').attr('minsel'));
+                                    }
+
+
+                                    var option_name = $parent.find('.standard-con dd[data-id='+option_id+']').data('option-name');
+
+                                    var price = $parent.find('.standard-con dd[data-id='+option_id+']').data('price');
+
+                                    var max = $parent.find('.standard-con dd[data-id='+option_id+']').data('max');
+
+                                    var startdeliverys = $parent.find('.standard-con dd[data-id='+option_id+']').data('startdelivery');
+
+                                    var curNum = $(this).prev().html();
+
+
+                                    if(_cur_num >= _maxsel && _maxsel > 0)
+                                    {
+                                        layer.open({
+                                            content: '该分类只能选择'+_maxsel+'个商品哦~'
+                                            ,skin: 'msg'
+                                            ,time: 2 //2秒后自动关闭
+                                        });
+
+                                        return false;
+                                    }
+                                    if(_specgroupbig !=0){
+                                        if(_cur_num2 >= _maxsel2 && _maxsel2 > 0)
+                                        {
+                                            layer.open({
+                                                content: '只能选择'+_maxsel2+'个商品哦~'
+                                                ,skin: 'msg'
+                                                ,time: 2 //2秒后自动关闭
+                                            });
+
+                                            return false;
+                                        }
+                                    }
+                                    var _preorder = $(this).parent().data('preorder');
+                                    //console.log(_preorder)
+                                    //	console.log(__preorder)
+                                    var _ismust = $(this).parent().data('ismust');
+//console.log(_ismust)
+                                    if(__preorder && _preorder == 1)
+                                    {
+                                        layer.open({
+                                            content: '只能选择1个预定商品，请删除已选商品重试'
+                                            ,skin: 'msg'
+                                            ,time: 2 //2秒后自动关闭
+                                        });
+
+                                        return false;
+                                    }
+
+                                    if(_maxsel > 0)
+                                    {
+                                        _cur_num ++;
+                                        _dt_tag.attr('cur-num',_cur_num);
+
+
+                                        if(_cur_num >= _maxsel)
+                                        {
+
+                                            $parent.find('span[specgroup='+_specgroup+']').each(function(){
+
+                                                if($(this).parent().attr('issel') == 0)
+                                                {
+                                                    $(this).css('color','#E7E3E3').attr('isdisabled',1);
+                                                    $(this).prev().css('color','#E7E3E3');
+                                                }
+
+                                            });
+
+                                            $(this).parent().find('span[specgroup='+_specgroup+']').css('color','red').attr('isdisabled',0).prev().css('color','#6d6d72');
+
+                                        }
+                                    }
+
+                                    if(_maxsel2 > 0)
+                                    {
+
+                                        if(_specgroupbig !=0){
+                                            _cur_num2 ++;
+                                            _dt_tag2.attr('cur-num',_cur_num2);
+                                        }
+
+                                    }
+
+
+
+                                    /*			if(null != max && max != "" && max != "-1" && curNum >= max  && _maxsel > 0) {
+                                    */
+                                    if(null != max && max != "" && max != "-1" && curNum == max  && _maxsel > 0) {
+                                        $.toast('抱歉,库存不足');
+
+                                        return false;
+
+                                    }
+
+                                    var $cart_gids = $('#cart-goods-ids');
+
+
+                                    var $specgroup_tag = $cart_gids.find('div[gid='+id+']').find('specgroup[spid='+_specgroup+']');
+
+                                    if($specgroup_tag.length <= 0)
+                                    {
+                                        //$cart_gids.find('div[gid='+id+']').append('<specgroup spid="'+_specgroup+'" maxsel="'+_maxsel+'" minsel="'+_minsel+'" curnum="1"></specgroup>');
+                                    }else
+                                    {
+                                        var _specgroup_cur_num = parseInt($specgroup_tag.attr('curnum'));
+                                        //	$specgroup_tag.attr('curnum',++_specgroup_cur_num);
+                                    }
+
+
+                                    $(this).prev().html(++curNum);
+
+
+                                    //id=>goodsid,name=>spbiaoti,price=>spprice商品  cunchugw
+                                    spbiaoti=$('#sptitle'+id).val()
+                                    cunchustartdeliverys=$("#cstartdeliverycc").val()
+                                    cunchustartdeliverys=parseFloat(startdeliverys)+parseFloat(cunchustartdeliverys)
+                                    cunchustartdeliverys=cunchustartdeliverys.toFixed(2)
+                                    $("#cstartdeliverycc").val(cunchustartdeliverys)
+
+                                    if($('#cksubxx'+id).val()){
+                                        var cdid=parseFloat($('#cksubxx'+id).val())+parseFloat(1)
+                                    }else{
+                                        var cdid=1
+                                    }
+
+                                    if($('#zxcs'+id+'-'+cdid).html()){
+                                        lkjs=$('#zxcs'+id+'-'+cdid).html();
+                                        lkjs=parseFloat(lkjs)+parseFloat(startdeliverys)
+                                        lkjs=lkjs.toFixed(2)
+                                        $('#zxcs'+id+'-'+cdid).html(lkjs)
+                                    }else{
+                                        $('#qwestartdeliver').append('<span id="zxcs'+id+'-'+cdid+'" style="display:none;">'+startdeliverys+'</span>');
+                                    }
+                                    //规格
+                                    if($('#cksubxx'+id).val()){
+                                        ckcanshu=parseFloat($('#cksubxx'+id).val())+parseFloat(1)
+                                    }else{
+                                        ckcanshu=1;
+                                    }
+
+                                    if(_preorder == 1)
+                                    {
+                                        __preorder = true;
+
+                                        $('#is_preorder').val(1);
+                                    }
+
+
+                                    if($('#cunchugw'+id+' .zxc'+option_id).html()){
+                                        sgdnums=$('#cunchugw'+id+' .num'+option_id).html()
+                                        sgdnums=parseFloat(++sgdnums);
+                                        $('#cunchugw'+id+' .num'+option_id).html(sgdnums)
+                                        $('#cunsubmitxx'+id+' .h_num_'+ckcanshu+'_'+option_id).val(sgdnums)
+                                        sgdprice=$('#cunchugw'+id+' .price'+option_id).html()
+                                        sgdprice=parseFloat(sgdprice)+parseFloat(price)
+                                        $('#cunchugw'+id+' .price'+option_id).html(sgdprice)
+                                        spprice=$('#spprices'+id).val()
+                                        spprice=parseFloat(spprice)+parseFloat(price)
+                                        spprice=spprice.toFixed(2)
+                                        $('#spprices'+id).val(spprice)
+                                        if(_preorder == 1)
+                                        {
+                                            $('#cunsubmitxx'+id).append('<span id="yxqczpreorder" style="display:none;">1</span>');
+                                        }
+                                        if(_ismust == 1)
+                                        {
+                                            $('#cunsubmitxx'+id).append('<span id="yxqczismiust" style="display:none;">1</span>');
+                                        }
+
+                                    }else{
+                                        $('#cunchugw'+id).append('<span class="zxc'+option_id+'">'+option_name+'*'+'</span>');
+                                        $('#cunchugw'+id).append('<span class="num'+option_id+'" >1</span>');
+                                        $('#cunchugw'+id).append('<span class="price'+option_id+'" style=" display:none;">'+price+'</span>');
+                                        $('#cunchugw'+id).append('<span class="kong'+option_id+'" >                       </span>');
+
+                                        $('#cunsubmitxx'+id).append('<input autocomplete="off" class="h_num_'+ckcanshu+'_'+option_id+'" type="hidden" name="goods['+id+'][options]['+ckcanshu+']['+option_id+']" value="1">');
+                                        if(_preorder == 1)
+                                        {
+                                            $('#cunsubmitxx'+id).append('<span id="yxqczpreorder" style="display:none;">1</span>');
+                                        }
+
+                                        if(_ismust == 1)
+                                        {
+                                            $('#cunsubmitxx'+id).append('<span id="yxqczismiust" style="display:none;">1</span>');
+                                        }
+                                        spprice=$('#spprices'+id).val()
+                                        spprice=parseFloat(spprice)+parseFloat(price)
+                                        spprice=spprice.toFixed(2)
+                                        $('#spprices'+id).val(spprice)
+
+
+                                    }
+
+
+                                    return false;
+
+                                });
+
+
+                                $(document).on('click', '.goods-option-minus', function(){
+
+                                    var $parent = $(this).parents('.goods-option');
+
+                                    var id = $(this).data('id');
+
+                                    var option_id = $(this).data('options-id');
+
+                                    if(!option_id) {
+
+                                        return false;
+
+                                    }
+
+
+                                    if($(this).attr('isdisabled') == 1)
+                                    {
+                                        return false;
+                                    }
+
+                                    var _specgroup = $(this).attr('specgroup');
+                                    var _specgroupbig = $(this).attr('specgroupbig');
+                                    var _dt_tag = $parent.find('dt[specgroup='+_specgroup+']');
+
+                                    var _cur_num = parseInt(_dt_tag.attr('cur-num'));
+
+                                    var _maxsel = parseInt($('dt[specgroup='+_specgroup+']').attr('maxsel'));
+
+                                    var option_name = $parent.find('.standard-con dd[data-id='+option_id+']').data('option-name');
+                                    var startdeliverys = $parent.find('.standard-con dd[data-id='+option_id+']').data('startdelivery');
+                                    if(_specgroupbig !=0){
+                                        var _dt_tag2 = $parent.find('dl[specgroupbig='+_specgroupbig+']');
+                                        var _cur_num2 = parseInt(_dt_tag2.attr('cur-num'));
+                                        var _maxsel2 = parseInt($('dl[specgroupbig='+_specgroupbig+']').attr('maxsel'));
+                                        var _minsel2 = parseInt($('dl[specgroupbig='+_specgroupbig+']').attr('minsel'));
+                                    }
+
+                                    var price = $parent.find('.standard-con dd[data-id='+option_id+']').data('price');
+
+                                    var curNum = $(this).next().html();
+
+                                    if(curNum <= 0) {
+
+                                        return false;
+
+                                    }
+
+                                    var _preorder = $(this).parent().data('preorder');
+
+                                    var ismust = $(this).parent().data('ismust');
+
+                                    if(_preorder == 1)
+                                    {
+                                        __preorder = false;
+
+                                        $('#is_preorder').val(0);
+                                        $('#cunsubmitxx'+id).find('#yxqczpreorder').remove();
+
+                                    }
+
+                                    if(ismust == 1)
+                                    {
+                                        __ismust = false;
+
+                                        $('#is_must').val(0);
+                                        $('#cunsubmitxx'+id).find('#yxqczismiust').remove();
+                                    }
+
+                                    $(this).next().html(--curNum);
+
+                                    if(_maxsel > 0)
+                                    {
+                                        _cur_num --;
+                                        _dt_tag.attr('cur-num',_cur_num);
+
+
+                                        if(_cur_num < _maxsel)
+                                        {
+
+                                            $parent.find('span[specgroup='+_specgroup+']').each(function(){
+
+                                                $(this).css('color','#ff5230').attr('isdisabled',0);
+                                                $(this).next().css('color','#6d6d72');
+
+                                            });
+
+                                            if(curNum <= 0)
+                                            {
+                                                $(this).parent().attr('issel',0);
+                                            }
+
+                                        }
+                                    }
+
+                                    if(_maxsel2 > 0){
+                                        if(_specgroupbig !=0){
+                                            _cur_num2 --;
+                                            _dt_tag2.attr('cur-num',_cur_num2);
+                                        }
+                                    }
+                                    var $cart_gids = $('#cart-goods-ids');
+
+                                    if($cart_gids.find('div[gid='+id+']').length > 0)
+                                    {
+                                        $cart_gids.find('div[gid='+id+']').find('div[tspecgroup='+_specgroup+']').attr('curnum',_cur_num);
+                                    }
+
+
+                                    var $specgroup_tag = $cart_gids.find('div[gid='+id+']').find('specgroup[spid='+_specgroup+']');
+
+                                    if($specgroup_tag.length > 0)
+                                    {
+                                        var _specgroup_cur_num = parseInt($specgroup_tag.attr('curnum'));
+                                        $specgroup_tag.attr('curnum',--_specgroup_cur_num);
+                                    }
+
+                                    if($('#cksubxx'+id).val()){
+                                        var		ckcanshu=parseFloat($('#cksubxx'+id).val())+parseFloat(1)
+                                    }else{
+                                        var		ckcanshu=1;
+                                    }
+
+                                    spbiaoti=$('#sptitle'+id).val()
+                                    cunchustartdeliverys=$("#cstartdeliverycc").val()
+                                    zxcdxgx=parseFloat($('#zxcs'+id+'-'+ckcanshu).html())-parseFloat(startdeliverys)
+                                    zxcdxgx=zxcdxgx.toFixed(2)
+                                    $('#zxcs'+id+'-'+ckcanshu).html(zxcdxgx)
+                                    cunchustartdeliverys=parseFloat(cunchustartdeliverys)-parseFloat(startdeliverys)
+                                    cunchustartdeliverys=cunchustartdeliverys.toFixed(2)
+                                    $("#cstartdeliverycc").val(cunchustartdeliverys)
+                                    //规格
+
+                                    if($('#cunchugw'+id+' .zxc'+option_id).html()){
+                                        sgdnums=$('#cunchugw'+id+' .num'+option_id).html()
+                                        sgdnums=parseFloat(--sgdnums);
+                                        if(sgdnums==0){
+                                            $('#cunchugw'+id).find('.zxc'+option_id).remove();
+                                            $('#cunchugw'+id).find('.price'+option_id).remove();
+                                            $('#cunchugw'+id).find('.num'+option_id).remove();
+                                            $('#cunsubmitxx'+id).find('.h_num_'+ckcanshu+'_'+option_id).remove();
+
+                                        }
+                                        $('#cunchugw'+id+' .num'+option_id).html(sgdnums)
+                                        $('#cunsubmitxx'+id+' .h_num_'+ckcanshu+'_'+option_id).val(sgdnums)
+                                        sgdprice=$('#cunchugw'+id+' .price'+option_id).html()
+                                        sgdprice=parseFloat(sgdprice)-parseFloat(price)
+                                        $('#cunchugw'+id+' .price'+option_id).html(sgdprice)
+                                        spprice=$('#spprices'+id).val()
+                                        spprice=parseFloat(spprice)-parseFloat(price)
+                                        spprice=spprice.toFixed(2)
+                                        $('#spprices'+id).val(spprice)
+
+                                    }
+
+                                    return false;
+
+                                });
+
+                                $(document).on('click', '#category-container .goods-option, #popop-search-goods .goods-option', function(){
+
+                                    var id = $(this).data('id');
+
+                                    var _mgi = $('#mustsel-goods-ids');
+
+                                    _mgi.attr('cur_gid',id);
+
+                                    if(_mgi.find('div[gid='+id+']').length <= 0)
+                                    {
+                                        _mgi.append('<div class="goods_id" gid="'+id+'" num="0" option-ids=""></div>');
+                                    }
+
+                                    $.showIndicator();
+
+                                    $.post("{php echo $this->createMobileUrl('goods', array('op' => 'detail', 'sid' => $sid, 'order_type' => 'order'));}", {id: id}, function(data) {
+                                        //alert(data);
+
+                                        var result = $.parseJSON(data);
+
+                                        if(result.message.errno != 0) {
+
+                                            $.hideIndicator();
+
+                                            $.toast(result.message.message);
+
+                                        } else {
+
+                                            var val = {};
+                                            var _cur_num = 0;
+
+                                            for(j=0;j<result.message.message.options.length;j++)
+                                            {
+                                                _cur_num = 0;
+
+                                                for(var i = 0; i < result.message.message.options[j].data.length; i++){
+
+                                                    val = result.message.message.options[j].data[i];
+
+                                                    result.message.message.options[j].data[i].value = parseInt($('#goods-' + id + ' .h_num_' + val.id).val());
+
+                                                    _cur_num += parseInt($('#goods-' + id + ' .h_num_' + val.id).val());
+
+                                                };
+
+                                                result.message.message.options[j].curnum = _cur_num;
+                                            }
+
+                                            var gettpl = $('#goods-option').html();
+
+                                            laytpl(gettpl).render(result.message.message, function(html){
+
+                                                $.hideIndicator();
+
+                                                $.popup(html);
+
+                                                var $standard_con = $('.standard-con');
+
+                                                $standard_con.find('dt').each(function(){
+
+                                                    var _maxsel = $(this).attr('maxsel');
+
+                                                    var _cur_num = $(this).attr('cur-num');
+
+                                                    var _specgroup = $(this).attr('specgroup');
+
+                                                    if(_cur_num >= _maxsel && _maxsel > 0)
+                                                    {
+                                                        $standard_con.find('span[specgroup='+_specgroup+']').each(function(){
+
+                                                            if($(this).parent().find('.num').html() == 0)
+                                                            {
+                                                                $(this).parent().find('span[specgroup='+_specgroup+']').css('color','#E7E3E3').attr('isdisabled',1);
+                                                                $(this).parent().find('.num').css('color','#E7E3E3');
+                                                            }
+
+                                                        });
+                                                    }
+
+
+                                                });
+
+
+                                            });
+
+                                        }
+
+                                        return false;
+
+                                    });
+
+                                });
+
+
+
+                                $(document).on('click', '.goods-popup', function(){
+
+                                    var _this = $(this);
+
+                                    var id = $(this).data('id');
+
+                                    var num = goodsNum(id, 0);
+
+                                    $.showIndicator();
+
+                                    $.post("{php echo $this->createMobileUrl('goods', array('op' => 'detail', 'sid' => $sid, 'order_type' => 'order'));}", {id: id}, function(data) {
+
+                                        var result = $.parseJSON(data);
+
+                                        if(result.message.errno != 0) {
+
+                                            $.hideIndicator();
+
+                                            $.toast(result.message.message);
+
+                                        } else {
+
+                                            result.message.message.hasNum = num;
+
+                                            var gettpl = $('#goods-detail').html();
+
+                                            laytpl(gettpl).render(result.message.message, function(html){
+
+                                                $.hideIndicator();
+
+                                                $.popup(html);
+
+                                            });
+
+                                        }
+
+                                        return false;
+
+                                    });
+
+                                });
+
+
+
+                                $(document).on('click', '.goods-search-plus', function(){
+
+                                    var id = $(this).data('id');
+
+                                    var $minus = $(this).prev();
+
+                                    var curNum = parseInt($minus.find('.num').html());
+
+                                    var max = $(this).data('max');
+
+                                    if(null != max && max != "" && max != "-1" && curNum >= max) {
+
+                                        $.toast('抱歉,库存不足');
+
+                                        return false;
+
+                                    }
+
+                                    $minus.removeClass('hide');
+
+                                    $minus.find('.num').html(++curNum);
+
+                                    $('#goods-' + id + ' .fa-plus').trigger('click');
+
+                                    return false;
+
+                                });
+
+
+
+                                $(document).on('click', '.goods-search-minus', function(){
+
+                                    var id = $(this).data('id');
+
+                                    $('#goods-' + id + ' .fa-minus').trigger('click');
+
+                                    var $num = $(this).next();
+
+                                    var curNum = parseInt($num.html());
+
+                                    if(curNum <= 0) {
+
+                                        return false;
+
+                                    }
+
+                                    $num.html(--curNum);
+
+                                    if(curNum == 0) {
+
+                                        $(this).parent().addClass('hide');
+
+                                    }
+
+                                    return false;
+
+                                });
+
+
+
+                                $(document).on('click', '.goods-detail-plus', function(){
+
+                                    var id = $(this).data('id');
+
+                                    var $num = $(this).prev();
+
+                                    var curNum = parseInt($num.html());
+
+                                    var max = $(this).data('max');
+
+                                    if(null != max && max != "" && max != "-1" && curNum >= max) {
+
+                                        $.toast('抱歉,库存不足');
+
+                                        return false;
+
+                                    }
+
+                                    $num.html(++curNum);
+
+                                    $('#goods-' + id + ' .fa-plus').trigger('click');
+
+                                    return false;
+
+                                });
+
+
+
+                                $(document).on('click', '.goods-detail-minus', function(){
+
+                                    var id = $(this).data('id');
+
+                                    $('#goods-' + id + ' .fa-minus').trigger('click');
+
+                                    var $num = $(this).next();
+
+                                    var curNum = parseInt($num.html());
+
+                                    if(curNum >= 1) {
+
+                                        $num.html(--curNum);
+
+                                    }
+
+                                    return false;
+
+                                });
+
+
+
+                                $(document).on('click', '#category-container .fa-plus', function(){//点击+
+
+
+                                    var $parent = $(this).parent();
+
+                                    var $num = $(this).prev().find('.num');
+
+                                    var option_id = $parent.data('option-id');
+
+                                    var dcnum = $parent.data('dcnum');
+
+                                    var max = $parent.data('max');
+                                    var xinxi = $parent.data('xinxi');
+                                    var cdid = $parent.data('cdid');
+                                    var curNum = parseInt($parent.find(".h_num_" + option_id).val());
+                                    if(null != max && max != "" && max != "-1" && curNum >= max) {
+
+                                        if(!flag) {
+
+                                            $.toast('抱歉,库存不足');
+
+                                        }
+
+                                        return false;
+
+                                    }
+                                    if((curNum >= dcnum)&&(dcnum != 0)){
+                                        $.toast('抱歉,此商品单次限购'+dcnum+'份');
+                                        return false;
+                                    }
+
+                                    var $obj_li = $parent.parents('li');
+
+                                    if($obj_li.attr('is-options') == '1')
+                                    {
+
+                                        var _options_id = $parent.data('option-id');
+                                        _startdeliverys.addValue($parent.find('span[data-option-id='+_options_id+']').attr('startdelivery'));
+
+                                        var preorder = $parent.find(".h_num_" + _options_id).next().data('preorder');
+
+                                        var ismust = $parent.find(".h_num_" + _options_id).next().data('ismust');
+
+                                    }else
+                                    {
+                                        _startdeliverys.addValue($obj_li.attr('startdelivery'));
+
+                                        var preorder = $parent.data('preorder');
+
+                                        var ismust = $parent.data('ismust');
+                                    }
+
+                                    if(__preorder && preorder == 1)
+                                    {
+                                        layer.open({
+                                            content: '只能选择1个预定商品，请删除已选商品重试'
+                                            ,skin: 'msg'
+                                            ,time: 2 //2秒后自动关闭
+                                        });
+
+                                        return false;
+                                    }
+
+                                    if(preorder == 1)
+                                    {
+                                        __preorder = true;
+
+                                        $('#is_preorder').val(1);
+                                    }
+
+
+
+                                    if(ismust == 1)
+                                    {
+                                        __ismust = true;
+
+                                        $('#is_must').val(1);
+                                    }
+
+                                    $num.text(++curNum);
+
+                                    $parent.find(".h_num_" + option_id).val(curNum);
+
+                                    if(curNum > 0){
+
+                                        $(this).prev().removeClass('hide');
+
+                                    }
+
+                                    //计算购物车
+
+                                    count($parent, '+');
+
+                                    if(!xinxi){
+                                        goodsCart($parent, '+');
+                                    }else{
+                                        goodsCart($parent, '=');
+                                    }
+
+
+                                    if(flag) {
+
+                                        return false;
+
+                                    }
+
+                                    var flyer = $('<div class="u-flyer"></div>');
+
+                                    flyer.fly({
+
+                                        start: {
+
+                                            left: event.pageX,
+
+                                            top: event.pageY
+
+                                        },
+
+                                        end: {
+
+                                            left: 25,
+
+                                            top: $(window).height() - 20,
+
+                                            width: 0,
+
+                                            height: 0
+
+                                        },
+
+                                        onEnd: function(){}
+
+                                    });
+
+                                });
+
+
+
+                                $(document).on('click', '#category-container .fa-minus', function(){
+
+                                    var $parent = $(this).parent().parent();
+
+                                    var $num = $(this).next();
+
+                                    var option_id = $parent.data('option-id');
+                                    var cdid = $parent.data('cdid');
+                                    //console.log($parent)
+                                    var goodsid = $parent.data('goods-id');
+                                    var curNum = parseInt($parent.find(".h_num_" + option_id).val());
+
+                                    if(curNum >= 1) {
+
+                                        $num.text(--curNum);
+
+                                        $parent.find(".h_num_" + option_id).val(curNum);
+
+                                    }
+
+                                    if(curNum < 1) {
+
+                                        $(this).parent().addClass('hide');
+
+                                    }
+
+                                    var $obj_li = $parent.parents('li');
+
+                                    if($obj_li.attr('is-options') == '1')
+                                    {
+                                        var _options_id = $parent.data('option-id');
+                                        _startdeliverys.removeByValue($parent.find('span[data-option-id='+_options_id+']').attr('startdelivery'));
+                                        var preorder = $parent.find(".h_num_" + _options_id).next().data('preorder');
+                                        var ismust = $parent.find(".h_num_" + _options_id).next().data('ismust');
+                                    }else
+                                    {
+                                        var preorder = $parent.data('preorder');
+                                        var ismust = $parent.data('ismust');
+                                        _startdeliverys.removeByValue($obj_li.attr('startdelivery'));
+                                    }
+
+                                    if(preorder == 1)
+                                    {
+                                        __preorder = false;
+
+                                        $('#is_preorder').val(0);
+                                    }
+                                    if(ismust == 1)
+                                    {
+                                        __ismust = false;
+
+                                        $('#is_must').val(0);
+                                    }
+                                    //计算购物车
+
+                                    count($parent, '-');
+                                    /*			if(cdid>0){
+                                                    console.log(cdid)
+                                                var	poiu=$("#sendCondition").html()
+
+                                                var	mnbv1=$('#zxcs'+goodsid+'-'+cdid).html();
+
+                                                console.log(mnbv1)
+                                                    var duoggqs=$("#cstartdeliverycc").val()
+                                                    console.log(duoggqs)
+                                                    duoggqs=parseFloat(duoggqs)-parseFloat(mnbv1)
+                                                    console.log(11111)
+                                                    console.log(duoggqs)
+                                                //	duoggqs=duoggqs.toFixed(2)
+
+                                                    poiu=parseFloat(poiu)-parseFloat(mnbv1)
+                                                        $("#cstartdeliverycc").val(duoggqs)
+                                                        $("#sendCondition").html(poiu)
+                                                        $('#zxcs'+goodsid+'-'+cdid).remove();
+
+                                                    }*/
+                                    goodsCart($parent, '-');
+
+                                });
+
+                                Array.prototype.removeByValue = function(val) {
+
+                                    val = parseFloat(val).toFixed(2);
+
+                                    for(var i=0; i<this.length; i++) {
+                                        if(this[i] == val) {
+                                            this.splice(i, 1);
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                Array.prototype.addValue = function(val) {
+
+                                    val = parseFloat(val).toFixed(2);
+
+                                    _startdeliverys.push(val);
+                                }
+
+                                var goodsCart = function(obj, sign) {//购物车
+
+                                    var goods_id = obj.data('goods-id');
+
+                                    var option_id = obj.data('option-id');
+
+
+
+
+                                    if(goods_id) {
+
+                                        var marks = 0;
+
+                                        for (var n in cart) {
+
+
+                                            if (cart[n].goods_id == goods_id) {
+
+
+                                                if(cart[n].option_id == option_id) {
+
+
+                                                    if (sign == '+') {
+
+                                                        cart[n].num += 1;
+
+                                                    }
+                                                    if (sign == '-') {
+
+                                                        cart[n].num -= 1;
+
+                                                    }
+
+
+
+                                                    if(cart[n].num < 1) {
+
+                                                        cart.splice(n, 1);
+
+                                                    } else {
+
+                                                        cart[n].total_price = (cart[n].num * cart[n].price).toFixed(2);
+
+                                                    }
+                                                    if (sign == '=') {
+                                                        marks = 0;
+                                                    }else{
+                                                        marks = 1;
+                                                    }
+
+
+                                                    break;
+
+                                                }
+
+                                            }
+
+                                        }
+                                        var detail = new Object();
+
+                                        if (!marks) {
+
+                                            detail.num = 1;
+
+                                            detail.goods_id = goods_id;
+
+                                            detail.option_id = option_id;
+
+                                            detail.option_name = obj.data('option-name');
+
+                                            detail.max = obj.data('max');
+
+                                            option_id = option_id.replace(/[^0-9]/g,'');
+
+                                            if(option_id > 0) {
+
+                                                $options_num = obj.find('.h_num_'+option_id).next();
+
+                                                detail.title = obj.data('option-name');
+                                                detail.preorder = obj.data('preorder');
+                                                detail.ismust =  obj.data('ismust');//$options_num.data('ismust');
+                                                detail.xinxi = obj.data('xinxi');
+                                                detail.cdid = obj.data('cdid');
+                                                detail.gnum = '';//$options_num.data('gnum');
+                                                detail.spid = '';//$options_num.attr('spid');
+
+                                            } else {
+
+                                                detail.title = obj.data('title');
+                                                detail.preorder = obj.data('preorder');
+                                                detail.ismust = obj.data('ismust');
+                                                detail.xinxi = obj.data('xinxi');
+                                                detail.cdid = obj.data('cdid');
+                                                detail.gnum = '';
+                                                detail.spid = '';
+                                            }
+
+                                            detail.price = obj.data('price');
+
+                                            detail.total_price = obj.data('price');
+
+                                            cart.push(detail);
+
+                                        }
+
+                                    }
+
+                                }
+
+
+
+                                //获取某个商品的数量
+
+                                var goodsNum = function(goods_id, option_id) {
+
+                                    if(cart.length == 0) {
+
+                                        return 0;
+
+                                    }
+
+                                    var num = 0;
+
+                                    for (var n in cart) {
+
+                                        if (cart[n].goods_id == goods_id) {
+
+                                            if(cart[n].option_id == option_id) {
+
+                                                num = cart[n].num;
+
+                                                break;
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                    return num;
+
+                                }
+
+                                var _tmp_startdelivery = parseFloat(send_price);
+
+                                var _tmp_cur_startdelivery = 0;
+                                //console.log(cdid)
+                                //console.log(sign)
+                                var count = function(obj, sign) {
+
+                                    var $condition = $('#sendCondition'),
+                                        $total = $('#totalPrice'),
+
+                                        $cartNum = $('#cartNum'),
+
+                                        $cartEmpty = $('#cartEmpty'),
+
+                                        $cartNotEmpty = $('#cartNotEmpty'),
+
+                                        sendCondition = parseFloat($condition.text()).toFixed(2),
+
+
+                                        totalPrice = parseFloat($total.text()) || 0,
+
+                                        disPrice = parseFloat(sign + 1) * parseFloat(obj.data('price')),
+
+                                        price = totalPrice + disPrice,
+
+                                        price = parseFloat(price.toFixed(3)),
+
+                                        number = $cartNum.text() == '' ? 0 : parseInt($cartNum.text()),
+
+                                        disNumber = number + parseInt(sign + 1);
+
+                                    var $obj_li = obj.parents('li');
+
+                                    if($obj_li.attr('is-options') == '1')
+                                    {
+                                        _cur_startdelivery=parseFloat($("#cstartdeliverycc").val())
+
+                                        _tmp_startdelivery = parseFloat(send_price);
+
+                                    }else
+                                    {
+                                        _cur_startdelivery = parseFloat($obj_li.attr('startdelivery'));
+
+
+                                    }
+
+
+                                    if(_tmp_startdelivery > parseFloat(send_price))
+                                    {
+
+                                        if(_tmp_cur_startdelivery < _cur_startdelivery)
+                                        {
+
+                                            if(_startdeliverys.length > 0)
+                                            {
+                                                //_max_startdelivery = Math.max.apply(null,_startdeliverys);
+                                                _max_startdelivery =getSum(_startdeliverys);
+
+                                                _tmp_startdelivery = parseFloat(send_price);
+
+
+                                                _tmp_startdelivery += _max_startdelivery;
+                                            }else
+                                            {
+                                                _tmp_startdelivery = parseFloat(send_price);
+                                            }
+
+
+                                        }else
+                                        {
+
+                                            if(_cur_startdelivery > 0)
+                                            {
+
+                                                if(_startdeliverys.length > 0)
+                                                {
+                                                    //_max_startdelivery = Math.max.apply(null,_startdeliverys);
+
+                                                    _max_startdelivery =getSum(_startdeliverys);
+
+                                                    if(_max_startdelivery > _cur_startdelivery)
+                                                    {
+                                                        _tmp_startdelivery = parseFloat(send_price) + _max_startdelivery;
+                                                    }else
+                                                    {
+                                                        _tmp_startdelivery = parseFloat(send_price) + _cur_startdelivery;
+                                                    }
+                                                }else
+                                                {
+                                                    _tmp_startdelivery = parseFloat(send_price);
+                                                }
+
+
+                                            }
+
+                                        }
+                                    }else
+                                    {
+
+                                        _tmp_startdelivery += _cur_startdelivery;
+
+                                    }
+
+                                    _tmp_cur_startdelivery = _cur_startdelivery;
+
+
+                                    sendCondition =  parseFloat(_tmp_startdelivery) - parseFloat(price);
+//console.log(sendCondition)
+//console.log(_tmp_startdelivery)
+//console.log(price)
+                                    $total.text(price);
+
+                                    $condition.text(sendCondition.toFixed(2));
+
+                                    $cartNum.text(disNumber);
+
+                                    if(sendCondition <= 0){
+
+                                        $condition.parent().hide().next().show();
+
+                                    }else{
+
+                                        $condition.parent().show().next().hide();
+
+                                    }
+
+                                    if(disNumber > 0){
+
+                                        $cartEmpty.addClass('hide');
+
+                                        $cartNotEmpty.removeClass('hide');
+
+                                    }else{
+
+                                        $cartEmpty.removeClass('hide');
+
+                                        $cartNotEmpty.addClass('hide');
+
+                                    }
+
+                                    return false;
+
+                                }
+
+
+
+                                var flag = 0;
+
+                                function __init() {
+
+                                    $('.children-category .fa-plus').each(function(){
+
+                                        flag = 1;
+
+                                        var is_options = $(this).data('is-options');
+
+                                        if(is_options == 0) {
+
+                                            var num = $(this).data('num');
+
+                                            for(var i = 0, num = parseInt(num); i < num; i++){
+
+                                                $(this).trigger('click');
+
+                                            }
+
+                                        } else if(is_options == 1){
+
+                                            var $parent = $(this).parent();
+
+                                            $parent.find('span.options-num').each(function(){
+                                                var xinxi = $(this).data('xinxi');
+                                                var option_id = $(this).data('option-id');
+                                                var cdid = $(this).data('cdid');
+                                                var goods_id = $(this).data('goods-id');
+
+                                                var preorder = $(this).data('preorder');
+
+                                                var price = $(this).data('price');
+
+                                                var max = $(this).data('max');
+
+                                                var num = $(this).data('num');
+
+                                                if(xinxi){
+
+
+
+                                                    if(!option_id) {
+
+                                                        return false;
+
+                                                    }
+
+                                                    var _mustsel = $(this).data('mustsel');
+
+                                                    if(_mustsel == 1 && num > 0)
+                                                    {
+                                                        var _mgi = $('#mustsel-goods-ids');
+                                                        var _gid = $(this).data('goods-id');
+                                                        var _option_id = $(this).data('option-id');
+                                                        var _mgi_gid_list = _mgi.find('div[gid='+_gid+']');
+
+                                                        if(_mgi_gid_list.length == 0)
+                                                        {
+                                                            _mgi.append('<div class="goods_id" gid="'+_gid+'" num="1" option-ids="'+_option_id+'"></div>');
+                                                        }else
+                                                        {
+                                                            var _option_num = parseInt(_mgi_gid_list.attr('num'));
+                                                            var _option_ids = _mgi_gid_list.attr('option-ids');
+
+                                                            _option_num ++;
+                                                            _option_ids += '|'+_option_id;
+
+                                                            _mgi_gid_list.attr('num',_option_num).attr('option-ids',_option_ids);
+                                                        }
+                                                    }
+
+
+
+
+
+
+                                                    var option_name = $(this).data('option-name');
+                                                    option_id=goods_id
+
+                                                    $('#goods-' + goods_id).find('.operate-num').attr('data-option-id', option_id).attr('data-option-name', option_name).attr('data-price', price).attr('data-max', -1).attr('data-xinxi',xinxi).attr('data-preorder',preorder).attr('data-cdid',cdid);
+
+
+                                                    for(var i = 0, num = parseInt(num); i < num; i++){
+
+                                                        $('#goods-' + goods_id + ' .fa-plus').trigger('click');
+
+                                                    }
+
+                                                }
+
+                                            });
+
+
+
+                                        }else if(is_options == 2){
+
+                                            var $parent = $(this).parent();
+
+                                            $parent.find('span.options-num').each(function(){
+
+                                                var option_id = $(this).data('option-id');
+
+                                                var goods_id = $(this).data('goods-id');
+
+                                                if(!option_id) {
+
+                                                    return false;
+
+                                                }
+
+                                                var price = $(this).data('price');
+
+                                                var max = $(this).data('max');
+
+                                                var num = $(this).data('num');
+                                                var xinxi = $(this).data('xinxi');
+                                                var option_name = $(this).data('option-name');
+
+
+                                                for(var i = 0, num = parseInt(num); i < num; i++){
+
+                                                    $('#goods-' + goods_id + ' .fa-plus').trigger('click');
+
+                                                }
+
+                                            });
+
+
+                                        }
+
+                                    });
+
+                                    flag = 0;
+
+                                }
+
+
+                                var _startdeliverys = new Array();
+
+                                __init();
+
+                                var menu = {
+
+                                    offsetAry: [0],
+
+                                    _is_left_menu_addclass: true,
+
+                                    init: function(){
+
+                                        var _this = this;
+
+                                        var windowHeight = $(window).height();
+
+                                        var maxLeftHeight = windowHeight - 200;
+
+                                        $('#cateMenu').height(maxLeftHeight);
+
+                                        if($('.parent-category ul').height() > maxLeftHeight) {
+
+                                            if($.device.iphone) {
+
+                                                new IScroll('#cateMenu', {probeType: 3, mouseWheel: true, click: false, tap: true})
+
+                                            } else {
+
+                                                new IScroll('#cateMenu', {probeType: 3, mouseWheel: true, click: true})
+
+                                            }
+
+                                        }
+
+
+
+                                        $(document).on('click', '.parent-category li', function(){
+
+                                            $('.parent-category li').removeClass('active');
+
+                                            $(this).addClass('active');
+
+                                            _this._is_left_menu_addclass = false;
+
+                                            var t = $('.content').scrollTop();
+
+                                            var t1 = _this.offsetAry[$('.parent-category li').index(this) + 1] - 125;
+
+                                            var _t = Math.abs(t1-t);
+
+                                            var _time =parseInt( Math.round(_t/3));
+
+                                            $('.content').scrollTop(t1);
+
+                                            setTimeout(function(){
+
+                                                _this._is_left_menu_addclass=true;
+
+                                            }, 300);
+
+                                        });
+
+                                        $('.children-category-wrapper .heading').each(function(){
+
+                                            _this.offsetAry.push($(this).offset().top);
+
+                                        });
+
+                                        $('.content').bind('scroll', function(){
+                                            _this.scroll.call(_this);
+
+                                        });
+
+                                    },
+
+
+
+                                    getIndex: function(ary, value){
+
+                                        var i = 0;
+
+                                        for(; i < ary.length; i++){
+
+                                            if(value >= ary[i] && value < ary[i + 1]){
+
+                                                return i;
+
+                                            }
+
+                                        }
+
+                                        return ary.length -1;
+
+                                    },
+
+
+
+                                    scroll: function(){
+                                        var swiperHeight = $('#swiperBox').height()
+                                        if($('.content').scrollTop()>swiperHeight){
+                                            $('.ab-buttons-tab').css('display','flex')
+                                            $('.ab-parent-category-wrapper').css('display','block')
+                                            $('.re-buttons-tab').css('display','none')
+                                            $('.re-parent-category-wrapper').css('display','none')
+                                        }else{
+                                            $('.ab-buttons-tab').css('display','none')
+                                            $('.ab-parent-category-wrapper').css('display','none')
+                                            $('.ab-parent-category-wrapper').css('bottom','10000px')
+                                            $('.re-buttons-tab').css('display','flex')
+                                            $('.re-parent-category-wrapper').css('display','block')
+                                        }
+                                        var st = $('.content').scrollTop() + 125;
+
+                                        var index = this.getIndex(this.offsetAry, st);
+
+                                        var i = index - 1;
+
+                                        if(this.curIndex !== index){
+
+                                            if(this._is_left_menu_addclass) {
+
+                                                $('.parent-category li').removeClass('active');
+
+                                            }
+
+                                            if(i >= 0){
+
+                                                $('#category-container .parent-category').addClass('fixed');
+
+                                                if(this._is_left_menu_addclass) {
+
+                                                    $('.parent-category li').eq(i).addClass('active');
+
+                                                }
+
+                                            } else {
+
+                                                $('.parent-category li').eq(0).addClass('active');
+
+                                                $('#category-container .parent-category').removeClass('fixed');
+
+                                            }
+
+                                            this.curIndex = index;
+
+                                        }
+
+                                    }
+
+                                };
+
+                                menu.init();
+
+                                {if !empty($_GPC['key'])}
+
+                                $('#popop-search-goods .searchbar-cancel').trigger('click');
+
+                                $.popup('.popup-search');
+
+                                {/if}
+
+
+                                    $(document).on('click','#category-container .tc-goods-option',function(){
+
+                                        var id = $(this).data('tid');
+
+                                        $.showIndicator();
+
+                                        $.post("{php echo $this->createMobileUrl('taocan', array('op' => 'detail', 'sid' => $sid));}", {tid: id}, function(data) {
+
+                                            var result = $.parseJSON(data);
+
+                                            if(result.message.errno != 0) {
+
+                                                $.hideIndicator();
+
+                                                $.toast(result.message.message);
+
+                                            } else {
+
+                                                var val = {};
+
+                                                for(var i = 0; i < result.message.message['options'].length; i++){
+
+                                                    val = result.message.message.options[i];
+
+                                                    for(var j = 0; j < val.goods.length ; j++)
+                                                    {
+                                                        result.message.message.options[i].goods[j].value = parseInt($('#goods-' + id + ' .h_num_' + result.message.message.tid+'-'+val.gid+'-'+val.goods[j].good_id).val());
+                                                    }
+
+                                                };
+
+                                                var gettpl = $('#tc-goods-option').html();
+
+
+                                                laytpl(gettpl).render(result.message.message, function(html){
+
+                                                    $.hideIndicator();
+
+                                                    $.popup(html);
+
+                                                });
+
+                                            }
+
+                                            return false;
+
+                                        });
+
+                                    });
+
+
+
+                                    $(document).on('click', '.tc-goods-option-plus', function(){
+
+                                        var gid = $(this).data('gid');
+                                        var tid = $(this).data('tid');
+                                        var goods_id = $(this).data('goods-id');
+                                        var goods_price = $(this).data('price');
+                                        var good_title = $(this).parent().parent().find('.gtitle').html();
+
+                                        $('#goods-'+tid).find('.operate-num').attr('data-option-id',tid+'-'+gid+'-'+goods_id).attr('data-goods-id',goods_id).attr('data-price',goods_price).attr('data-option-name',good_title);
+
+                                        var $parent = $(this).parents('.goods-option');
+
+                                        var _num = parseInt($(this).prev().html());
+
+                                        $(this).prev().html(++_num);
+
+                                        $('#goods-' + tid + ' .fa-plus').trigger('click');
+
+                                        return false;
+
+                                    });
+
+
+                                    $(document).on('click', '.tc-goods-option-minus', function(){
+
+
+                                        var gid = $(this).data('gid');
+                                        var tid = $(this).data('tid');
+                                        var goods_id = $(this).data('goods-id');
+                                        var goods_price = $(this).data('price');
+                                        var good_title = $(this).parent().parent().find('.gtitle').html();
+
+                                        $('#goods-'+tid).find('.operate-num').attr('data-option-id',tid+'-'+gid+'-'+goods_id).attr('data-goods-id',goods_id).attr('data-price',goods_price).attr('data-option-name',good_title);
+
+                                        var $parent = $(this).parents('.goods-option');
+
+                                        var _num = parseInt($(this).next().html());
+
+                                        if(_num >= 1)
+                                        {
+                                            $(this).next().html(--_num);
+                                            $('#goods-' + tid + ' .fa-minus').trigger('click');
+                                        }
+
+                                        return false;
+
+                                    });
+
+                                });
+
+                            //领取优惠券
+
+                            $(document).on('click', '#get-coupon', function(){
+
+                                $.showIndicator();
+
+                                $.post("{php echo $this->createMobileUrl('coupon', array('op' => 'get', 'sid' => $sid))}", {}, function(data){
+
+                                    var result = $.parseJSON(data);
+
+                                    $.hideIndicator();
+
+                                    if(result.message.errno != 0) {
+
+                                        $.toast(result.message.message);
+
+                                        return false;
+
+                                    } else {
+
+                                        $('.coupon-show-container').hide();
+
+                                        $.toast('领取优惠券成功');
+
+                                        return false;
+
+                                    }
+
+                                });
+
+                            });
+
+                        });
+
+    function getSum(array){
+        var sum=0;
+        for (var i = 0; i < array.length; i++){
+            sum += parseInt(array[i]);
+        }
+        return sum;
+    }
+
+
+
+</script>
+
+
+{template 'common'}
+
+{template 'footer'}

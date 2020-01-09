@@ -61,7 +61,7 @@
     border-bottom:2px solid #e5e5e5;
     margin-bottom: 30px;
 }
-.question .question-tittle{
+.question-tittle{
     display: flex;
     justify-content: space-between;
     height:40px;
@@ -95,23 +95,9 @@
 .collapseExample1>div:nth-child(even){
     display:block
 }
-
-.span_plus{
-    font-size: 30px;
-    color: #ccc;
-    display: block;
-    float: right;
-}
-.span_plus:before{
-    content: "+";
-}
-
-.span_reduce{
-    font-size: 30px;
-    color: #ccc;
-    display: block;
-    float: right;
-}
-.span_reduce:before{
-    content: "-";
+.goods-request-info{
+    height:50px;
+    line-height: 50px;
+    font-size:12px;
+    border-bottom: 1px solid #e5e5e5;
 }
