@@ -34,6 +34,7 @@ function showTitleSelect(num){
 }
 
 $(document).ready(function() {
+    document.documentElement.style.fontSize = document.documentElement.clientWidth / 750*100 + 'px';
 //点击折叠时运行该函数
     $('.collapse').on('hide.bs.collapse show.bs.collapse', function (e) {
         e.stopPropagation()

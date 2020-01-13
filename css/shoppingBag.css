@@ -101,3 +101,28 @@
     font-size:12px;
     border-bottom: 1px solid #e5e5e5;
 }
+.font_12{
+    font-size:12px;
+}
+.lin_height_20{
+    line-height: 20px;
+}
+.client_info{
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0!important;
+}
+.submitted .carousel-control.left {
+    background-image: none!important;
+    left: -10%;
+    width:10%;
+}
+.submitted .carousel-control.right {
+    background-image: none!important;
+    right: -10%;
+    width:10%;
+}
+.submitted .carousel-control .glyphicon-menu-right,.submitted .carousel-control .glyphicon-menu-left{
+    left:50%;
+    transform: translateX(-50%);
+    color:#E5DFC2;
+}
