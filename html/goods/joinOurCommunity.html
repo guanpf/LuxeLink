@@ -3,16 +3,15 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <meta charset="UTF-8">
-    <title>Apply</title>
+    <title>Add To Chart</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="../../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="../../css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../css/public.css">
     <script src="../../js/common.js"></script>
-    <link rel="stylesheet" href="../../css/shoppingBag.css">
+    <link rel="stylesheet" href="../../css/joinOurCommunity.css">
 </head>
 <body id="bodyHeight">
-<!--包包详情-->
 <!--弹出框-->
 <div class="menuBox" id="menu">
     <div class="menu-content">
@@ -50,7 +49,29 @@
         <div class="closeBox"><img src="../../images/mobile/public/back-menu.png" onclick="backMainMenu()" alt=""> MENU
         </div>
         <div><span class="menu-active">HOME</span></div>
-
+        <div>
+            <div class="menu-question-tittle question-level-2" data-toggle="collapse" href="#collapseMenu1" aria-expanded="false" aria-controls="collapseExample">
+                <div>CATEGORIES</div>
+                <div class="collapseExamples">
+                    <span class="span_plus"></span>
+                </div>
+            </div>
+            <div class="collapse menu-question-text-item" id="collapseMenu1">
+                <div class="answer-text">
+                    <ul>
+                        <li>Brumbag</li>
+                        <li>Bacpacl</li>
+                        <li>Messenger</li>
+                        <li>Clutches</li>
+                        <li>Totes</li>
+                        <li>Travel</li>
+                        <li>Shoulder Bag</li>
+                        <li>Cross Body Bag</li>
+                        <li>Small Leather Bag</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div><span>NEW IN</span></div>
         <div><span>SALE</span></div>
         <div><span>SELL TO US</span></div>
@@ -79,26 +100,67 @@
         </div>
     </div>
 </div>
+<div class="topSelect noshow" id="tittleSelect">
+    <div class="topSelectBox">
+        <div class="rightClose"><img class="closeImg" onclick="showTitleSelect(0)" src="../../images/mobile/public/close.png" height="34" width="34"/></div>
+        <ul>
+            <li><span>MY ORDERS</span></li>
+            <li><span class="menu-active">NEWEST</span></li>
+            <li><span>MY FAVOURITE</span></li>
+            <li><span>SELL REQUEST</span></li>
+            <li><span>PAYMENT</span></li>
+            <li><span>LOGOUT</span></li>
+        </ul>
+    </div>
+</div>
 <!--中间-->
-<div class="content goodsDetail" >
-    <div class="shopping-cart">
-        <div class="col-xs-1"></div>
-        <div class="col-xs-10 apply-box">
-            <div class="tittle">SORT BY</div>
-            <label><input type="radio" name="sort" value="Newest"><span>Newest</span></label>
-            <label><input type="radio" name="sort" value="Forward"><span>Price Low to Height</span></label>
-            <label><input type="radio" name="sort" value="Reverse"><span>Price Height to Low</span></label>
-            <div class="tittle">AVAILABILITY</div>
-            <label><input type="radio" name="ability" value="Stock"><span>In Stock</span></label>
-            <label><input type="radio" name="ability" value="All"><span>All</span></label>
-            <div class="check-out">
-                APPLY
+<div class="content" >
+    <div class="content-box">
+        <div class="bigTittle">
+            <div>JOIN OUR</div>
+            <div>COMMUNITY</div>
+        </div>
+        <form action="">
+            <label>
+                <input type="text" placeholder="Email*">
+            </label>
+            <label>
+                <input type="text" placeholder="Password*">
+            </label>
+            <div class="remember-password">
+                <div>
+                    <img src="../../images/mobile/public/remember_no.png" height="200" width="200"/>
+                    <span>Remember Me</span>
+                </div>
+                <div>
+                    Forgotten Password?
+                </div>
+            </div>
+            <button class="btn caa">CREATED AN ACCOUNT</button>
+            <div class="or">
+                <span >*Required Field</span>
+                or
+            </div>
+            <button class="btn login">LOGIN</button>
+        </form>
+        <div class="receive">
+            <img src="../../images/mobile/public/receive.png" height="48" width="48"/>
+            <span>Receive all offers, trends and actions from Luxe Link</span>
+        </div>
+        <div class="login-icon-box">
+            <div>
+                <div><img src="../../images/mobile/public/google_icon.png" height="48" width="48"/></div>
+                <div>Google Login</div>
+            </div>
+            <div>
+                <div><img src="../../images/mobile/public/facebook_icon.png" height="48" width="48"/></div>
+                <div>Facebook Login</div>
             </div>
         </div>
-        <div class="col-xs-1"></div>
     </div>
 
 </div>
+
 <!-- 底部-->
 <div class="common-bottom">
     <iframe src="../public/mobile/footer.html"></iframe>
