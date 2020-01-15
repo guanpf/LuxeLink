@@ -33,6 +33,7 @@ function showTitleSelect(num){
 
 }
 
+
 $(document).ready(function() {
     document.documentElement.style.fontSize = document.documentElement.clientWidth / 750*100 + 'px';
 //点击折叠时运行该函数
@@ -45,5 +46,31 @@ $(document).ready(function() {
         $this.prev('.menu-question-tittle').find("span").toggleClass("span_plus");
         $this.prev('.menu-question-tittle').find("span").toggleClass("span_reduce");
     });
+    $('.receiveCheck').click(function () {
+        if($(this).attr('src')=='../../images/mobile/public/receive_no.png'){
+            $(this).attr('src','../../images/mobile/public/receive_set.png');
+        }else{
+            $(this).attr('src','../../images/mobile/public/receive_no.png');
+        }
+    })
+    $('.rememberCheck').click(function () {
+        if($(this).attr('src')=='../../images/mobile/public/remember_no.png'){
+            $(this).attr('src','../../images/mobile/public/remember_set.png');
+        }else{
+            $(this).attr('src','../../images/mobile/public/remember_no.png');
+        }
+    })
+    $('.changeType').click(function () {
+        let text = 'show'
+        if($(this).prev('.password-label').attr("type")=='password'){
+            $(this).prev('.password-label').attr('type','text')
+            text = 'hide'
+            $(this).html(text)
+        }else{
+            $(this).prev('.password-label').attr('type','password')
+            text = 'show'
+            $(this).html(text)
+        }
+    })
 });
 
