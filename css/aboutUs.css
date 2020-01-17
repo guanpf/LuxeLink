@@ -1,0 +1,122 @@
+.big_top img{
+    width:100%;
+    height:auto;
+    margin-top:-10px;
+}
+.big_top{
+    /*min-height: 200px;*/
+    padding-bottom:0.5rem!important;
+}
+.introduce{
+    padding:0.5rem 0;
+}
+.introduce h2{
+    font-size:0.6rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2rem;
+    color:#333;
+}
+.introduce h3{
+    font-size:0.46rem;
+    text-align: center;
+    line-height: 1rem;
+    color:#333;
+}
+.introduce p {
+    color:#999999;
+    font-size:0.26rem;
+    text-align: center;
+    line-height: 0.4rem;
+}
+.introduce_odd{
+    background: #f5f5f5;
+}
+.introduce_even{
+    background: #fff;
+}
+.introduce_img{
+    width:100%;
+    text-align: center;
+    margin-top:0.5rem;
+}
+.introduce_text{
+    width:80%;
+    margin:0 auto;
+    line-height: 0.4rem;
+    font-size:0.24rem;
+    text-align: center;
+}
+.address{
+    border-top:2px solid #e5e5e5;
+    margin-top:0.3rem;
+}
+.address_select{
+    display: flex;
+    justify-content: space-evenly;
+    font-size:0.36rem;
+    height: 1.2rem;
+    line-height: 1rem;
+}
+.add-active {
+    color: #333;
+    border-bottom: 1px solid #d0c490;
+    display: inline-block;
+    height: 0.6rem;
+    line-height: 0.6rem;
+}
+.address_detail{
+    width:80%;
+    margin:0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size:0.26rem;
+    text-align: left;
+}
+.address_detail>div:nth-child(2){
+    font-weight:bold;
+}
+.address_detail>div p{
+    text-align: left;
+    height:0.6rem;
+    line-height: 0.6rem;
+    color:#333;
+}
+.address_img{
+    margin-top:0.5rem;
+}
+.address_img img{
+    width:100%;
+    height:auto;
+}
+
+/*sell to us*/
+.sellProgress{
+    text-align: center;
+    width:80%;
+    margin:0 auto;
+}
+.sellProgress img{
+    width:100%;
+    height:auto;
+}
+.sell_form{
+    width:90%;
+    margin:0 auto;
+}
+.sell_form label{
+    /*display: block;*/
+    height:0.6rem;
+    line-height: 0.6rem;
+    display: flex;
+    font-size:0.28rem;
+}
+.sell_form label input{
+    border:none;
+    border-bottom:1px solid #666;
+    background: transparent;
+    width: 99%;
+    margin-left: 1%;
+    padding-bottom: 0;
+}
+
