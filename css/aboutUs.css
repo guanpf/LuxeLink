@@ -1,11 +1,11 @@
 .big_top img{
     width:100%;
     height:auto;
-    margin-top:-10px;
+    margin-top:-0.2rem;
 }
 .big_top{
     /*min-height: 200px;*/
-    padding-bottom:0.5rem!important;
+    /*padding-bottom:0.5rem!important;*/
 }
 .introduce{
     padding:0.5rem 0;
@@ -30,7 +30,9 @@
     line-height: 0.4rem;
 }
 .introduce_odd{
-    background: #f5f5f5;
+    background: #fbfbfb;
+    overflow: hidden;
+    width: 100%;
 }
 .introduce_even{
     background: #fff;
@@ -104,19 +106,380 @@
     width:90%;
     margin:0 auto;
 }
-.sell_form label{
+.sell_form>label{
     /*display: block;*/
-    height:0.6rem;
-    line-height: 0.6rem;
+    height:0.8rem;
+    line-height: 0.8rem;
     display: flex;
     font-size:0.28rem;
 }
-.sell_form label input{
+.sell_form>label input{
     border:none;
     border-bottom:1px solid #666;
     background: transparent;
     width: 99%;
     margin-left: 1%;
     padding-bottom: 0;
+    height:0.6rem;
+    line-height: 0.6rem;
+}
+.following-label{
+    display: flex;
+    justify-content: space-between;
+    font-size:0.28rem;
+    width:100%;
+    height:1.2rem;
+    flex-wrap: wrap;
+    margin-top:-0.1rem;
+}
+.following-label>div{
+    height:0.6rem;
+    line-height: 0.6rem;
+    width:50%;
+}
+.following-label>div>input{
+    width: 0.38rem;
+    height: 0.38rem;
+    vertical-align: top;
+    margin-top: 0.11rem;
+    margin-right:0.1rem;
+}
+.sell_form textarea{
+    width:100%;
+    height:2rem;
+    padding: 0.1rem 0.2rem;
+    border: 1px solid #233;
+    line-height: 0.5rem;
+    font-size: 0.24rem;
+}
+.sell_form button{
+    background: transparent;
+    width:100%;
+    height:1rem;
+    line-height: 1rem;
+    border: none;
+    outline: none;
+    font-size: 0.32rem;
+    font-weight: 500;
+}
+.sell_form button:active{
+    border: none;
+    outline: none;
 }
 
+/*submitPic*/
+.angles{
+    background: #fff;
+    padding:0.2rem 0;
+    width: 100%;
+    overflow: hidden;
+}
+.angles p{
+    height:0.6rem;
+    line-height: 0.6rem;
+    width: 100%;
+    text-align: center;
+    font-size: 0.36rem;
+    color:#666;
+}
+.angleBox{
+    width: 90%;
+    margin:0 auto;
+}
+.angle{
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.angle>div{
+    width: 50%;
+    padding: 0.4rem 0;
+}
+.angle>div div{
+    margin:0 auto;
+    width: 2.5rem;
+    font-size: 0.32rem;
+    text-align: center;
+    line-height: 0.6rem;
+}
+.angle>div div img{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.angles button{
+    background: transparent;
+    width:100%;
+    height:1rem;
+    line-height: 1rem;
+    border: none;
+    outline: none;
+    font-size: 0.32rem;
+    font-weight: 500;
+}
+.angles button:active{
+    border: none;
+    outline: none;
+}
+
+/*my account*/
+.headerImg{
+    text-align: center;
+    padding:0.2rem 0;
+}
+.headerImg img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+.changeImgText{
+    font-size:0.32rem;
+    text-align: center;
+    color:#333;
+}
+.changeImgText span{
+    height:0.32rem;
+    line-height: 0.32rem;
+    border-bottom: 1px solid #333;
+}
+.verify button{
+    width: 2.5rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    color:#D1C590;
+    border: 1px solid #D1C590;
+    margin-top: 0;
+    margin-left: 0.2rem;
+    font-size: 0.28rem;
+}
+.sell_form .verifyText,.sell_form p{
+    color:#D0C490;
+    font-size: 0.24rem;
+    height:0.24rem;
+    line-height: 0;
+    text-align: left;
+}
+.sell_form .creditBtn{
+    color:#D0C490;
+    border: 1px solid #D0C490;
+    margin-top:0.3rem;
+}
+
+/*stepPages*/
+/*stepbag*/
+.introduce_box{
+    width:90%;
+    margin:0 auto;
+}
+.stepBox{
+    overflow: hidden;
+    padding-bottom:0.3rem;
+}
+.stepBox img{
+    width: 100%;
+    height:auto;
+}
+.goods_size{
+    display: flex;
+    border-top:3px solid #f5f5f5;
+    border-bottom:3px solid #f5f5f5;
+    padding:0.2rem 0;
+}
+.goods_size>div{
+    width:50%;
+    height:3rem;
+    text-align: center;
+}
+.goods_size>div img{
+    width:3rem;
+    height:3rem;
+}
+.goods_size .bagInfo{
+    width:3rem;
+    height:3rem;
+    margin:0 auto;
+    text-align: left;
+}
+.goods_size .bagInfo h3{
+    font-size: 0.3rem;
+    text-align: left;
+    height: 0.3rem;
+    line-height: 0.3rem;
+}
+.goods_size .bagInfo .bagP1{
+    font-size: 0.28rem;
+    height:0.3rem;
+    line-height: 0.3rem;
+    margin-top:0.25rem;
+    text-align: left;
+}
+.goods_size .bagInfo .bagP2{
+    font-size: 0.28rem;
+    height:0.3rem;
+    line-height: 0.3rem;
+    margin-top:0.8rem;
+    text-align: left;
+}
+.goods_size .bagInfo .bagP3{
+    font-size: 0.28rem;
+    height:0.3rem;
+    line-height: 0.3rem;
+    margin-top:0.1rem;
+    text-align: left;
+}
+.goods_size .bagInfo .bagP4{
+    font-size: 0.28rem;
+    height:0.3rem;
+    line-height: 0.3rem;
+    margin-top:0.3rem;
+    text-align: left;
+    color:#666;
+}
+.ship_method_title{
+    font-size: 0.42rem;
+    font-weight: 500;
+    color:#333;
+    height:1.2rem;
+    line-height: 1.36rem;
+    text-align: center;
+}
+.ship_method label{
+    display: block;
+    font-size: 0.28rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+}
+.ship_method label input{
+    margin-right:0.2rem;
+    margin-left:0.1rem;
+}
+.summary{
+    width:100%;
+    height:8rem;
+    border:2px solid #ededed;
+    margin-top:0.3rem;
+}
+.summaryBox{
+    width:90%;
+    margin:0 auto;
+}
+.summaryBox h3{
+    font-size:0.46rem;
+    font-weight: 500;
+    color:#333;
+    text-align: left;
+}
+.summaryBox>div{
+    width:90%;
+}
+.flexBox{
+    display: flex;
+    justify-content: space-between;
+    color:#333;
+    font-size:0.3rem;
+    margin-top:0.6rem;
+}
+.flexBox>div:nth-child(1){
+    text-align: left;
+}
+.flexBox>div:nth-child(2){
+    text-align: right;
+}
+.summaryBox .oneFree{
+    text-align: right;
+    color:#D0C490;
+    font-weight: 500;
+    font-size:0.3rem;
+    margin-top:0.15rem;
+}
+.summary_line{
+    height:2px;
+    width:100%;
+    background-color: #ededed;
+    margin:0.8rem 0;
+}
+.aud-span span:nth-child(1){
+    font-size:0.36rem;
+    color:#333;
+}
+.aud-span span:nth-child(1){
+    font-size:0.36rem;
+    color:#333;
+    padding-right:0.2rem;
+}
+.aud-span span:nth-child(2){
+    font-size:0.36rem;
+    color:#111;
+    font-weight: bold;
+}
+.summary button{
+    display: block;
+    margin:0.8rem auto 0;
+    width:50%;
+    height:0.8rem;
+    line-height: 0.8rem;
+    color:#333;
+    text-align: center;
+    font-size:0.32rem;
+    background-color: #D0C490;
+    border:none;
+}
+.summary button:active{
+    border:none;
+}
+
+/*step delivery*/
+.contactDetailsTitle{
+    font-size:0.36rem;
+    font-weight: bold;
+    text-align: center;
+    height:0.8rem;
+}
+.sell_form .apply{
+    border-bottom: 1px solid #333;
+    display: inline-block;
+    height: 0.6rem;
+    margin-left: 0.5rem;
+}
+
+/*step payment*/
+/*.pay_form label{*/
+/*    height:0.6rem;*/
+/*    line-height: 0.6rem;*/
+/*}*/
+.pay_form .checkLabel{
+    background: #EEEEEE;
+    margin-bottom: 0.2rem;
+}
+.pay_form .checkLabel input{
+    width:0.4rem;
+    height:0.4rem;
+    margin-top:0.2rem;
+    margin-left:0.3rem;
+}
+.pay_form .checkLabel span{
+    margin-left:0.3rem;
+}
+.labelTitle{
+    height:0.6rem;
+    line-height: 0.8rem;
+}
+.pay_form .optional{
+    color:#999;
+    margin-left:0.3rem;
+}
+.addressCheck{
+    font-size:0.26rem;
+    color:#333;
+    height:0.6rem;
+    line-height: 0.6rem;
+}
+.addressCheck input{
+    width:0.3rem;
+    height:0.3rem;
+    margin-top: 0.15rem;
+    vertical-align: top;
+}
+.addressCheck span{
+    margin-left:0.1rem;
+}

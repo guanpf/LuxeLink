@@ -35,7 +35,15 @@ function showTitleSelect(num){
 
 
 $(document).ready(function() {
-    document.documentElement.style.fontSize = document.documentElement.clientWidth / 750*100 + 'px';
+    var windowWidth = $(window).width();
+    console.log(1111,windowWidth)
+    if(windowWidth < 640){
+        // do something
+        console.log(1354)
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 750*100 + 'px';
+    }else{
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / windowWidth*50 + 'px';
+    }
 //点击折叠时运行该函数
     $('.collapse').on('hide.bs.collapse show.bs.collapse', function (e) {
         e.stopPropagation()

@@ -14,32 +14,70 @@
 </head>
 <body id="bodyHeight">
 <!--弹出框-->
-    <div class="menuBox" id="menu">
-        <div class="menu-content">
-            <div class="closeBox"><img src="../../images/mobile/public/close.png"  onclick="hideMenu()" alt=""></div>
-            <div><span class="menu-active">HOME</span></div>
-            <div><span>NEW IN</span></div>
-            <ul>
-                <li onclick="toSecondMenu('BAGS')"><div>BAGS</div><div>></div></li>
-                <li  onclick="toSecondMenu('SHOES')"><div>SHOES</div><div>></div></li>
-                <li  onclick="toSecondMenu('WATCH')"><div>WATCH</div><div>></div></li>
-                <li  onclick="toSecondMenu('JEWELRY')"><div>JEWELRY</div><div>></div></li>
-                <li  onclick="toSecondMenu('ACCESSORIES')"><div>ACCESSORIES</div><div>></div></li>
-            </ul>
-            <div><span>STORE</span></div>
-            <div><span>SALE</span></div>
-        </div>
+<div class="menuBox" id="menu">
+    <div class="menu-content">
+        <div class="closeBox"><img src="../../images/mobile/public/close.png" onclick="hideMenu()" alt=""></div>
+        <div><span class="menu-active">HOME</span></div>
+        <div><span>NEW IN</span></div>
+        <ul>
+            <li onclick="toSecondMenu('BAGS')">
+                <div>BAGS</div>
+                <div>></div>
+            </li>
+            <li onclick="toSecondMenu('SHOES')">
+                <div>SHOES</div>
+                <div>></div>
+            </li>
+            <li onclick="toSecondMenu('WATCH')">
+                <div>WATCH</div>
+                <div>></div>
+            </li>
+            <li onclick="toSecondMenu('JEWELRY')">
+                <div>JEWELRY</div>
+                <div>></div>
+            </li>
+            <li onclick="toSecondMenu('ACCESSORIES')">
+                <div>ACCESSORIES</div>
+                <div>></div>
+            </li>
+        </ul>
+        <div><span>STORE</span></div>
+        <div><span>SALE</span></div>
     </div>
-    <div class="menuBox" id="secondMenu">
-        <div class="menu-content">
-            <div class="closeBox"><img src="../../images/mobile/public/back-menu.png"  onclick="backMainMenu()" alt="">  MENU</div>
-            <div><span class="menu-active">HOME</span></div>
-
-            <div><span>NEW IN</span></div>
-            <div><span>SALE</span></div>
-            <div><span>SELL TO US</span></div>
+</div>
+<div class="menuBox" id="secondMenu">
+    <div class="menu-content">
+        <div class="closeBox"><img src="../../images/mobile/public/back-menu.png" onclick="backMainMenu()" alt=""> MENU
         </div>
+        <div><span class="menu-active">HOME</span></div>
+        <div>
+            <div class="menu-question-tittle question-level-2" data-toggle="collapse" href="#collapseMenu1" aria-expanded="false" aria-controls="collapseExample">
+                <div>CATEGORIES</div>
+                <div class="collapseExamples">
+                    <span class="span_plus"></span>
+                </div>
+            </div>
+            <div class="collapse menu-question-text-item" id="collapseMenu1">
+                <div class="answer-text">
+                    <ul>
+                        <li>Brumbag</li>
+                        <li>Bacpacl</li>
+                        <li>Messenger</li>
+                        <li>Clutches</li>
+                        <li>Totes</li>
+                        <li>Travel</li>
+                        <li>Shoulder Bag</li>
+                        <li>Cross Body Bag</li>
+                        <li>Small Leather Bag</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div><span>NEW IN</span></div>
+        <div><span>SALE</span></div>
+        <div><span>SELL TO US</span></div>
     </div>
+</div>
 <div class="col-lg-8 col-lg-offset-2">
 <!--    头部-->
     <div class="topBar">
@@ -57,7 +95,7 @@
             <div class="col-xs-2"></div>
             <div class="col-xs-6"><img src="../../images/mobile/public/logo.png" height="36" width="178"/></div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
-            <div class="col-xs-1"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>(0)</div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-lock" style="font-size: 0.24rem" aria-hidden="true"></span>(0)</div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
         </div>
     </div>

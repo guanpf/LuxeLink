@@ -3,88 +3,89 @@
     top: 50%;
     z-index: 5;
     display: inline-block;
-    margin-top: -10px;
+    margin-top: -0.2rem;
     color:#c5c5c5;
-    font-size:18px;
+    font-size:0.36rem;
 }
 .goodsInfo{
     text-align: center;
 }
 .goodsInfo .info1{
-    font-size:16px;
+    font-size:0.32rem;
     color:#222;
-    height:40px;
-    line-height: 40px;
+    height:0.8rem;
+    line-height: 0.8rem;
     font-weight: bold;
 }
 .goodsInfo .info2{
-    font-size:14px;
+    font-size:0.28rem;
     color:#333;
-    height:30px;
-    line-height: 30px;
+    height:0.6rem;
+    line-height: 0.6rem;
 }
 .goodsInfo .info3{
-    font-size:13px;
+    font-size:0.26rem;
     color:#444;
-    height:30px;
-    line-height: 30px;
+    height:0.6rem;
+    line-height: 0.6rem;
 }
 .goodsInfo .info4{
-    font-size:14px;
+    font-size:0.28rem;
     color:#222;
-    height:35px;
-    line-height: 35px;
-    letter-spacing: 2px;
+    height:0.7rem;
+    line-height: 0.7rem;
+    letter-spacing: 0.04rem;
 }
 .goodsInfo .goodsInfoBtn{
     width:80%;
-    margin:20px auto;
+    margin:0.4rem auto;
     background:#D1C590 ;
     color:#222;
-    height:50px;
-    line-height:50px;
+    height:1rem;
+    line-height:1rem;
     text-align: center;
-    font-size:16px;
+    font-size:0.32rem;
+    font-weight: 500;
 }
 
 .exchangeBox{
-    height:40px;
-    line-height: 40px;
+    height:0.8rem;
+    line-height: 0.8rem;
     font-size:0.28rem;
 }
 
 .exchangeBox img{
     vertical-align: top;
-    width:30px;
-    height:30px;
-    margin-top:5px;
+    width:0.6rem;
+    height:0.6rem;
+    margin-top:0.1rem;
 }
 .itemImg img{
     width:100%;
     height:auto;
 }
 .features-box{
-    padding-bottom:50px;
+    padding-bottom:1rem;
 }
 .features{
     width: 100%;
     overflow: hidden;
-    padding-bottom:25px;
+    padding-bottom:0.5rem;
     border-bottom:1px solid #e5e5e5;
 }
 .features .row{
-    padding-top:40px;
-    font-size:13px;
+    padding-top:0.8rem;
+    font-size:0.26rem;
 }
 
 .features .detail-features>div:nth-child(1){
      display: inline-block;
      border-bottom:1px solid #222;
-    padding-bottom:8px;
+    padding-bottom:0.16rem;
  }
 .features .detail-features>div:nth-child(2){
     color:#666;
-    line-height: 25px;
+    line-height: 0.5rem;
 }
 
 .add-to-chart{
