@@ -36,10 +36,8 @@ function showTitleSelect(num){
 
 $(document).ready(function() {
     var windowWidth = $(window).width();
-    console.log(1111,windowWidth)
     if(windowWidth < 640){
         // do something
-        console.log(1354)
         document.documentElement.style.fontSize = document.documentElement.clientWidth / 750*100 + 'px';
     }else{
         document.documentElement.style.fontSize = document.documentElement.clientWidth / windowWidth*50 + 'px';
@@ -54,6 +52,16 @@ $(document).ready(function() {
         $this.prev('.menu-question-tittle').find("span").toggleClass("span_plus");
         $this.prev('.menu-question-tittle').find("span").toggleClass("span_reduce");
     });
+
+    $('.head-content ul li span').on('click', function (e) {
+        e.stopPropagation()
+        var $this = $(this)
+        // $this.parent().prev('li').find("span").toggleClass("tab-list-active");
+        $this.parent().siblings().find("span").removeClass("tab-list-active");
+        $this.addClass("tab-list-active")
+
+    });
+
     $('.receiveCheck').click(function () {
         if($(this).attr('src')=='../../images/mobile/public/receive_no.png'){
             $(this).attr('src','../../images/mobile/public/receive_set.png');

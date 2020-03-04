@@ -37,7 +37,11 @@ body{
     height:100%;
     overflow-y: scroll;
 }
+.pc-footer{
+    display: none;
+}
 .footer{
+    display: block;
     background: #181818;
     width:100%;
     overflow: hidden;
@@ -308,11 +312,192 @@ body{
 .mobile-header{
     display:block;
 }
+
+.flex-box{
+    display: flex;
+    justify-content: space-evenly;
+}
+.flex-box>div{
+    width:50%;
+    text-align: center;
+}
+
+/*pc端样式*/
 @media screen and (min-width: 450px) {
+    /*公共头部*/
     .pc-head{
         display:block;
+        height:3.6rem;
+        box-shadow: 0.1rem 0.1rem 0.2rem #E5E5E5;
+        background: #fafafa;
     }
     .mobile-header{
         display:none;
+    }
+    .head-content{
+        height:2.6rem;
+        width:100%;
+        background-color: #fafafa;
+        box-shadow: 0.2rem 0.2rem 0.2rem #E5E5E5;
+    }
+    .head-content .logo{
+        width:2rem;
+        height:1.32rem;
+    }
+    .head-content>div{
+        width:100%;
+        text-align: center;
+    }
+    .head-content>div:nth-child(1){
+        height:1.4rem;
+        line-height: 1.4rem;
+    }
+    .head-content>div:nth-child(2){
+        height:0.5rem;
+        line-height: 0.4rem;
+        font-size:0.24rem;
+    }
+    .head-content>div:nth-child(3){
+        height:0.66rem;
+        line-height: 0.66rem;
+    }
+    .head-content>div:nth-child(3) ul{
+        height:0.64rem;
+        border-top:0.04rem solid #EDEDED;
+        display: flex;
+        justify-content: start;
+    }
+    .head-content>div:nth-child(3) ul li{
+        color:#333;
+        font-size:0.26rem;
+    }
+    .head-content>div:nth-child(3) ul li span{
+        margin-right:0.8rem;
+        height:0.66rem;
+        line-height: 0.66rem;
+        display: inline-block;
+        margin-top:-0.04rem;
+    }
+    .tab-list-active{
+        border-top:0.04rem solid #A38A17;
+        color:#A38A16;
+    }
+    .flex-between{
+        display: flex;
+        justify-content: space-between;
+    }
+    .search-content{
+        height: 0.64rem;
+        display: flex;
+        border-top: 0.04rem solid #ededed;
+    }
+    .search-content input{
+        text-align: right;
+        padding-right:0.3rem;
+        border-right:0.02rem solid #ededed;
+        border-top:none;
+        border-bottom: none;
+        border-left:none;
+        background-color: transparent;
+        height:0.36rem;
+        margin-top:0.15rem;
+        font-size:0.26rem;
+    }
+    .search-content span{
+        font-size: 0.28rem;
+        padding: 0 0.2rem;
+        color: #666;
+        line-height: 0.6rem;
+    }
+
+
+    /*公共底部*/
+    .common-bottom{
+        width:100%;
+        height:8.2rem;
+    }
+    .common-bottom iframe{
+        width:100%;
+        height:8.2rem;
+    }
+    .pc-footer{
+        display: block;
+        background: #181818;
+        width:100%;
+        overflow: hidden;
+        padding:0.6rem 0;
+        /*height:8.2rem;*/
+    }
+    .bottom-content{
+        width:65%;
+        margin: 0 auto;
+    }
+    .bottom-one{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .bottom-one>div{
+        width:33.3%;
+        height:3.4rem;
+    }
+    .bottom-one>div:nth-child(1) .bottom-one-item{
+        border-right:1px solid #fff;
+    }
+    .bottom-one>div:nth-child(2) .bottom-one-item{
+        border-right:1px solid #fff;
+    }
+    .bottom-one-item{
+        height:1.4rem;
+    }
+    .bottom-one-item>div{
+        text-align: center;
+        color:#fff;
+    }
+    .bottom-one-item>div:nth-child(1){
+        height:0.6rem;
+        line-height: 0;
+    }
+    .bottom-one-item>div:nth-child(1) img{
+        width:0.6rem;
+        height:0.6rem;
+        margin-top:-0.1rem;
+    }
+    .bottom-one-item>div:nth-child(2){
+        height:0.5rem;
+        line-height:0.5rem;
+        font-size:0.28rem
+    }
+    .bottom-one-item>div:nth-child(3){
+        height:0.3rem;
+        line-height:0.5rem;
+        font-size:0.24rem
+    }
+    .bottom-two{
+        display: flex;
+        justify-content: space-between;
+    }
+    .bottom-two>div{
+        width:25%;
+        text-align: left;
+        height:5.6rem;
+    }
+    .bottom-two>div>div{
+        width:90%;
+        border-bottom:0.02rem solid #7A7A7A;
+    }
+    .bottom-two>div>div span{
+        color:#fff;
+        height:0.8rem;
+        line-height: 0.8rem;
+        display: inline-block;
+        border-bottom:0.02rem solid #D0C490;
+    }
+    .bottom-two>div ul li{
+        height:0.6rem;
+        line-height: 0.6rem;
+        color:#999;
+    }
+    .footer{
+        display: none;
     }
 }
