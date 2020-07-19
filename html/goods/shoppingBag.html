@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="../../css/shoppingBag.css">
 </head>
 <body id="bodyHeight">
-<!--包包详情-->
 <!--弹出框-->
 <div class="menuBox" id="menu">
     <div class="menu-content">
-        <div class="closeBox"><img src="../../images/mobile/public/close.png" onclick="hideMenu()" alt=""></div>
+        <div class="closeBox"><img src="images/mobile/public/close.png" onclick="hideMenu()" alt=""></div>
         <div><span class="menu-active">HOME</span></div>
         <div><span>NEW IN</span></div>
         <ul>
@@ -47,7 +46,7 @@
 </div>
 <div class="menuBox" id="secondMenu">
     <div class="menu-content">
-        <div class="closeBox"><img src="../../images/mobile/public/back-menu.png" onclick="backMainMenu()" alt=""> MENU
+        <div class="closeBox"><img src="images/mobile/public/back-menu.png" onclick="backMainMenu()" alt=""> MENU
         </div>
         <div><span class="menu-active">HOME</span></div>
         <div>
@@ -78,8 +77,8 @@
         <div><span>SELL TO US</span></div>
     </div>
 </div>
-<div class="col-lg-8 col-lg-offset-2">
-    <!--    头部-->
+<!--    头部-->
+<div class="col-lg-8 col-lg-offset-2 mobile-header">
     <div class="topBar">
         <!--导航-->
         <div class="topTab">
@@ -91,43 +90,56 @@
         </div>
         <!--菜单标题-->
         <div class="tabList" id="tabList">
-            <div class="col-xs-1" onclick="showMenu()"><span class="glyphicon glyphicon-menu-hamburger"
-                                                             aria-hidden="true"></span></div>
+            <div class="col-xs-1" onclick="showMenu()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></div>
             <div class="col-xs-2"></div>
-            <div class="col-xs-6"><img src="../../images/mobile/public/logo.png" height="36" width="178"/></div>
+            <div class="col-xs-6"><img src="images/mobile/public/logo.png" height="36" width="178"/></div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
-            <div class="col-xs-1"><span class="glyphicon glyphicon-lock" style="font-size: 0.24rem" aria-hidden="true"></span>(0)</div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-lock" style="font-size: 0.24rem" style="font-size: 0.24rem" aria-hidden="true"></span>(0)</div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
         </div>
     </div>
 </div>
+<div class="pc-head">
+    <iframe scrolling="no" src="../public/mobile/header.html" style="width:100%;height:3.6rem"></iframe>
+</div>
+<div class="topSelect noshow" id="tittleSelect">
+    <div class="topSelectBox">
+        <div class="rightClose"><img class="closeImg" onclick="showTitleSelect(0)" src="images/mobile/public/close.png" height="34" width="34"/></div>
+        <ul>
+            <li><span  class="menu-active">NEWEST</span></li>
+            <li><a href="myOrder.html"><span>MY ORDERS</span></a></li>
+            <li><span>MY FAVOURITE</span></li>
+            <li><a href="sellRequest.html"></a><span>SELL REQUEST</span></li>
+            <li><a href="stepPayment.html"><span>PAYMENT</span></a></li>
+            <li><span>LOGOUT</span></li>
+        </ul>
+    </div>
+</div>
 <!--中间-->
-<div class="content goodsDetail" >
-    <div class="shopping-cart">
-        <div class="col-xs-1"></div>
-        <div class="col-xs-10">
+<div class="content mobile goodsDetailBox">
+    <div class="shopping-cart" >
             <div class="tittle">SHOPPING BAG</div>
             <div class="tabble-th">
                 <div class="col-xs-8 center">PRODUCT</div>
                 <div class="col-xs-3 center">PRICE</div>
             </div>
             <div class="goodsDetail">
-                <div class="col-xs-3 center goodsImg"><img src="../../images/mobile/public/shopping_bag.png"height="80" width="80"/></div>
+                <div class="col-xs-3 center goodsImg"><img src="images/mobile/public/shopping_bag.png" height="80" width="80"/></div>
                 <div class="col-xs-5 align-left">Black Leather Jacket</div>
                 <div class="col-xs-3 center">$150.00</div>
-                <div class="col-xs-1 center"><img src="../../images/mobile/public/close.png" height="17" width="17"/></div>
+                <div class="col-xs-1 center"><img src="images/mobile/public/close.png" height="17" width="17"/></div>
             </div>
             <div class="goodsDetail">
-                <div class="col-xs-3 center goodsImg"><img src="../../images/mobile/public/shopping_bag.png"height="80" width="80"/></div>
+                <div class="col-xs-3 center goodsImg"><img src="images/mobile/public/shopping_bag.png" height="80" width="80"/></div>
                 <div class="col-xs-5 align-left">Black Leather Jacket</div>
                 <div class="col-xs-3 center">$150.00</div>
-                <div class="col-xs-1 center"><img src="../../images/mobile/public/close.png" height="17" width="17"/></div>
+                <div class="col-xs-1 center"><img src="images/mobile/public/close.png" height="17" width="17"/></div>
             </div>
             <div class="goodsDetail">
-                <div class="col-xs-3 center goodsImg"><img src="../../images/mobile/public/shopping_bag.png"height="80" width="80"/></div>
+                <div class="col-xs-3 center goodsImg"><img src="images/mobile/public/shopping_bag.png" height="80" width="80"/></div>
                 <div class="col-xs-5 align-left">Black Leather Jacket</div>
                 <div class="col-xs-3 center">$150.00</div>
-                <div class="col-xs-1 center"><img src="../../images/mobile/public/close.png" height="17" width="17"/></div>
+                <div class="col-xs-1 center"><img src="images/mobile/public/close.png" height="17" width="17"/></div>
             </div>
             <div class="total total-top">
                 <div class="col-xs-6">
@@ -148,16 +160,287 @@
                 </div>
             </div>
             <div class="exchangeBox">
-                <div class="col-xs-2 align-left"><img src="../../images/mobile/goodsDetail/exchange.png" height="31" width="31"/></div>
+                <div class="col-xs-2 align-left"><img src="images/mobile/goodsDetail/exchange.png" height="31" width="31"/></div>
                 <div class="col-xs-10">Exchange within 3 months for $2660</div>
             </div>
             <div class="check-out">
                 CHECK OUT
             </div>
-        </div>
-        <div class="col-xs-1"></div>
+<!--        </div>-->
+<!--        <div class="col-xs-1"></div>-->
     </div>
+</div>
+<div class="content pc goodsDetailBox" style="background: #fafafa">
+    <div class="col-lg-12 main-box">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-12 big_top" style="margin-bottom:1rem;">
+                <img src="images/mobile/sellToUs/banner.png"/>
+            </div>
+            <div class="introduce introduce_odd">
+                <h2 class="pub_title">SHOPPING BAG</h2>
+            </div>
+            <div>
+                <div class="col-lg-8">
+                    <div class="tabble-th">
+                        <div class="col-xs-8 center">PRODUCT</div>
+                        <div class="col-xs-3 center">PRICE</div>
+                    </div>
+                    <div class="pc_goods_detail pc_goods_detail">
+                        <div class="col-lg-3 center goodsImg"><img src="images/mobile/public/shopping_bag.png" height="80" width="80"/></div>
+                        <div class="col-lg-5 align-left">
+                            <p class="p1">Black Leather Jacket</p>
+                            <p class="p2">Great 98%</p>
+                            <p class="p3">Red</p>
+                            <p class="p4">12cm * 30cm * 30cm</p>
+                            <p class="p5">this project is jkslifo sfsef shgsehsef resf sghseh dryhsset wegweyhe</p>
+                        </div>
+                        <div class="col-lg-3 center" style="position:relative;height:100%;">
+                            <p>$15.00</p>
+                            <p class="p6"><span class="glyphicon glyphicon-star"></span>Add to favorite</p>
+                        </div>
+                        <div class="col-lg-1 center"><img class="close_icon" src="images/mobile/public/close.png" height="17" width="17"/></div>
+                    </div>
+                    <div class="pc_goods_detail pc_goods_detail">
+                        <div class="col-lg-3 center goodsImg"><img src="images/mobile/public/shopping_bag.png" height="80" width="80"/></div>
+                        <div class="col-lg-5 align-left">
+                            <p class="p1">Black Leather Jacket</p>
+                            <p class="p2">Great 98%</p>
+                            <p class="p3">Red</p>
+                            <p class="p4">12cm * 30cm * 30cm</p>
+                            <p class="p5">this project is jkslifo sfsef shgsehsef resf sghseh dryhsset wegweyhe</p>
+                        </div>
+                        <div class="col-lg-3 center" style="position:relative;height:100%;">
+                            <p>$15.00</p>
+                            <p class="p6"><span class="glyphicon glyphicon-star"></span>Add to favorite</p>
+                        </div>
+                        <div class="col-lg-1 center"><img class="close_icon" src="images/mobile/public/close.png" height="17" width="17"/></div>
+                    </div>
+                    <div class="pc_goods_detail pc_goods_detail">
+                        <div class="col-lg-3 center goodsImg"><img src="images/mobile/public/shopping_bag.png" height="80" width="80"/></div>
+                        <div class="col-lg-5 align-left">
+                            <p class="p1">Black Leather Jacket</p>
+                            <p class="p2">Great 98%</p>
+                            <p class="p3">Red</p>
+                            <p class="p4">12cm * 30cm * 30cm</p>
+                            <p class="p5">this project is jkslifo sfsef shgsehsef resf sghseh dryhsset wegweyhe</p>
+                        </div>
+                        <div class="col-lg-3 center" style="position:relative;height:100%;">
+                            <p>$15.00</p>
+                            <p class="p6"><span class="glyphicon glyphicon-star"></span>Add to favorite</p>
+                        </div>
+                        <div class="col-lg-1 center"><img class="close_icon" src="images/mobile/public/close.png" height="17" width="17"/></div>
+                    </div>
+                    <div class="pc_goods_detail pc_goods_detail">
+                        <div class="col-lg-3 center goodsImg"><img src="images/mobile/public/shopping_bag.png" height="80" width="80"/></div>
+                        <div class="col-lg-5 align-left">
+                            <p class="p1">Black Leather Jacket</p>
+                            <p class="p2">Great 98%</p>
+                            <p class="p3">Red</p>
+                            <p class="p4">12cm * 30cm * 30cm</p>
+                            <p class="p5">this project is jkslifo sfsef shgsehsef resf sghseh dryhsset wegweyhe</p>
+                        </div>
+                        <div class="col-lg-3 center" style="position:relative;height:100%;">
+                            <p>$15.00</p>
+                            <p class="p6"><span class="glyphicon glyphicon-star"></span>Add to favorite</p>
+                        </div>
+                        <div class="col-lg-1 center"><img class="close_icon" src="images/mobile/public/close.png" height="17" width="17"/></div>
+                    </div>
+                    <div>
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination pageBox">
+                                <li>
+                                    <a href="#" aria-label="Previous" class="page-btn">
+                                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">...</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next"  class="page-btn">
+                                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-4 ">
+                    <div class="shopping-summary">
+                        <div class="total total-top">
+                            <div class="summary-title">SUMMARY</div>
+                            <div class="flex-box-between">
+                                <div class=" align-left">Subtotal</div>
+                                <div class=" align-right ">$60.00</div>
+                            </div>
+                            <div class="flex-box-between center">
+                                <div class=" align-left">Shipping</div>
+                                <div class=" align-right" style="color:#D1C590">
+                                    <div style="line-height: 0.4rem">$10.00</div>
+                                    <div style="line-height: 0.4rem">One Shipping Fee</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="midLine"></div>
+                        <div class="total">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6 center">Total</div>
+                                <div class="col-xs-6 center sum">
+                                    AUD <span>$460</span>
+                                </div>
+                            </div>
+                            <div class="align-right" style="padding-right:0.2rem;line-height: 0.24rem">import duties included</div>
+                        </div>
+                        <div class="check-out">
+                            CHECK OUT
+                        </div>
+                    </div>
+                </div>
 
+                <!--        </div>-->
+                <!--        <div class="col-xs-1"></div>-->
+            </div>
+        </div>
+    </div>
+    <div class="shop-now pc">
+        <img src="../goods/images/pc/public/shop_now.png" />
+    </div>
+    <!--POPULAR ITEMS-->
+    <div class="col-lg-12">
+        <div class="carousel-example-generic-goods col-lg-8 col-lg-offset-2">
+            <div class="goodsCarouselTittle">
+                <h2 class="center">REALTED PRODUCTS</h2>
+            </div>
+            <div id="carousel-example-generic-goods3" class="carousel slide" data-ride="carousel">
+                <div class="carouselTopLine"></div>
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic-goods3" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic-goods3" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic-goods3" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner goodsCarouselItem center" role="listbox">
+                    <div class="item active">
+                        <div class="col-xs-6 col-lg-3">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                        <div class="col-xs-6 col-lg-3">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                        <div class="col-xs-6 col-lg-3">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                        <div class="col-xs-6 col-lg-3">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-xs-6 col-lg-3 center">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                        <div class="col-xs-6 col-lg-3">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                        <div class="col-xs-6 col-lg-3">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                        <div class="col-xs-6 col-lg-3">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-xs-6 col-lg-3 center">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                        <div class="col-xs-6 col-lg-3">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                        <div class="col-xs-6 col-lg-3">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                        <div class="col-xs-6 col-lg-3">
+                            <img src="../goods/images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                            <p class="p1">Louis Vuitton</p>
+                            <p class="p1">Great 98%</p>
+                            <p class="p2">CAPUCINES PM</p>
+                            <p class="p2">red Leather Bag</p>
+                            <p class="p3"><s>$3750</s> $3450</p>
+                        </div>
+                    </div>
+                </div>
+                <!--Controls -->
+                <div class="carousel-goods-control">
+                    <a class="left carousel-control" href="#carousel-example-generic-goods3" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic-goods3" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 </div>
 <!-- 底部-->
 <div class="common-bottom">

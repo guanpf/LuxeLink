@@ -90,3 +90,95 @@
     display: block;
     text-decoration: none;
 }
+.progressFilter{
+    width:100%;
+    height:50px;
+    margin-top:0.2rem;
+}
+.flex-filter{
+    display: flex;
+    justify-content: space-between;
+    margin-top:0.6rem;
+}
+.flex-filter .filter{
+    color:#D0C48F;
+    width:30%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+}
+.flex-filter .price{
+    color:#333;
+    width:70%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    text-align: right;
+}
+.filterTitle{
+    text-align: left;
+    margin-top:0.6rem;
+    color:#333;
+    font-weight: 600;
+}
+.searchBox{
+    position:relative;
+    line-height: 0.52rem;
+    margin-top:0.2rem;
+}
+.searchBox input{
+    width:100%;
+}
+.searchBox span{
+    position: absolute;
+    right:5px;
+    top:0.14rem;
+    font-size:0.28rem;
+}
+.searchResult{
+    border-bottom: 0.04rem solid #f5f5f5;
+    margin-top:0.2rem;
+    padding-bottom:0.15rem;
+}
+.searchResult>div{
+    height:4.6rem;
+    overflow-y: scroll;
+}
+.checkList{
+    margin-top:0.2rem;
+}
+.checkList label{
+    height:0.6rem;
+    line-height: 0.6rem;
+    font-weight: normal;
+    width:100%;
+}
+.checkList label span:nth-child(3){
+    float:right;
+    margin-right:0.2rem;
+}
+.filterList{
+    border-bottom: 0.04rem solid #f5f5f5;
+    margin-top:0.2rem;
+    padding-bottom:0.15rem;
+}
+.filterListActive{
+    height:0.6rem;
+    line-height: 0.6rem;
+    width:100%;
+    background: #333;
+    display: flex;
+    justify-content: space-between;
+    color:#fff;
+    padding:0 0.2rem;
+    margin-top:0.2rem;
+}
+.filterListItem{
+    height:0.6rem;
+    line-height: 0.6rem;
+    width:100%;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    color:#333;
+    padding:0 0.2rem;
+    margin-top:0.2rem;
+}

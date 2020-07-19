@@ -109,3 +109,257 @@
     font-size: 0.32rem;
     padding: 0;
 }
+/*pc端样式*/
+@media screen and (min-width: 450px) {
+    .content{
+        /*height:30rem;*/
+    }
+    .goodsInfo .btnGroup{
+        margin-top:0.2rem;
+        height:1rem;
+    }
+    .goodsInfo .btnGroup .goodsInfoBtn{
+        width:40%;
+        background:#D1C590 ;
+        color:#222;
+        margin:0;
+        height:1rem;
+        line-height:1rem;
+        text-align: center;
+        font-size:0.32rem;
+        font-weight: 500;
+        float: left;
+    }
+    .goodsInfo .btnGroup .goodsInfoBtnTwo{
+        float: left;
+        width:40%;
+        margin-left:0.4rem;
+        border:1px solid #D1C590;
+        background:transparent ;
+        color:#222;
+        height:1rem;
+        line-height:1rem;
+        text-align: center;
+        font-size:0.32rem;
+        font-weight: 500;
+    }
+    .favorite{
+        border-top:2px solid #ececec;
+        margin-top:0.4rem;
+    }
+    .addFavorite{
+        height:0.8rem;
+        line-height:0.8rem;
+        font-size:0.28rem;
+        color:#999;
+        display: flex;
+        justify-content: start;
+    }
+    .addFavorite div{
+        height:0.8rem;
+        line-height: 0.8rem;
+    }
+    .addFavorite div .glyphicon-star{
+        padding-top:0.22rem;
+        margin-right:0.2rem;
+    }
+    .favorite>div{
+        height:0.8rem;
+        line-height:0.8rem;
+        font-size:0.28rem;
+        color:#222;
+    }
+    .favorite>div:nth-child(2){
+        height:0.3rem;
+        line-height:0.3rem;
+        font-size:0.28rem;
+        color:#222;
+    }
+    .favorite>div:nth-child(3) img{
+        width:0.42rem;
+        height:0.42rem;
+        vertical-align: top;
+        margin-top: 0.22rem;
+        margin-left: 0.1rem;
+    }
+    .exchangeBox{
+        border-top: 2px solid #ececec;
+        display: flex;
+        justify-content: start;
+    }
+    .exchangeBox>div:nth-child(2){
+        margin-left:0.16rem;
+        font-weight: 500;
+    }
+    .detailTab{
+        border-top:2px solid #ececec;
+        margin-top:1rem;
+    }
+    .detailTab .nav-tabs{
+        border:none;
+        font-size:0.32rem;
+        font-weight:500;
+        display: flex;
+        justify-content: center;
+        padding:0.1rem 0 0.5rem;
+    }
+    .nav-tabs>li{
+        padding:0 0.4rem;
+    }
+    .nav-tabs>li>a{
+        border:none;
+    }
+    .detailTab .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+        background-color:transparent;
+        border:none;
+        border-bottom:2px solid #4cae4c;
+    }
+    .tab-content-box{
+        background: #f6f6f6;
+        padding:0.4rem 0 0.8rem;
+        height:6.8rem;
+    }
+    .tab-content{
+        background-color: #f6f6f6;
+    }
+    .tab-content .tab-pane p{
+        font-size:0.26rem;
+        color:#999;
+        letter-spacing: 0.01rem;
+        line-height: 0.5rem;
+    }
+    .tab-content .tab-pane>p:nth-child(2){
+        margin-top:0.6rem;
+    }
+    .shop-now img{
+        width:100%;
+        height: auto;
+    }
+    .goodsCarouselTittle h2 {
+        margin: 0.4rem 0 0.2rem;
+        line-height: 0.5rem;
+        font-size: 0.48rem;
+    }
+
+    .goodsCarouselItem>div{
+        padding-top:0.3rem;
+    }
+    .carousel-example-generic-goods{
+        padding-bottom:0.4rem!important;
+    }
+    .carousel-example-generic-goods .carousel-control {
+        position: absolute;
+        height: 0.3rem;
+        bottom: 0;
+        /*right: 20px;*/
+        width: 15%;
+        font-size: 0.24rem;
+        color: #D1C590;
+        text-align: center;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+        background-color: rgba(0, 0, 0, 0);
+        filter: alpha(opacity=50);
+        opacity: .5;
+    }
+
+    .carousel-example-generic-goods .carousel-control .glyphicon-chevron-left, .carousel-example-generic-goods .carousel-control .icon-prev,
+    .carousel-example-generic-goods .carousel-control .glyphicon-chevron-right {
+        /*left: 50%;*/
+        /*margin-left: -10px;*/
+        font-size: 0.24rem;
+    }
+
+    .carousel-example-generic-goods .carousel-control.right {
+        right: 0.2rem !important;
+    }
+
+    .carousel-example-generic-goods .carousel-control.left {
+        right: 0.5rem !important;
+    }
+
+    .carousel-example-generic-goods .carousel-indicators {
+        position: absolute;
+        top: -0.64rem;
+        width: 100%;
+        left: 0;
+        z-index: 15;
+        padding-left: 0;
+        text-align: center;
+        list-style: none;
+        height: 0.04rem;
+        background: transparent;
+        margin: 0 !important;
+
+    }
+    .carouselTopLine{
+        position: absolute;
+        top:-0.24rem;
+        height: 0.04rem;
+        background: #e5e5e5;
+    }
+    .carousel-example-generic-goods .carousel-indicators li {
+        /*display: inline-block;*/
+        width: 20%;
+        height: 0.04rem;
+        margin: 0;
+        text-indent: -20rem;
+        cursor: pointer;
+        background-color: #e5e5e5;
+        border: none;
+    }
+
+    .carousel-example-generic-goods .carousel-indicators .active {
+        width: 20%;
+        height: 0.04rem;
+        margin: 0;
+        background-color: #D1C590;
+    }
+    .carousel-goods-control{
+        position:absolute;
+        top:-0.3rem;
+        right:0.2rem;
+        width:0.6rem;
+        height:0.3rem;
+        line-height: 0.3rem;
+    }
+    .goodsCarouselItem>div{
+        padding-top:0.3rem;
+    }
+
+    /*.goodsCarouselItem .item .center{*/
+    /*    padding-bottom:10px;*/
+    /*}*/
+    .goodsCarouselItem s {
+        color: #E0C990;
+    }
+
+    .goodsCarouselItem img {
+        width: 2rem;
+        height: 2rem;
+    }
+    .goodsCarouselItem .item  .goodsName{
+        margin-top:0.2rem;
+    }
+    .goodsCarouselItem .item>div {
+        padding-top: 0.2rem!important;
+    }
+    .goodsCarouselItem .p1 {
+        color: #333;
+        font-size: 0.28rem;
+        font-weight: bold;
+    }
+
+    .goodsCarouselItem .p2 {
+        color: #666;
+        font-size: 0.32rem;
+    }
+
+    .goodsCarouselItem .p3 {
+        color: #000;
+        font-size: 0.32rem;
+        font-weight: bold;
+    }
+    .goodsCarouselItem .item p{
+        margin:0 0 10px;
+    }
+}

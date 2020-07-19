@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="../../css/aboutUs.css">
 </head>
 <body id="bodyHeight">
+
 <!--弹出框-->
 <div class="menuBox" id="menu">
     <div class="menu-content">
-        <div class="closeBox"><img src="../../images/mobile/public/close.png" onclick="hideMenu()" alt=""></div>
+        <div class="closeBox"><img src="images/mobile/public/close.png" onclick="hideMenu()" alt=""></div>
         <div><span class="menu-active">HOME</span></div>
         <div><span>NEW IN</span></div>
         <ul>
@@ -46,7 +47,7 @@
 </div>
 <div class="menuBox" id="secondMenu">
     <div class="menu-content">
-        <div class="closeBox"><img src="../../images/mobile/public/back-menu.png" onclick="backMainMenu()" alt=""> MENU
+        <div class="closeBox"><img src="images/mobile/public/back-menu.png" onclick="backMainMenu()" alt=""> MENU
         </div>
         <div><span class="menu-active">HOME</span></div>
         <div>
@@ -77,8 +78,8 @@
         <div><span>SELL TO US</span></div>
     </div>
 </div>
-<div class="col-lg-8 col-lg-offset-2">
-    <!--    头部-->
+<!--    头部-->
+<div class="col-lg-8 col-lg-offset-2 mobile-header">
     <div class="topBar">
         <!--导航-->
         <div class="topTab">
@@ -90,33 +91,35 @@
         </div>
         <!--菜单标题-->
         <div class="tabList" id="tabList">
-            <div class="col-xs-1" onclick="showMenu()"><span class="glyphicon glyphicon-menu-hamburger"
-                                                             aria-hidden="true"></span></div>
+            <div class="col-xs-1" onclick="showMenu()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></div>
             <div class="col-xs-2"></div>
-            <div class="col-xs-6"><img src="../../images/mobile/public/logo.png" height="36" width="178"/></div>
+            <div class="col-xs-6"><img src="images/mobile/public/logo.png" height="36" width="178"/></div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
-            <div class="col-xs-1"><span class="glyphicon glyphicon-lock" style="font-size: 0.24rem" aria-hidden="true"></span>(0)</div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-lock" style="font-size: 0.24rem" style="font-size: 0.24rem" aria-hidden="true"></span>(0)</div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
         </div>
     </div>
 </div>
+<div class="pc-head">
+    <iframe scrolling="no" src="../public/mobile/header.html" style="width:100%;height:3.6rem"></iframe>
+</div>
 <div class="topSelect noshow" id="tittleSelect">
     <div class="topSelectBox">
-        <div class="rightClose"><img class="closeImg" onclick="showTitleSelect(0)" src="../../images/mobile/public/close.png" height="34" width="34"/></div>
+        <div class="rightClose"><img class="closeImg" onclick="showTitleSelect(0)" src="images/mobile/public/close.png" height="34" width="34"/></div>
         <ul>
-            <li><span>MY ORDERS</span></li>
-            <li><span class="menu-active">MY ACCOUNT</span></li>
+            <li><span  class="menu-active">NEWEST</span></li>
+            <li><a href="myOrder.html"><span>MY ORDERS</span></a></li>
             <li><span>MY FAVOURITE</span></li>
-            <li><span>SELL REQUEST</span></li>
-            <li><span>PAYMENT</span></li>
+            <li><a href="sellRequest.html"></a><span>SELL REQUEST</span></li>
+            <li><a href="stepPayment.html"><span>PAYMENT</span></a></li>
             <li><span>LOGOUT</span></li>
         </ul>
     </div>
 </div>
 <!--中间-->
-<div class="content aboutUsContent" >
+<div class="content aboutUsContent mobile" >
     <div class="col-xs-12 big_top">
-        <img src="../../images/mobile/aboutUs/big_top.png" height="529" width="828"/>
+        <img src="images/mobile/aboutUs/big_top.png" height="529" width="828"/>
     </div>
     <div class="introduce introduce_odd">
         <h2>Who we are</h2>
@@ -131,22 +134,22 @@
     <div class="introduce introduce_even">
         <h2>What we do</h2>
         <p>The best way to find us to accomplish your wonders</p>
-        <div class="introduce_img"><img src="../../images/mobile/aboutUs/consigment.png" height="150" width="130"/></div>
+        <div class="introduce_img"><img src="images/mobile/aboutUs/consigment.png" height="150" width="130"/></div>
         <h3>CONSIGMENT & SELL OUTRIGHT</h3>
         <div class="introduce_text">
             Quick consigment with lowest 10%commission. And we offer highest buy outright price, also beat any buy outright offer from other reseller.
         </div>
-        <div class="introduce_img"><img src="../../images/mobile/aboutUs/trade.png" height="150" width="130"/></div>
+        <div class="introduce_img"><img src="images/mobile/aboutUs/trade.png" height="150" width="130"/></div>
         <h3>SELL BACK & TRADE IN</h3>
         <div class="introduce_text">
             Sell back guarantee for any past LuxeLink purchased in 3 months with up to 70% purchased price, and we welcome trade-in of your pre-loved items.
         </div>
-        <div class="introduce_img"><img src="../../images/mobile/aboutUs/appralsal.png" height="150" width="130"/></div>
+        <div class="introduce_img"><img src="images/mobile/aboutUs/appralsal.png" height="150" width="130"/></div>
         <h3>AUTHENTICATION & APPRAISAL</h3>
         <div class="introduce_text">
             Fast Free AuthenticationAppraisal service with our professional in-house luxury expert team in just 10 mins.
         </div>
-        <div class="introduce_img"><img src="../../images/mobile/aboutUs/restoring.png" height="150" width="130"/></div>
+        <div class="introduce_img"><img src="images/mobile/aboutUs/restoring.png" height="150" width="130"/></div>
         <h3>BAG CLEANING & RESTORING</h3>
         <div class="introduce_text">
             Finest cleaning restoring service foryour beloved bag with our highesttrained experts.
@@ -172,9 +175,104 @@
             </div>
         </div>
         <div class="address_img">
-            <img src="../../images/mobile/aboutUs/address.png" height="191" width="553"/>
+            <img src="images/mobile/aboutUs/address.png" height="191" width="553"/>
         </div>
     </div>
+</div>
+
+<div class="content aboutUsContent pc" >
+    <div class="col-lg-12" style="background: #fafafa;">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class=" big_top">
+                <img src="images/pc/aboutUs/big_top.png"/>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div class="col-lg-12 introduce introduce_odd" >
+                <div class="col-lg-8 col-lg-offset-2">
+            <h2>Who we are</h2>
+            <p>The best way to find us to accomplish your wonders</p>
+            <p style="margin-top:0.4rem;text-align: left">Imperdiet ligula feugiat duis vestibulum a taciti varius facilisis fermentum est purus mollis a a a ullamcorper et purus. Curae hendrerit facilisis a a
+                vestibulum parturient sodales nec erat vestibulum pharetra dapibus consequat himenaeos condimentum et montes nec felis eleifend lectus diam
+                duis pulvinar phasellus orci. Inceptos nisl suspendisse mauris mi eu odio accumsan vulputate tortor parturient vulputate adipiscing ac ullamcorper
+                cursus curae viverra condimentum ultricies conubia suspendisse consectetur erat est sociis hendrerit. Ornare pharetra aptent sem taciti a netus
+                dapibus nam a massa suspendisse vestibulum amet suscipit condimentum vestibulum adipiscing.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="col-lg-12 introduce introduce_even" >
+                <div class="col-lg-8 col-lg-offset-2">
+
+            <h2>What we do</h2>
+            <p>The best way to find us to accomplish your wonders</p>
+            <div class="col-lg-6">
+                <div class="introduce_img">
+                    <img src="images/mobile/aboutUs/consigment.png" height="150" width="130"/>
+                </div>
+                <h3>CONSIGMENT & SELL OUTRIGHT</h3>
+                <div class="introduce_text">
+                    Quick consigment with lowest 10%commission. And we offer highest buy outright price, also beat any buy outright offer from other reseller.
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="introduce_img"><img src="images/mobile/aboutUs/trade.png" height="150" width="130"/></div>
+                <h3>SELL BACK & TRADE IN</h3>
+                <div class="introduce_text">
+                    Sell back guarantee for any past LuxeLink purchased in 3 months with up to 70% purchased price, and we welcome trade-in of your pre-loved items.
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="introduce_img"><img src="images/mobile/aboutUs/appralsal.png" height="150" width="130"/></div>
+                <h3>AUTHENTICATION & APPRAISAL</h3>
+                <div class="introduce_text">
+                    Fast Free AuthenticationAppraisal service with our professional in-house luxury expert team in just 10 mins.
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="introduce_img"><img src="images/mobile/aboutUs/restoring.png" height="150" width="130"/></div>
+                <h3>BAG CLEANING & RESTORING</h3>
+                <div class="introduce_text">
+                    Finest cleaning restoring service foryour beloved bag with our highesttrained experts.
+                </div>
+            </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div >
+            <div class="col-lg-12 introduce introduce_odd" >
+                <div class="col-lg-8 col-lg-offset-2">
+            <h2>Where we are</h2>
+            <p>The best way to find us to accomplish your wonders</p>
+            <div class="address">
+                <div class="address_select">
+                    <div ><span class="add-active">Brisbane</span></div>
+                    <div><span>Sydney</span></div>
+                </div>
+                <div class="address_detail">
+                    <div>
+                        <p><span class="address_title" >Phone</span>019284475</p>
+                        <p><span class="address_title" >Email</span>Luxelink@gamil.com</p>
+                    </div>
+                    <div>
+                        <p><span class="address_title">Working days</span>Monday - Friday</p>
+                        <p><span class="address_title">Working hours</span>10AM - 6PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="address_img">
+                <img src="images/mobile/aboutUs/address.png" height="191" width="553"/>
+            </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
 <!-- 底部-->

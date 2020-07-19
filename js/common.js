@@ -33,7 +33,6 @@ function showTitleSelect(num){
 
 }
 
-
 $(document).ready(function() {
     var windowWidth = $(window).width();
     if(windowWidth < 640){

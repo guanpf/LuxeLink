@@ -17,14 +17,82 @@
             <div class="col-lg-1 center">SELL TO US</div>
             <div class="col-lg-1 col-lg-offset-6 flex-box">
                 <div><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
-                <div><span class="glyphicon glyphicon-lock" style="font-size: 0.24rem" aria-hidden="true"></span>(0)</div>
+                <div>
+                    <span onclick="toggleCart()">
+                        <span class="glyphicon glyphicon-lock" style="font-size: 0.24rem" aria-hidden="true"></span>(0)
+                    </span>
+                    <div class="carList noshow" id="carList">
+                        <div>
+                            Shopping Cart
+                        </div>
+                        <div>
+                            <div class="cartGoods">
+                                <div>
+                                    <img src="../../goods/images/mobile/public/shopping_bag.png"
+                                                             height="80" width="80"/>
+                                </div>
+                                <div class="cartGoodsDetail">
+                                    <div>
+                                        <span>Black Leather Jacket</span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                    </div>
+                                    <div>Great 98%</div>
+                                    <div>$15.00</div>
+                                    <div>
+                                        <span>Delete</span>
+                                        <span>Checkout</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cartGoods">
+                                <div>
+                                    <img src="../../goods/images/mobile/public/shopping_bag.png"
+                                                             height="80" width="80"/>
+                                </div>
+                                <div class="cartGoodsDetail">
+                                    <div>
+                                        <span>Black Leather Jacket</span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                    </div>
+                                    <div>Great 98%</div>
+                                    <div>$15.00</div>
+                                    <div>
+                                        <span>Delete</span>
+                                        <span>Checkout</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cartGoods">
+                                <div>
+                                    <img src="../../goods/images/mobile/public/shopping_bag.png"
+                                                             height="80" width="80"/>
+                                </div>
+                                <div class="cartGoodsDetail">
+                                    <div>
+                                        <span>Black Leather Jacket</span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                    </div>
+                                    <div>Great 98%</div>
+                                    <div>$15.00</div>
+                                    <div>
+                                        <span>Delete</span>
+                                        <span>Checkout</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            View Your Shopping Bag
+                        </div>
+                    </div>
+                </div>
             </div>
 <!--            <div class="col-lg-1 "><span class="glyphicon glyphicon-lock" style="font-size: 0.24rem" aria-hidden="true"></span>(0)</div>-->
             <div class="col-lg-2  center flex-box"><div>SING IN</div><div>SIGN UP</div></div>
         </div>
         <div class="head-content">
 
-            <div><img class="logo" src="../../../images/pc/logo.png" height="66" width="100"/></div>
+            <div><img class="logo" src="../../goods/images/pc/logo.png" height="66" width="100"/></div>
             <div>BUY SELL AUTHENTIC PRE-OWNED LUXURYS</div>
             <div >
                 <div  class="col-lg-8 col-lg-offset-2 flex-between">
@@ -59,4 +127,11 @@
 <!--        </div>-->
     </div>
 </body>
+<script>
+    function toggleCart(){
+        console.log(435)
+        $('#carList').toggleClass('show')
+        $('#carList').toggleClass('noshow')
+    }
+</script>
 </html>

@@ -15,7 +15,7 @@
 <!--弹出框-->
 <div class="menuBox" id="menu">
     <div class="menu-content">
-        <div class="closeBox"><img src="../../images/mobile/public/close.png" onclick="hideMenu()" alt=""></div>
+        <div class="closeBox"><img src="images/mobile/public/close.png" onclick="hideMenu()" alt=""></div>
         <div><span class="menu-active">HOME</span></div>
         <div><span>NEW IN</span></div>
         <ul>
@@ -46,7 +46,7 @@
 </div>
 <div class="menuBox" id="secondMenu">
     <div class="menu-content">
-        <div class="closeBox"><img src="../../images/mobile/public/back-menu.png" onclick="backMainMenu()" alt=""> MENU
+        <div class="closeBox"><img src="images/mobile/public/back-menu.png" onclick="backMainMenu()" alt=""> MENU
         </div>
         <div><span class="menu-active">HOME</span></div>
         <div>
@@ -77,8 +77,8 @@
         <div><span>SELL TO US</span></div>
     </div>
 </div>
-<div class="col-lg-8 col-lg-offset-2">
-    <!--    头部-->
+<!--    头部-->
+<div class="col-lg-8 col-lg-offset-2 mobile-header">
     <div class="topBar">
         <!--导航-->
         <div class="topTab">
@@ -90,33 +90,35 @@
         </div>
         <!--菜单标题-->
         <div class="tabList" id="tabList">
-            <div class="col-xs-1" onclick="showMenu()"><span class="glyphicon glyphicon-menu-hamburger"
-                                                             aria-hidden="true"></span></div>
+            <div class="col-xs-1" onclick="showMenu()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></div>
             <div class="col-xs-2"></div>
-            <div class="col-xs-6"><img src="../../images/mobile/public/logo.png" height="36" width="178"/></div>
+            <div class="col-xs-6"><img src="images/mobile/public/logo.png" height="36" width="178"/></div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
-            <div class="col-xs-1"><span class="glyphicon glyphicon-lock" style="font-size: 0.24rem" aria-hidden="true"></span>(0)</div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-lock" style="font-size: 0.24rem" style="font-size: 0.24rem" aria-hidden="true"></span>(0)</div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
         </div>
     </div>
 </div>
+<div class="pc-head">
+    <iframe scrolling="no" src="../public/mobile/header.html" style="width:100%;height:3.6rem"></iframe>
+</div>
 <div class="topSelect noshow" id="tittleSelect">
     <div class="topSelectBox">
-        <div class="rightClose"><img class="closeImg" onclick="showTitleSelect(0)" src="../../images/mobile/public/close.png" height="34" width="34"/></div>
+        <div class="rightClose"><img class="closeImg" onclick="showTitleSelect(0)" src="images/mobile/public/close.png" height="34" width="34"/></div>
         <ul>
-            <li><span>MY ORDERS</span></li>
-            <li><span class="menu-active">NEWEST</span></li>
+            <li><span  class="menu-active">NEWEST</span></li>
+            <li><a href="myOrder.html"><span>MY ORDERS</span></a></li>
             <li><span>MY FAVOURITE</span></li>
-            <li><span>SELL REQUEST</span></li>
-            <li><span>PAYMENT</span></li>
+            <li><a href="sellRequest.html"></a><span>SELL REQUEST</span></li>
+            <li><a href="stepPayment.html"><span>PAYMENT</span></a></li>
             <li><span>LOGOUT</span></li>
         </ul>
     </div>
 </div>
 <!--中间-->
-<div class="content sellUsContent" >
+<div class="content mobile sellUsContent" >
     <div class="col-xs-12 big_top">
-        <img src="../../images/mobile/sellToUs/banner.png"/>
+        <img src="images/mobile/sellToUs/banner.png"/>
     </div>
     <div class="introduce introduce_odd">
         <h2>SELL TO US</h2>
@@ -124,7 +126,7 @@
     </div>
     <div class="introduce introduce_even">
         <div class="sellProgress">
-            <img src="../../images/mobile/sellToUs/sell_progress.png" height="780" width="280"/>
+            <img src="images/mobile/sellToUs/sell_progress.png" height="780" width="280"/>
         </div>
     </div>
     <div class="introduce introduce_odd">
@@ -148,6 +150,85 @@
         </form>
     </div>
 
+</div>
+<div class="content pc " style="background: #fafafa">
+    <div class="col-lg-12 main-box">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-12 big_top" style="margin-bottom:1rem;">
+                <img src="images/mobile/sellToUs/banner.png"/>
+            </div>
+            <div class="introduce introduce_odd">
+                <h2 class="pub_title">SELL TO US</h2>
+                <p>The best way to find us to accomplish your wonders</p>
+            </div>
+            <div class="introduce">
+                <div class="sellProgress">
+                    <img src="images/pc/sellToUs/sell_progress.png"/>
+                </div>
+            </div>
+            <div class="introduce">
+                <form action="" class="sell_form pc_sell_form">
+                    <label ><span>Designer*</span><input type="text"></label>
+                    <label ><span>Style*</span><input type="text"></label>
+                    <label ><span style="width:3.2rem">Serial Number*</span><input type="text"></label>
+                    <label ><span>Condition*</span><input type="text"></label>
+                    <label ><span style="width:3.2rem">Purchase Year*</span><input type="text"></label>
+                    <label ><span>Size*</span><input type="text"></label>
+                    <label style="width:100%;">
+                        <span>
+                            <span>I have following*:</span>
+                            <input class="checkboxFollow" type="checkbox" name="following" value="Original box">Original box
+                            <input class="checkboxFollow" type="checkbox" name="following" value="Dust Bag">Dust Bag
+                            <input class="checkboxFollow" type="checkbox" name="following" value="Original Tags">Original Tags
+                            <input class="checkboxFollow" type="checkbox" name="following" value="Authenticity Card">Authenticity Card
+                        </span>
+                    </label>
+<!--                    <div class="following-label">-->
+<!--                        <div><input type="checkbox" name="following" value="Original box">Original box</div>-->
+<!--                        <div><input type="checkbox" name="following" value="Dust Bag">Dust Bag</div>-->
+<!--                        <div><input type="checkbox" name="following" value="Original Tags">Original Tags</div>-->
+<!--                        <div><input type="checkbox" name="following" value="Authenticity Card">Authenticity Card</div>-->
+<!--                    </div>-->
+                    <label style="width:100%;" class="comment-label">
+                        <span style="margin-right: 0.2rem;">Comments</span>
+                        <textarea name="" id="" placeholder="(Briefly describe your item details)" cols="30" rows="10"></textarea>
+                    </label>
+                    <div class="submit_tip">Please submit pictures of your item in these angles</div>
+                    <div class="submit_flex_box">
+                        <div>
+                            <img src="images/pc/sellToUs/front.png" height="100" width="100"/>
+                            <p>Front</p>
+                        </div>
+                        <div>
+                            <img src="images/pc/sellToUs/back.png" height="100" width="100"/>
+                            <p>Back</p>
+                        </div>
+                        <div>
+                            <img src="images/pc/sellToUs/bottom.png" height="100" width="100"/>
+                            <p>Bottom</p>
+                        </div>
+                        <div>
+                            <img src="images/pc/sellToUs/inside.png" height="100" width="100"/>
+                            <p>Inside</p>
+                        </div>
+                        <div>
+                            <img src="images/pc/sellToUs/series_num.png" height="100" width="100"/>
+                            <p>Series Number</p>
+                        </div>
+                        <div>
+                            <img src="images/pc/sellToUs/damage.png" height="100" width="100"/>
+                            <p>Damage</p>
+                        </div>
+                        <div>
+                            <img src="images/pc/sellToUs/more.png" height="100" width="100"/>
+                            <p>More +</p>
+                        </div>
+                    </div>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- 底部-->

@@ -10,13 +10,15 @@
     <script src="../../css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="../../js/common.js"></script>
     <link rel="stylesheet" href="../../css/new_in.css">
+    <link rel="stylesheet" href="../filterProgress/css/style.css">
 
 </head>
 <body id="bodyHeight">
+
 <!--弹出框-->
 <div class="menuBox" id="menu">
     <div class="menu-content">
-        <div class="closeBox"><img src="../../images/mobile/public/close.png" onclick="hideMenu()" alt=""></div>
+        <div class="closeBox"><img src="images/mobile/public/close.png" onclick="hideMenu()" alt=""></div>
         <div><span class="menu-active">HOME</span></div>
         <div><span>NEW IN</span></div>
         <ul>
@@ -47,7 +49,7 @@
 </div>
 <div class="menuBox" id="secondMenu">
     <div class="menu-content">
-        <div class="closeBox"><img src="../../images/mobile/public/back-menu.png" onclick="backMainMenu()" alt=""> MENU
+        <div class="closeBox"><img src="images/mobile/public/back-menu.png" onclick="backMainMenu()" alt=""> MENU
         </div>
         <div><span class="menu-active">HOME</span></div>
         <div>
@@ -78,7 +80,6 @@
         <div><span>SELL TO US</span></div>
     </div>
 </div>
-
 <!--    头部-->
 <div class="col-lg-8 col-lg-offset-2 mobile-header">
     <div class="topBar">
@@ -94,7 +95,7 @@
         <div class="tabList" id="tabList">
             <div class="col-xs-1" onclick="showMenu()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></div>
             <div class="col-xs-2"></div>
-            <div class="col-xs-6"><img src="../../images/mobile/public/logo.png" height="36" width="178"/></div>
+            <div class="col-xs-6"><img src="images/mobile/public/logo.png" height="36" width="178"/></div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-lock" style="font-size: 0.24rem" style="font-size: 0.24rem" aria-hidden="true"></span>(0)</div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
@@ -104,10 +105,9 @@
 <div class="pc-head">
     <iframe scrolling="no" src="../public/mobile/header.html" style="width:100%;height:3.6rem"></iframe>
 </div>
-
 <div class="topSelect noshow" id="tittleSelect">
     <div class="topSelectBox">
-        <div class="rightClose"><img class="closeImg" onclick="showTitleSelect(0)" src="../../images/mobile/public/close.png" height="34" width="34"/></div>
+        <div class="rightClose"><img class="closeImg" onclick="showTitleSelect(0)" src="images/mobile/public/close.png" height="34" width="34"/></div>
         <ul>
             <li><span  class="menu-active">NEWEST</span></li>
             <li><a href="myOrder.html"><span>MY ORDERS</span></a></li>
@@ -119,7 +119,7 @@
     </div>
 </div>
 
-<div class="content">
+<div class="content mobile">
     <div class="sort-filter">
         <div><a href="apply.html">SORT</a> <span class="midBorder"></span></div><div onclick="showTitleSelect(0)">FILTER</div>
     </div>
@@ -127,7 +127,7 @@
         <div class="goodsCarouselItem center" role="listbox">
             <div class="item">
                 <div class="col-xs-6">
-                    <img src="../../images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
                     <p class="p1 goodsName">Louis Vuitton</p>
                     <p class="p1">Great 98%</p>
                     <p class="p2">CAPUCINES PM</p>
@@ -135,7 +135,7 @@
                     <p class="p3"><s>$3750</s> $3450</p>
                 </div>
                 <div class="col-xs-6">
-                    <img src="../../images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
                     <p class="p1 goodsName">Louis Vuitton</p>
                     <p class="p1 ">Great 98%</p>
                     <p class="p2">CAPUCINES PM</p>
@@ -143,7 +143,7 @@
                     <p class="p3"><s>$3750</s> $3450</p>
                 </div>
                 <div class="col-xs-6">
-                    <img src="../../images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
                     <p class="p1 goodsName">Louis Vuitton</p>
                     <p class="p1">Great 98%</p>
                     <p class="p2">CAPUCINES PM</p>
@@ -151,7 +151,7 @@
                     <p class="p3"><s>$3750</s> $3450</p>
                 </div>
                 <div class="col-xs-6">
-                    <img src="../../images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
                     <p class="p1 goodsName">Louis Vuitton</p>
                     <p class="p1">Great 98%</p>
                     <p class="p2">CAPUCINES PM</p>
@@ -181,9 +181,306 @@
         </ul>
     </nav>
 </div>
+<div class="content pc " style="background: #fafafa">
+<!--    <div class="sort-filter">-->
+<!--        <div><a href="apply.html">SORT</a> <span class="midBorder"></span></div><div onclick="showTitleSelect(0)">FILTER</div>-->
+<!--    </div>-->
+    <div class="col-lg-12 main-box">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-12" style="margin-bottom:1rem;">
+                <img src="images/pc/newIn/bags.png" height="auto" width="100%"/>
+            </div>
+            <div>
+                <div class="col-lg-3">
+                    <div>
+                        <div style="text-align: left"><a href="../index.html">Home</a> > Shop All Bags</div>
+                        <div class="filterTitle">FILTER BY PRICE</div>
+                        <div class="progressFilter">
+                            <div class="User_ratings User_grade" id="div_fraction4">
+                                <div class="ratings_bars">
+                                    <div class="scale" id="bar4">
+                                        <div></div>
+                                        <span id="btn4"></span>
+                                    </div>
+                                    <div class="flex-filter">
+                                        <div class="filter">FILTER</div>
+                                        <div class="price">Price:<span id="title4">$0</span></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filterTitle">DESIGNERS</div>
+                        <div class="searchBox">
+                            <input type="text">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </div>
+                        <div class="searchResult">
+                            <div class="checkList">
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                            </div>
+                        </div>
+                        <div class="filterTitle">PRODUCT CATEGORIES</div>
+                        <div class="filterList">
+                            <div class="filterListActive"><span>Handbags</span><span>(40)</span> </div>
+                            <div class="checkList">
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                            </div>
+                            <div class="filterListItem"><span>Accessories</span><span>(40)</span> </div>
+                            <div class="filterListItem"><span>Shoes</span><span>(34)</span> </div>
+                            <div class="filterListItem"><span>Jewellery</span><span>(10)</span> </div>
+                        </div>
+                        <div class="filterTitle">PRODUCT CONDITION</div>
+                        <div class="filterList">
+                            <div class="checkList">
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                            </div>
+                        </div>
+                        <div class="filterTitle">COLORS</div>
+                        <div class="searchResult">
+                            <div class="checkList">
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                            </div>
+                        </div>
+                        <div class="filterTitle">PRODUCT MATERIAL</div>
+                        <div class="searchResult">
+                            <div class="checkList">
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                                <label for=""><input type="checkbox"> <span>Louis Vuitton</span><span>(0)</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div>
+                        <div style="text-align: right">Showing 1–18 of 100 results</div>
+                    </div>
+                    <div style="margin-top:0.6rem">
+                        <div class="goodsCarouselItem center" role="listbox">
+                            <div class="item">
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1 ">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img src="images/mobile/goodsCarousel/goods1.png" height="235" width="235"/>
+                                    <p class="p1 goodsName">Louis Vuitton</p>
+                                    <p class="p1">Great 98%</p>
+                                    <p class="p2">CAPUCINES PM</p>
+                                    <p class="p2">red Leather Bag</p>
+                                    <p class="p3"><s>$3750</s> $3450</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination pageBox">
+                            <li>
+                                <a href="#" aria-label="Previous" class="page-btn">
+                                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">...</a></li>
+                            <li>
+                                <a href="#" aria-label="Next"  class="page-btn">
+                                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 <!-- 底部-->
     <div class="common-bottom">
-        <iframe src="../public/mobile/footer.html"></iframe>
+        <iframe scrolling="no" src="../public/mobile/footer.html"></iframe>
     </div>
+<script type="text/javascript">
+    scale = function (btn, bar, title) {
+        this.btn = document.getElementById(btn);
+        this.bar = document.getElementById(bar);
+        this.title = document.getElementById(title);
+        this.step = this.bar.getElementsByTagName("DIV")[0];
+        this.init();
+    };
+    scale.prototype = {
+        init: function () {
+            var f = this, g = document, b = window, m = Math;
+            f.btn.onmousedown = function (e) {
+                var x = (e || b.event).clientX;
+                var l = this.offsetLeft;
+                var max = f.bar.offsetWidth - this.offsetWidth;
+                g.onmousemove = function (e) {
+                    var thisX = (e || b.event).clientX;
+                    var to = m.min(max, m.max(-2, l + (thisX - x)));
+                    f.btn.style.left = to + 'px';
+                    f.ondrag(m.round(m.max(0, to / max) * 10), to);
+                    b.getSelection ? b.getSelection().removeAllRanges() : g.selection.empty();
+                };
+                g.onmouseup = new Function('this.onmousemove=null');
+            };
+        },
+        ondrag: function (pos, x) {
+            this.step.style.width = Math.max(0, x) + 'px';
+            if(pos>0){
+                this.title.innerHTML ='$'+ '1000' + '-'+'$'+ pos * 2500 ;
+            }else{
+                this.title.innerHTML = '$'+ '1000'
+            }
+
+        }
+    }
+    // new scale('btn0', 'bar0', 'title0');
+    // new scale('btn1', 'bar1', 'title1');
+    // new scale('btn2', 'bar2', 'title2');
+    // new scale('btn3', 'bar3', 'title3');
+    new scale('btn4', 'bar4', 'title4');
+</script>
 </body>
 </html>
